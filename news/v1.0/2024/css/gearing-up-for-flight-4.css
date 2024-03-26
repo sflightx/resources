@@ -43,6 +43,11 @@ header {
     z-index: 2;
 }
 
+.container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 .header-hide {
     top: -100px; /* Moves the header off-screen when scrolled down */
 }
