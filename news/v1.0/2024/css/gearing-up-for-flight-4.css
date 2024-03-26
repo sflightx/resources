@@ -44,8 +44,8 @@ header {
 }
 
 .container {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .header-hide {
@@ -74,7 +74,6 @@ header img {
 
 main {
     flex: 1;
-    margin: 5vw;
     /* Additional styles for main content if needed */
 }
 
