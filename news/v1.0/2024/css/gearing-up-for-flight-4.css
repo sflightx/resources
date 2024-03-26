@@ -69,6 +69,7 @@ header img {
 
 main {
     flex: 1;
+    margin: 5vw;
     /* Additional styles for main content if needed */
 }
 
