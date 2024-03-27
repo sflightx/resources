@@ -75,6 +75,7 @@ header img {
 
 main {
     flex: 1;
+    text-align: center;
     /* Additional styles for main content if needed */
 }
 
