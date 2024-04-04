@@ -1,12 +1,9 @@
+// Firebase SDK
 // Firebase App (the core Firebase SDK) is always required and must be listed first
-import firebase from "firebase/app";
-
-// Add the Firebase products that you want to use
-import "firebase/auth";
-import "firebase/storage";
-import "firebase/database";
-
-// firebaseInit.js
+document.write('<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"><\/script>');
+document.write('<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"><\/script>');
+document.write('<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"><\/script>');
+document.write('<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"><\/script>');
 
 document.addEventListener("DOMContentLoaded", function() {
     const firebaseConfig = {
