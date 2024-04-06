@@ -181,7 +181,7 @@ main {
     border-radius: 5px; /* Border radius */
     padding: 5px 10px; /* Padding */
     cursor: pointer; /* Cursor style */
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transition effect */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .view-button:hover {
