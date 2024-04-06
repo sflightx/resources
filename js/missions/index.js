@@ -1,209 +1,92 @@
-body {
-    background: black;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif; /* Set the preferred font */
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-    max-width: 100vw;
-}
+document.addEventListener("DOMContentLoaded", function() {
+    var database_db = firebase.database();
+    var ref = database_db.ref("launch_manifest/stats");
+    var launchedElement = document.getElementById("launched");
+    var recoveriesElement = document.getElementById("recovery");
+    var deployedElement = document.getElementById("deployed");
 
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 240px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-}
+    if (!launchedElement || !recoveriesElement || !deployedElement) {
+        console.error("One or more elements not found.");
+        return;
+    }
 
-p, h1, h2, h3, h4, h5, h6 {
-    color: white;
-    line-height: 1.5;
-}
+    ref.once("value", function(snapshot) {
+        var data = snapshot.val();
+        if (data) {
+            var totalLaunches = data.launched;
+            var totalRecoveries = data.recovery;
+            var payloadDeployed = data.deployed;
 
-header {
-    position: fixed;
-    top: 0px;
-    margin: 0px;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    padding: 8px;
-    height: 5vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center; /* Center align vertically*/
-    transition: top 0.3s; /* Adding transition for smooth hide/show effect */
-    z-index: 2;
-}
+            // Update existing elements with the retrieved data
+            launchedElement.textContent = totalLaunches;
+            recoveriesElement.textContent = totalRecoveries;
+            deployedElement.textContent = payloadDeployed;
+        } else {
+            console.error("Data not found.");
+        }
+    });
 
-.header-hide {
-    top: -100px; /* Moves the header off-screen when scrolled down */
-}
+    var database = firebase.database();
+    var ref = database.ref("launch_manifest/upcoming");
+    var launchesContainer = document.getElementById("upcoming-container");
 
-header img {
-    display: block;
-    max-height: 100%; /* Adjust as needed */
-    max-width: 100%; /* Adjust as needed */
-}
+    if (!launchesContainer) {
+        console.error("Launches container not found.");
+        return;
+    }
 
-.lead img {
-    max-width: 100vw;
-}
+    ref.once("value", function(snapshot) {
+        var launches = snapshot.val();
+        var launchCount = Object.keys(launches).length;
 
-.menuImage {
-    max-height: 75%;
-    max-width: 15vw;
-}
+        launchesContainer.classList.add(launchCount === 1 ? "single-launch" : "multiple-launches");
 
-.profileImage {
-    right: 0px;
-}
+        var launchCardsContainer = document.createElement("div");
+        launchCardsContainer.className = "launch-cards";
 
-main {
-    flex: 1;
-    text-align: center;
-}
+        for (var key in launches) {
+            var launch = launches[key];
+            var missionName = launch.mission;
+            var imageUrl = launch.image_url;
+            var nextTimestamp = parseInt(launch.net); // Convert to integer
+            var articleId = launch.articlePostKey;
 
-* {
-    font-family: 'Barlow Condensed';
-    padding: 0;
-    font-size: 3vw;
-}
+            var launchCard = document.createElement("div");
+            launchCard.className = "launch-card";
 
-.banner {
-    max-width: 100vw;
-    max-height: 100vh;
-}
+            var textContainer = document.createElement("div");
+            textContainer.classList.add("text-container");
 
-.banner img {
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-    z-index: 3;
-}
+            var nextTimestampElement = document.createElement("p");
+            nextTimestampElement.textContent = new Date(nextTimestamp).toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            nextTimestampElement.classList.add("launch-date");
 
-.banner h1, .banner p {
-    position: absolute;
-    margin: 10px;
-    color: white;    
-}
+            var missionNameElement = document.createElement("p");
+            missionNameElement.textContent = missionName;
+            missionNameElement.classList.add("mission-name");
 
-.banner h1 {
-    font-size: 3rem;
-    margin-left: 30px;
-    bottom: 20%;
-}
+            var viewButton = document.createElement("button");
+            viewButton.textContent = "View";
+            viewButton.classList.add("view-button");
+            viewButton.addEventListener("click", function() {
+                // Replace 'url' with your desired URL
+                window.location.href = 'https://sflightx.github.io/missions/info?id=' + articleId;
+            });
 
-.banner p {
-    bottom: 10%;
-}
+            textContainer.appendChild(nextTimestampElement);
+            textContainer.appendChild(missionNameElement);
+            textContainer.appendChild(viewButton); // Add the button to the text container
 
-.ticker {
-    padding-top: 50px;
-    padding-bottom: 25px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-}
+            var imageElement = document.createElement("img");
+            imageElement.src = imageUrl;
+            imageElement.classList.add("launch-image");
 
-.ticker div {
-    padding: 1.5px 5px;
-    min-width: 20vw;
-    min-height: 15vh;
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    align-items: center;
-}
+            launchCard.appendChild(imageElement);
+            launchCard.appendChild(textContainer);
 
-.ticker p, .ticker h4 {
-    margin: 0px;
-}
+            launchCardsContainer.appendChild(launchCard);
+        }
 
-.ticker p {
-    font-size: 5rem;
-}
-
-#upcoming-container {
-    width: 100vw;
-    padding-top: 25px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap; /* Prevent items from wrapping */
-}
-.launch-card {
-    position: relative;
-    display: inline-block;
-    text-align: left;
-    background: black;
-    width: 70vw; /* Adjusted width to account for scrollbar space */
-    height: 50vh;
-    margin: 3vw; /* Adjusted margin for better spacing */
-}
-
-.launch-image {
-    width: 70vw;
-    height: 100%; /* Adjust as needed */
-    object-fit: cover;
-}
-
-.text-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 70%;
-    padding: 20px 10px; /* Adjust padding as needed */
-    background: linear-gradient(to top right, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 10%); /* Adjust gradient direction */
-}
-
-.mission-name {
-    font-size: 7vw;
-}
-
-.single-launch .launch-card {
-    
-}
-
-.multiple-launches .launch-card {
-    
-}
-
-.view-button {
-    background-color: rgba(0, 0, 0, 0.5); /* Background with 0.5 transparency */
-    color: white; /* Text color */
-    border: 1px solid white; /* Black border with 0.25 transparency */
-    border-radius: 5px; /* Border radius */
-    padding: 5px 10px; /* Padding */
-    cursor: pointer; /* Cursor style */
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transition effect */
-}
-
-.view-button:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
-    border-color: rgba(255, 255, 255, 0.7); /* Darker border on hover */
-}
-
-footer {
-    color: white;
-    padding: 4vh;
-    bottom: 0;
-    width: 75vw;
-    margin: 0px auto;
-    text-align: center;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
+        launchesContainer.appendChild(launchCardsContainer);
+    });
+});
