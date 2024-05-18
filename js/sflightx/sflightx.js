@@ -23,3 +23,11 @@ var ul = document.getElementById("nav_list");
     // When the ul is clicked, change its display to 'none'
     ul.style.display = "none";
   });
+
+  var menu = document.getElementById("menu");
+
+  // Add an event listener to the ul
+  menu.addEventListener("click", function() {
+    // When the ul is clicked, change its display to 'none'
+    ul.style.display = "block";
+  });
