@@ -15,3 +15,11 @@ window.onscroll = function() {
     document.querySelector("header").style.backgroundColor = "rgba(0,0,0,0)";
   }
 }
+
+var ul = document.getElementById("nav_list");
+
+  // Add an event listener to the ul
+  ul.addEventListener("click", function() {
+    // When the ul is clicked, change its display to 'none'
+    ul.style.display = "none";
+  });
