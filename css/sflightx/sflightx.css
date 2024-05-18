@@ -1,3 +1,13 @@
+* {
+    font-family: 'Barlow Condensed';
+    padding: 0px;
+    text-transform: uppercase;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
 body {
     background: black;
     margin: 0;
@@ -22,6 +32,7 @@ body {
   white-space: nowrap;
   direction: ltr;
 }
+
 header {
     position: fixed;
     width: 100%;
@@ -33,7 +44,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center; /* Center align vertically*/
-    transition: top 0.3s; /* Adding transition for smooth hide/show effect */
+    transition: top 0.75s ease-in-out, background-color 0.75s ease-in-out;
     z-index: 2;
 }
 
@@ -42,13 +53,18 @@ header ul {
 }
 
 header ul li {
-    list-style-type: none;
     margin: 0px 25px;
+    list-style-type: none;
+    width: auto;
 }
 
 header ul li a {
     text-decoration: none;
     color: white;
+}
+
+header ul li p {
+    margin: 0;
 }
 
 .featured {
@@ -59,58 +75,49 @@ header ul li a {
     position: relative;
     width: calc(95vw-50px); /* 100vw - 20px for left and right padding */
     height: 100vh; /* 100vh - 20px for top and bottom padding */
+}
+
+.featured h3 {
+    text-align: center; 
+    color:#d3d3d3;
+    max-height: 25vh;
+    max-width: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+}
+
+.next-mission {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2Fmaya-4-on-pad.jpg?alt=media&token=6e7c8a69-a25b-4110-a20b-10b1d63d8c88');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    width: calc(95vw-50px); 
+    height: 100vh; 
     padding: 25px;
 }
 
-.featured h1 {
-    margin: 10px; /* Remove default margin */
-    text-align: left; /* Align text to the left */
-    position: absolute;
-    bottom: 150px; /* Adjust as needed */
+.next-mission h1 {
+    padding-top: 50%;
+    margin-bottom: 20px;
 }
 
-.featured p { 
-    text-align: left; 
-    position: absolute;
-    bottom: 75px;
-    color:#d3d3d3;
-}
-
-.sat-data {
-    padding-top: 10vh;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2Fomegasat-2.jpg?alt=media&token=b3d70f23-3889-4c5d-9d9c-c3b2e995b9ba');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right;
-    padding: 50px 30px;
-    height: 100vh;
-    text-align: center;
-}
-
-.sat-data h4, .sat-data h2 {
-    color: #dddddd;
-}
-
-.sat-data-container {
-    margin-top: 75px;
-    display: grid;
-}
-
-.sat-data-child p {
-    margin: 20px 0px;
-    font-size: 250%;
-}
-
-.launches, .blueprint {
-    padding: 50px;
-    text-align: center;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
+.next-mission button {
+    background-color: rgba(0,0,0,0);
     color: white;
+    padding: 10px 100px;
+    border: solid white 3px;
+    transition: 0.3s ease-in-out;
 }
 
+.next-mission button:hover {
+    background-color: rgb(255, 255, 255);
+}
 
+.next-mission button:hover h5 {
+    color: black;
+}
 
 .header-hide {
     top: -100px; /* Moves the header off-screen when scrolled down */
@@ -138,86 +145,13 @@ main {
     /* Additional styles for main content if needed */
 }
 
-nav {
-    position: fixed;
-    width: 80vw;
-    height: 8vh; /* Adjust the height as needed */
-    background: #2f2f2f;
-    color: white;
-    text-align: center;
-    border-radius: 25px;
-    border: 1px solid white;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 8px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%; /* Ensure the ul takes the full height of the nav */
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    margin: 0;
-    padding: auto; /* Automatic padding */
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    display: block;
-}
-
-.grid-container {
-    margin: 20px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 40px; /* Adjust spacing between grid items */
-}
-
-.grid-item {
-    border: 1px solid #ccc; /* Optional border for visualization */
-    border-radius: 10px;
-    padding: 50px;
-    margin: 10px 0px;
-}
-
-.see-more {
-    text-decoration: none;
-    color: darkturquoise;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.see-more span {
-    margin-left: 5px;
-}
-
-.launch-date {
-  font-style: italic;
-  color: #555;
-}
-
-* {
-    font-family: 'Barlow Condensed';
-    padding: 0px;
-}
-
 footer {
     color: white;
-    padding: 4vh;
-    bottom: 0;
-    width: 75vw;
-    margin: 0px auto;
-    text-align: center;
+    padding: 0px 25px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 footer a {
@@ -230,87 +164,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.data-container {
-  display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  margin: 0 auto;
-}
-
-.data-item {
-  position: relative;
-  width: 80vw; /* Set width to 80vw */
-  height: 50vh; /* Set height to 50vh */
-  margin: 20px; /* Adjust margin as needed */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.data-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; /* Ensure the image is centered */
-}
-
-.data-item h2 {
-  margin: 0; /* Remove default margin */
-  background-color: rgba(255, 255, 255, 0); /* Adjust as needed */
-  padding: 20px; /* Adjust as needed */
-}
-
-/* Add styling for the multiple items case */
-.data-container.scrollable .data-item {
-  flex: 0 0 auto; /* Allow items to have natural width */
-}
-
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.button-container button, .details-button {
-    padding: 10px 20px;
-    background: rgba(255,255,255,0);
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    border: 1px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button-container button:hover, .details-button:hover {
-    background-color: #2980b9; /* You can change the hover color */
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
-    .grid-container {
-        margin: 50px;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .welcome {
-        margin: 0px;
-    }
-
-    .welcome p {
-        padding: 0px 0px;
-        width: 90%;
-    }
-    
-    .sat-data {
-        margin: 0px;
-        padding: 25px;
-    }
-
-    .sat-data-container {
-        margin: 100px 0px 20px 0px;
-    }
 
 }
 
@@ -335,41 +191,25 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
     h1 {
-        font-size: 6vw;
-    }
-    h2 {
-        font-size: 5.25vw;
-    }
-    h3 {
         font-size: 4vw;
     }
+    h2 {
+        font-size: 3.5vw;
+    }
+    h3 {
+        font-size: 3vw;
+    }
     h4 {
-        font-size: 3.75vw;
+        font-size: 2.5vw;
     }
     h5 {
-        font-size: 2.25vw;
+        font-size: 2vw;
     }
     h6 {
         font-size: 1.5vw;
     }
     p {
-        font-size: 125%;
-    }
-    .sat-data-container {
-        margin-top: 75px;
-        display: grid;
-        grid-template-columns: repeat(2, 2fr);
-    }
-    .sat-data-child {
-        margin-top: 50px;
-    }
-    
-    .sat-data-child p {
-        margin: 20px 0px;
-        font-size: 400%;
-    }
-    .sat-data-container h4 {
-        margin: 40px;
+        font-size: 100%;
     }
 }
 
