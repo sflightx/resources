@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.title = link.charAt(0).toUpperCase() + link.slice(1); // Capitalize the first letter
     switch(link) {
       case 'youtube':
-        window.location.href = "https://www.youtube.com/sflightx";
+        window.location.href = "https://www.youtube.com/@sflightx";
         break;
       case 'discord':
         window.location.href = "https://discord.gg/sflightx";
