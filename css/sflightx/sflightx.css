@@ -303,7 +303,7 @@ footer a:hover {
     }
     header ul {
         display: flex;
-        height: 7.5vh:
+        height: 7.5vh;
     }
     header ul li {
         margin: 0px 25px;
