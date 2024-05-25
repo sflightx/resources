@@ -85,16 +85,13 @@ header img {
 }
 
 .featured {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2FGJdl1oUXAAACecS.jpg?alt=media&token=98ffa880-48b9-458b-8b1a-ded3ba8a0a2e');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     position: relative;
-    width: calc(95vw-50px); /* 100vw - 20px for left and right padding */
-    height: 100vh; /* 100vh - 20px for top and bottom padding */
+    width: calc(95vw-50px);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .featured-container {
@@ -104,6 +101,21 @@ header img {
     max-height: 25vh;
     max-width: 100%;
     position: absolute;
+}
+
+.video-container {
+    height: 100%;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale the video to cover the container */
+}
+
+#maya-title {
+    font-size: 5vw;
+    margin: 0px;
 }
 
 .menuImage {
@@ -167,6 +179,7 @@ td {
 .stat-container {
     margin: 25px 0px;
     display: flex;
+    justify-content: space-between;
     overflow: hidden;
 }
 
@@ -403,6 +416,36 @@ td {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    h3 {
+        font-size: 2em;
+    }
+    h4 {
+        font-size: 1.5em;
+    }
+    h5 {
+        font-size: 1.25em;
+    }
+    h6 {
+        font-size: 1em;
+    }
+    p {
+        font-size: 100%;
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 5vw;
+    }
+    
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 2vw;
+    }
     header {
         padding: 10px 30px;
         display: flex;
@@ -421,57 +464,15 @@ td {
         list-style-type: none;
         width: auto;
     }
-    header ul li a {
-        text-align: center;
-    }
-    .stat-child p {
-        margin: 0px;
-        font-size: 10vw;
-    }
-    
-    .stat-child h4 {
-        margin: 0px;
-        font-size: 5vw;
-    }
     footer {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
-    h1 {
-        font-size: 4em;
-    }
-    h2 {
-        font-size: 3.5em;
-    }
-    h3 {
-        font-size: 3em;
-    }
-    h4 {
-        font-size: 2.5em;
-    }
-    h5 {
-        font-size: 2.25em;
-    }
-    h6 {
-        font-size: 2em;
-    }
-    p {
-        font-size: 150%;
-    }
-    .stat-child p {
-        margin: 0px;
-        font-size: 7vw;
-    }
-    
-    .stat-child h4 {
-        margin: 0px;
-        font-size: 3vw;
-    }
     header ul li a {
         text-decoration: none;
         color: white;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 }
 /* 4k devices (4k screens, 2400px and up) */
