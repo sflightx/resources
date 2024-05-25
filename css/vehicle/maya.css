@@ -2,9 +2,6 @@
     font-family: 'Barlow Condensed';
     padding: 0px;
     text-transform: uppercase;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
@@ -121,7 +118,10 @@ header img {
 main {
     flex: 1;
     padding: 0vw;
-    /* Additional styles for main content if needed */
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2F4k%2Fmaya-liftoff-4k.png?alt=media&token=4c53f8e3-258e-4f51-8f0a-c2b091bfa604');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 footer {
@@ -141,9 +141,27 @@ footer a:hover {
     text-decoration: underline;
 }
 
+table {
+    background-color: rgba(0,0,0,0.25);
+    padding: 25px 50px;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+}
+
+td {
+    padding: 25px 10px;
+    border-bottom: 1px solid white;
+}
+
+.highlight {
+    color: rgb(160, 160, 160);
+}
+
 .stat {
     padding: 30px 50px;
     text-align: center;
+    background-color: rgba(0,0,0,1);
 }
 
 .stat-container {
@@ -167,13 +185,16 @@ footer a:hover {
 }
 
 .overview {
-    height: 200vh;
     position: relative;
     width: calc(95vw-50px); /* 100vw - 20px for left and right padding */
 }
 
-.overview-detail {
-    padding: 30vh 15vw;
+.overview-details {
+    transform: translateY(50vh);
+}
+
+.overview-header {
+    padding: 10vh 10vw 0vh 10vw;
 }
 
 .overview-h1 {
@@ -193,17 +214,7 @@ footer a:hover {
 .sec-span {
     color: rgb(145, 145, 145);
     font-style: italic;
-}
-
-.sticky {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2F4k%2Fmaya-liftoff-4k.png?alt=media&token=4c53f8e3-258e-4f51-8f0a-c2b091bfa604');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: sticky;
-    height: 100vh;
-    top: 0;
-}
+} 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
