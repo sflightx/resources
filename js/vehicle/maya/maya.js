@@ -1,3 +1,6 @@
+//const image = document.getElementById("background-featured-img"); // Select the image element
+//image.remove(); // Remove the image from the DOM
+
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
@@ -33,7 +36,8 @@ menu.addEventListener("click", function() {
 });
 
 // Get the video element
-const video = document.getElementById('background-video');
+const video = document.getElementById('background-featured');
+let imageLoaded = false;
 
 // Define video sources for different screen sizes
 const smallScreenSource = 'https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fvid%2FMaya%20Static%20Fire%20Test%2FMaya%20Static%20Fire%20Test%20(720p).mp4?alt=media&token=4da11e1e-7e3e-45e9-80d4-3588296b5a63';
@@ -42,28 +46,44 @@ const largeScreenSource = 'https://firebasestorage.googleapis.com/v0/b/sflight-x
 
 // Function to update video source based on screen width
 function updateVideoSource() {
-    if (window.innerWidth <= 768) {
-      video.src = smallScreenSource;
-    } else if (window.innerWidth >= 1200) {
-      video.src = mediumScreenSource;
-    } else if (window.innerWidth >= 2400) {
-      video.src = largeScreenSource;
-    }
-    video.load();
-    video.play();
+    //if (window.innerWidth <= 768) {
+    //  video.src = smallScreenSource;
+    //} else if (window.innerWidth >= 1200) {
+    //  video.src = mediumScreenSource;
+    //} else if (window.innerWidth >= 2400) {
+    //  video.src = largeScreenSource;
+    //}
+    //video.src = smallScreenSource;
+    //video.load();
+    //video.play().catch(error => {
+    //  console.error('Error playing video:', error);
+    //  if (!imageLoaded) {
+    //    // Load the fallback image only if it hasn't been loaded before
+    //    const fallbackImageUrl = 'https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2FGJdl1oUXAAACecS.jpg?alt=media&token=98ffa880-48b9-458b-8b1a-ded3ba8a0a2e';
+    //    const img = new Image();
+    //    img.src = fallbackImageUrl;
+    //    img.id = "background-featured-img";
+    //    // Append the image to the same container as the video
+    //    video.parentElement.appendChild(img);
+    //    imageLoaded = true; // Set the flag to true
+    //}
+  //});
 }
 
-// Initial call to set the video source
-updateVideoSource();
+function playVideo() {
+  updateVideoSource();
+}
 
-// Listen for window resize events
+// Function to stop video and return a new promise
+function stopVideo() {
+  video.pause();
+  // Return a new promise
+  return new Promise((resolve) => {
+    console.log('Video stopped due to screen size change');
+    resolve('Video promise resolved');
+  });
+}
+
+window.addEventListener('load', playVideo);
 window.addEventListener('resize', updateVideoSource);
-
-let resizeTimer;
-window.addEventListener("resize", () => {
-  document.body.classList.add("resize-animation-stopper");
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    document.body.classList.remove("resize-animation-stopper");
-  }, 400); // Adjust the delay as needed
-});
+window.addEventListener('resize', stopVideo);

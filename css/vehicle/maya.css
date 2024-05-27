@@ -109,9 +109,9 @@ header img {
     
 }
 
-#background-video {
-    width: 100vw;
-    height: auto;
+#background-featured, #background-featured-img {
+    width: auto;
+    height: 100vh;
 }
 
 #maya-title {
