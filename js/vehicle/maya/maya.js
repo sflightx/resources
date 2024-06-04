@@ -76,7 +76,7 @@ function playVideo() {
 
 // Function to stop video and return a new promise
 function stopVideo() {
-  video.pause();
+  //video.pause();
   // Return a new promise
   return new Promise((resolve) => {
     console.log('Video stopped due to screen size change');
