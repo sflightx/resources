@@ -46,6 +46,10 @@ header img {
     text-align: center;
 }
 
+#textarea {
+    padding: 0px 50px;
+}
+
 .article {
     width: 100%;
 }
