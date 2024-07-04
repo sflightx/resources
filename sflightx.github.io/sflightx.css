@@ -10,6 +10,7 @@
 }
 
 #feature-title {
+    padding: 0px 50px;
     text-align: center; 
     color:#d3d3d3;
     max-height: 25vh;
