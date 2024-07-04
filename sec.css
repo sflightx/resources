@@ -1,0 +1,392 @@
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 50px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  }
+
+header ul {
+     /* Change this to your preferred color */
+    position: fixed; /* Make the navbar fixed on top */
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    transition: opacity 0.5s, visibility 0.5s;
+    
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+header ul li p {
+    margin: 0;
+}
+
+header img {
+    height: 7.5vh; /* Adjust as needed */
+}
+
+#menu {
+    color: white;
+    display: block;
+    overflow: hidden;
+}
+
+#link-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.article {
+    width: 100%;
+}
+
+.article img {
+    width: 100%;
+}
+
+.highlight {
+    color: rgb(160, 160, 160);
+}
+
+footer {
+    color: white;
+    padding: 30px 25px;
+    max-width: 100%;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+button:hover h6 {
+    color: black;
+}
+
+header ul li {
+    margin: 75px 50px;
+    list-style-type: none;
+    width: auto;
+}
+#link-section li {
+    margin: 25px 0px;
+    list-style-type: none;
+    width: auto;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 1.35em;
+    }
+    h3 {
+        font-size: 1.1em;
+    }
+    h4 {
+        font-size: 1em;
+    }
+    h5 {
+        font-size: 0.85em;
+    }
+    h6 {
+        font-size: 0.75em;
+    }
+    p {
+        font-size: 100%;
+    }
+    .overview-h1 {
+        text-align: left; 
+        color:#d3d3d3;
+        margin: 0;
+        font-size: 10vw;
+    }
+    
+    .overview-h3 {
+        text-align: left; 
+        color:#d3d3d3;
+        margin: 0;
+        font-size: 7vw;
+    }
+    .stat-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 15vw;
+    }
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 5vw;
+    }
+    header b {
+        font-size: 3vh;
+        
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    h4 {
+        font-size: 1.25em;
+    }
+    h5 {
+        font-size: 1em;
+    }
+    h6 {
+        font-size: 0.75em;
+    }
+    p {
+        font-size: 110%;
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 10vw;
+    }
+    
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 3vw;
+    }
+    header b {
+        font-size: 3vh;
+        
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 4em;
+    }
+    h2 {
+        font-size: 3.5em;
+    }
+    h3 {
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 2.5em;
+    }
+    h5 {
+        font-size: 2.25em;
+    }
+    h6 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 120%;
+    }
+    header b {
+        font-size: 3vh;
+        
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    header ul {
+        display: flex;
+        position: static;
+        background-color: rgba(0,0,0,0);
+        height: auto;
+        width: auto;
+    }
+    header ul li {
+        margin: 0px 25px;
+        list-style-type: none;
+        width: auto;
+    }
+    header ul li a {
+        text-align: center;
+    }
+    #link-section {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    h1 {
+        font-size: 4em;
+    }
+    h2 {
+        font-size: 3.5em;
+    }
+    h3 {
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 2.5em;
+    }
+    h5 {
+        font-size: 2.25em;
+    }
+    h6 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 130%;
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 7vw;
+    }
+    
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 2vw;
+    }
+    #menu {
+        display: none;
+    }
+    header b {
+        font-size: 1.5vh;
+        
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    h1 {
+        font-size: 3.5em;
+    }
+    h2 {
+        font-size: 3.25em;
+    }
+    h3 {
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 2.75em;
+    }
+    h5 {
+        font-size: 2.5em;
+    }
+    h6 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 140%;
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 5vw;
+    }
+    
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 2vw;
+    }
+    header ul {
+        display: flex;
+        position: static;
+        background-color: rgba(0,0,0,0);
+        height: auto;
+        width: auto;
+    }
+    header ul li {
+        margin: 0px 25px;
+        list-style-type: none;
+        width: auto;
+    }
+    footer #link-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.25vw;
+    }
+    header b {
+        font-size: 1.5vh;
+        
+    }
+}
+/* 4k devices (4k screens, 2400px and up) */
+@media only screen and (min-width: 2400px) {
+    header ul {
+        display: flex;
+    }
+    header ul li {
+        margin: 0px 25px;
+        list-style-type: none;
+        width: auto;
+    }
+    footer #link-section {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    h1 {
+        font-size: 4em;
+    }
+    h2 {
+        font-size: 3.5em;
+    }
+    h3 {
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 2.5em;
+    }
+    h5 {
+        font-size: 2.25em;
+    }
+    h6 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 200%;
+    }
+    header ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.25vw;
+    }
+    .stat-child p {
+        margin: 0px;
+        font-size: 6vw;
+    }
+    
+    .stat-child h4 {
+        margin: 0px;
+        font-size: 3vw;
+    }
+    header b {
+        font-size: 1.5vh;
+        
+    }
+}

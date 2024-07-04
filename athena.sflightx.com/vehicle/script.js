@@ -19,21 +19,24 @@ window.onscroll = function() {
   }
 }
 
-var ul = document.getElementById("nav_list");
+const screenWidth = window.innerWidth;
+const breakpoint = 768;
 
-// Add an event listener to the ul
-ul.addEventListener("click", function() {
+if (screenWidth < breakpoint) {
+  var ul = document.getElementById("nav_list");
+
+  // Add an event listener to the ul
+  ul.addEventListener("click", function() {
   // When the ul is clicked, change its display to 'none'
   ul.style.display = "none";
-});
+  });
 
-var menu = document.getElementById("menu");
-
-// Add an event listener to the ul
-menu.addEventListener("click", function() {
+  var menu = document.getElementById("menu");
+  menu.addEventListener("click", function() {
   // When the ul is clicked, change its display to 'none'
   ul.style.display = "block";
-});
+  });
+}
 
 // Get the video element
 const video = document.getElementById('background-featured');
