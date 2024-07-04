@@ -21,7 +21,7 @@
 
 /* MISSIONS */
 
-#mission {
+.mission {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -31,12 +31,12 @@
     padding: 25px;
 }
 
-#mission h1 {
+.mission h1 {
     padding-top: 50%;
     margin-bottom: 20px;
 }
 
-#mission button {
+.mission button {
     background-color: rgba(0,0,0,0);
     color: white;
     padding: 10px 100px;
@@ -44,11 +44,11 @@
     transition: 0.3s ease-in-out;
 }
 
-#mission button:hover {
+.mission button:hover {
     background-color: rgb(255, 255, 255);
 }
 
-#mission button:hover h5 {
+.mission button:hover h5 {
     color: black;
 }
 
