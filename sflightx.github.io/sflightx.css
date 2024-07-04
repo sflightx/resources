@@ -1,14 +1,15 @@
-.featured {
+/* FEATURE PART */
+#feature {
     background-image: url('https://firebasestorage.googleapis.com/v0/b/sflight-x.appspot.com/o/static%2Fimg%2Fcrew-upscaled.png?alt=media&token=fc733bf2-0e37-4c92-b799-88bd7d97c0c3');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
-    width: calc(95vw-50px); /* 100vw - 20px for left and right padding */
-    height: 100vh; /* 100vh - 20px for top and bottom padding */
+    width: calc(95vw-50px);
+    height: 100vh;
 }
 
-.featured h3 {
+#feature-title {
     text-align: center; 
     color:#d3d3d3;
     max-height: 25vh;
@@ -18,7 +19,9 @@
     bottom: 100px;
 }
 
-.next-mission {
+/* MISSIONS */
+
+#mission {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -28,12 +31,12 @@
     padding: 25px;
 }
 
-.next-mission h1 {
+#mission h1 {
     padding-top: 50%;
     margin-bottom: 20px;
 }
 
-.next-mission button {
+#mission button {
     background-color: rgba(0,0,0,0);
     color: white;
     padding: 10px 100px;
@@ -41,21 +44,12 @@
     transition: 0.3s ease-in-out;
 }
 
-.next-mission button:hover {
+#mission button:hover {
     background-color: rgb(255, 255, 255);
 }
 
-.next-mission button:hover h5 {
+#mission button:hover h5 {
     color: black;
-}
-
-.menuImage {
-    max-height: 75%;
-    max-width: 15vw;
-}
-
-.profileImage {
-    right: 0px;
 }
 
 /* Extra small devices (phones, 600px and down) */
