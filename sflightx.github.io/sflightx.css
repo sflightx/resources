@@ -33,16 +33,7 @@
 }
 
 .mission h1 {
-    padding-top: 50%;
-    margin-bottom: 20px;
-}
-
-.mission button {
-    background-color: rgba(0,0,0,0);
-    color: white;
-    padding: 10px 100px;
-    border: solid white 3px;
-    transition: 0.3s ease-in-out;
+    margin: 20px;
 }
 
 .mission button:hover {

@@ -1,3 +1,5 @@
+/* STATIC */
+
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
@@ -10,11 +12,12 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-  }
+}
 
-header ul {
-     /* Change this to your preferred color */
-    position: fixed; /* Make the navbar fixed on top */
+/* HEADER */
+
+header ul {  
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100%;
@@ -31,7 +34,7 @@ header ul li p {
 }
 
 header img {
-    height: 7.5vh; /* Adjust as needed */
+    height: 10vh;
 }
 
 #menu {
@@ -45,6 +48,8 @@ header img {
     justify-content: center;
     text-align: center;
 }
+
+/* LAYOUT */
 
 #textarea {
     padding: 0px 50px;
