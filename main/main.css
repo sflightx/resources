@@ -9,6 +9,7 @@ main {
     padding: 0vw;
     background-color: rgba(0,0,0,1);
     overflow-x: hidden;
+    min-height: 60vh;
 }
 
 body {
@@ -31,6 +32,14 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+footer {
+    color: white;
+    padding: 10px 12px;
+    max-width: 100%;
+    text-align: center;
+    min-height: 25vh;
 }
 
 ul {
@@ -63,21 +72,31 @@ button {
     padding: 0px 50px;
     border: solid white 3px;
     transition: 0.3s ease-in-out;
-    font-size: 0.5em;
+    font-size: 0.75em;
 }
 
 form {
-    width: 50%;
+    width: 75%;
     margin: 50px 0px;
 }
 
-input[type=text], input[type=submit] {
+input[type=text], select {
     width: 100%;
     background-color: black;
     border: solid white 3px;
     color: white;
     padding: 20px 5px;
-    margin: 5px 0px;
+    margin: 15px 0px;
+    text-transform: none;
+}
+input[type=submit] {
+    width: 25%;
+    background-color: black;
+    border: solid white 3px;
+    border-radius: 15px;
+    color: white;
+    padding: 20px 5px;
+    margin: 75px 0px 20px 0px;
 }
 
 input[type=submit]:hover {
