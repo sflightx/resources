@@ -35,11 +35,7 @@ header {
 }
 
 footer {
-    color: white;
-    padding: 10px 12px;
-    max-width: 100%;
-    text-align: center;
-    min-height: 25vh;
+    padding: 30px 75px;
 }
 
 ul {

@@ -158,6 +158,14 @@ header img {
     color: rgb(160, 160, 160);
 }
 
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6, footer p{
+    color: white;
+    padding: 0px 5px;
+    max-width: 100%;
+    text-align: justify;
+    margin: 0px;
+}
+
 footer a {
     text-decoration: none;
     margin: 0 5px;
