@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get the key from the URL (e.g., ?key=article1)
     const urlParams = new URLSearchParams(window.location.search);
     const key = urlParams.get("id");
-    const baseUrl = "https://sflightx.com/rs/missions/launch/";
+    const baseUrl = "../resources/missions/launch/";
 
     // Load the snippet into the specified <div>
     const articleDiv = document.querySelector(".article");
