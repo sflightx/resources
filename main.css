@@ -60,7 +60,8 @@ td {
 button {
     background-color: rgba(0,0,0,0);
     color: white;
-    padding: 10px 100px;
+    padding: 0px 50px;
     border: solid white 3px;
     transition: 0.3s ease-in-out;
+    font-size: 0.5em;
 }

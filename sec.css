@@ -131,7 +131,6 @@ header ul li {
         margin: 0;
         font-size: 10vw;
     }
-    
     .overview-h3 {
         text-align: left; 
         color:#d3d3d3;
@@ -152,7 +151,7 @@ header ul li {
         font-size: 5vw;
     }
     header b {
-        font-size: 3vh;
+        font-size: 0.8em;
         
     }
 }
@@ -190,7 +189,7 @@ header ul li {
         font-size: 3vw;
     }
     header b {
-        font-size: 3vh;
+        font-size: 1em;
         
     }
 }
@@ -219,7 +218,7 @@ header ul li {
         font-size: 120%;
     }
     header b {
-        font-size: 3vh;
+        font-size: 1.1em;
         
     }
 }
@@ -280,7 +279,7 @@ header ul li {
         display: none;
     }
     header b {
-        font-size: 1.5vh;
+        font-size: 1.25em;
         
     }
 }
@@ -340,7 +339,7 @@ header ul li {
         font-size: 1.25vw;
     }
     header b {
-        font-size: 2vh;
+        font-size: 1.3em;
         
     }
 }
@@ -395,7 +394,7 @@ header ul li {
         font-size: 3vw;
     }
     header b {
-        font-size: 1.5vh;
+        font-size: 1.5em;
         
     }
 }
