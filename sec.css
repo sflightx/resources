@@ -122,7 +122,7 @@ header ul li {
     h6 {
         font-size: 0.75em;
     }
-    p {
+    p, input {
         font-size: 100%;
     }
     .overview-h1 {
@@ -176,7 +176,7 @@ header ul li {
     h6 {
         font-size: 0.75em;
     }
-    p {
+    p, input {
         font-size: 110%;
     }
     .stat-child p {
@@ -197,24 +197,24 @@ header ul li {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     h1 {
-        font-size: 4em;
+        font-size: 2.75em;
     }
     h2 {
-        font-size: 3.5em;
-    }
-    h3 {
-        font-size: 3em;
-    }
-    h4 {
         font-size: 2.5em;
     }
-    h5 {
+    h3 {
         font-size: 2.25em;
     }
-    h6 {
+    h4 {
+        font-size: 2em;
+    }
+    h5 {
         font-size: 1.5em;
     }
-    p {
+    h6 {
+        font-size: 1em;
+    }
+    p, input {
         font-size: 120%;
     }
     header b {
@@ -246,24 +246,24 @@ header ul li {
         align-items: center;
     }
     h1 {
-        font-size: 4em;
-    }
-    h2 {
-        font-size: 3.5em;
-    }
-    h3 {
         font-size: 3em;
     }
-    h4 {
+    h2 {
         font-size: 2.5em;
     }
-    h5 {
-        font-size: 2.25em;
+    h3 {
+        font-size: 2em;
     }
-    h6 {
+    h4 {
         font-size: 1.5em;
     }
-    p {
+    h5 {
+        font-size: 1.25em;
+    }
+    h6 {
+        font-size: 1em;
+    }
+    p, input {
         font-size: 130%;
     }
     .stat-child p {
@@ -302,10 +302,10 @@ header ul li {
         font-size: 2.5em;
     }
     h6 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
-    p {
-        font-size: 140%;
+    p, input {
+        font-size: 200%;
     }
     .stat-child p {
         margin: 0px;
@@ -374,10 +374,10 @@ header ul li {
         font-size: 2.25em;
     }
     h6 {
-        font-size: 2em;
+        font-size: 1.75em;
     }
-    p {
-        font-size: 200%;
+    p, input {
+        font-size: 230%;
     }
     header ul li a {
         text-decoration: none;
