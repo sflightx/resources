@@ -3,7 +3,7 @@
     background-image: url('https://i.imgur.com/1WwXNAQ.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: left center;
     position: relative;
     width: calc(95vw-50px);
     height: 100vh;
