@@ -111,7 +111,7 @@ header img {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 28vw);
-    grid-template-rows: repeat(3, 28vw);
+    grid-template-rows: repeat(3, 35vw);
     overflow: hidden;
     justify-content: space-evenly;
     justify-items: center;
@@ -125,7 +125,7 @@ header img {
 }
 
 .grid-child img {
-    height: 100%;
+    max-height: 60%;
     width: 100%;
 }
 
@@ -162,8 +162,6 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6, footer p{
     color: white;
     padding: 0px 5px;
     max-width: 100%;
-    text-align: justify;
-    margin: 0px;
 }
 
 footer a {
@@ -270,11 +268,14 @@ header ul li {
     p, input, label, select {
         font-size: 110%;
     }
+    .stat-container, .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
+    }
     .stat-child p {
         margin: 0px;
         font-size: 10vw;
     }
-    
     .stat-child h4 {
         margin: 0px;
         font-size: 3vw;
@@ -310,7 +311,10 @@ header ul li {
     }
     header b {
         font-size: 1.1em;
-        
+    }
+    .stat-container, .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
     }
 }
 
@@ -357,11 +361,14 @@ header ul li {
     p, input, label, select {
         font-size: 130%;
     }
+    .stat-container, .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
+    }
     .stat-child p {
         margin: 0px;
         font-size: 7vw;
     }
-    
     .stat-child h4 {
         margin: 0px;
         font-size: 2vw;
@@ -402,6 +409,10 @@ header ul li {
     }
     p, input, label, select {
         font-size: 150%;
+    }
+    .stat-container, .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
     }
     .stat-child p {
         margin: 0px;
@@ -479,6 +490,10 @@ header ul li {
         text-decoration: none;
         color: white;
         font-size: 1.25vw;
+    }
+    .stat-container, .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px; /* Adjust spacing between grid items */
     }
     .stat-child p {
         margin: 0px;
