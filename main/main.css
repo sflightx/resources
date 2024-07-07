@@ -67,6 +67,7 @@ button {
     background-color: rgba(0,0,0,0);
     color: white;
     padding: 0px 50px;
+    margin: 15px 0px;
     border: solid white 3px;
     transition: 0.3s ease-in-out;
     font-size: 0.75em;
