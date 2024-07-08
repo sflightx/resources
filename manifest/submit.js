@@ -17,7 +17,7 @@ function writeNewPost() {
   
     // Update the database
     var updates = {};
-    updates['/launch_manifest/launches/' + postKey] = postData;
+    updates['/launch_manifest/upcoming/' + postKey] = postData;
     missionName.text = '';
     missionKey.text = '';
     thumbnailUrl.text = '';
