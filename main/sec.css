@@ -174,6 +174,19 @@ header img {
 
 /* LAYOUT */
 
+.stat-container {
+    padding: 25px 30px;
+}
+
+.stat-child {
+    padding: 10px 30px;
+}
+
+.stat-child p, .stat-child h4 {
+    margin: 0px;
+    text-align: center;
+}
+
 #textarea {
     padding: 0px 50px;
 }
@@ -259,17 +272,17 @@ header ul li {
         margin: 0;
         font-size: 7vw;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(1, 1fr);
+    
+    .stat-container {
+        grid-template-columns: repeat(2, 1fr);
     }
     .stat-child p {
-        margin: 0px;
         font-size: 15vw;
     }
     .stat-child h4 {
-        margin: 0px;
         font-size: 5vw;
     }
+
     header b {
         font-size: 0.8em;
         
@@ -299,15 +312,13 @@ header ul li {
     p, input, label, select {
         font-size: 110%;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(1, 1fr);
+    .stat-container {
+        grid-template-columns: repeat(2, 1fr);
     }
     .stat-child p {
-        margin: 0px;
         font-size: 10vw;
     }
     .stat-child h4 {
-        margin: 0px;
         font-size: 3vw;
     }
     header b {
@@ -342,8 +353,8 @@ header ul li {
     header b {
         font-size: 1.1em;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(1, 1fr);
+    .stat-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -390,15 +401,13 @@ header ul li {
     p, input, label, select {
         font-size: 130%;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+    .stat-container {
+        grid-template-columns: repeat(4, 1fr);
     }
     .stat-child p {
-        margin: 0px;
         font-size: 7vw;
     }
     .stat-child h4 {
-        margin: 0px;
         font-size: 2vw;
     }
     #menu {
@@ -438,16 +447,14 @@ header ul li {
     p, input, label, select {
         font-size: 150%;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+    .stat-container {
+        grid-template-columns: repeat(4, 1fr);
     }
     .stat-child p {
-        margin: 0px;
         font-size: 5vw;
     }
     
     .stat-child h4 {
-        margin: 0px;
         font-size: 2vw;
     }
     header ul {
@@ -518,16 +525,14 @@ header ul li {
         color: white;
         font-size: 1.25vw;
     }
-    .stat-container, .grid-container {
-        grid-template-columns: repeat(3, 1fr);
+    .stat-container {
+        grid-template-columns: repeat(4, 1fr);
     }
     .stat-child p {
-        margin: 0px;
         font-size: 6vw;
     }
     
     .stat-child h4 {
-        margin: 0px;
         font-size: 3vw;
     }
     header b {
