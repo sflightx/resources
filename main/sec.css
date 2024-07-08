@@ -110,8 +110,6 @@ header img {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 28vw);
-    grid-template-rows: repeat(3, 35vw);
     overflow: hidden;
     justify-content: space-evenly;
     justify-items: center;
@@ -122,11 +120,14 @@ header img {
 
 .grid-child {
     margin: 10px;
+    height: 100%;
+    padding-left: 5vw;
 }
 
 .grid-child img {
-    max-height: 60%;
-    width: 100%;
+    min-height: 70%;
+    width: 80%;
+    border-radius: 10px;
 }
 
 .grid-child p {
@@ -134,9 +135,9 @@ header img {
 }
 
 .grid-child button {
-    width: 100%;
+    width: 40%;
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 25px;
 }
 
@@ -229,7 +230,6 @@ header ul li {
     }
     .stat-container, .grid-container {
         grid-template-columns: repeat(1, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
     }
     .stat-child p {
         margin: 0px;
@@ -269,8 +269,7 @@ header ul li {
         font-size: 110%;
     }
     .stat-container, .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
+        grid-template-columns: repeat(1, 1fr);
     }
     .stat-child p {
         margin: 0px;
@@ -313,8 +312,7 @@ header ul li {
         font-size: 1.1em;
     }
     .stat-container, .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -362,8 +360,7 @@ header ul li {
         font-size: 130%;
     }
     .stat-container, .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
+        grid-template-columns: repeat(2, 1fr);
     }
     .stat-child p {
         margin: 0px;
@@ -411,8 +408,7 @@ header ul li {
         font-size: 150%;
     }
     .stat-container, .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
+        grid-template-columns: repeat(2, 1fr);
     }
     .stat-child p {
         margin: 0px;
@@ -493,7 +489,6 @@ header ul li {
     }
     .stat-container, .grid-container {
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 40px; /* Adjust spacing between grid items */
     }
     .stat-child p {
         margin: 0px;
