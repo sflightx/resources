@@ -13,18 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
         .then((response) => response.text())
         .then((html) => {
         articleDiv.innerHTML = html;
-        const matchedImageURL = storedImages[key];
-        if (matchedImageURL) {
-            document.getElementById("bg-img").src = matchedImageURL;
-        }else{
-            console.log("Image not found for article: ", key);
-        }
         const preformattedText = key.replaceAll("-", " ");
         const formattedText = preformattedText.replaceAll("_", "-");
         console.log(formattedText);
         document.getElementById('feature-article-title').textContent = formattedText;
     }).catch((error) => {
         articleDiv.innerHTML = "Error loading article.";
+        console.log(error);
     });
 });
 
