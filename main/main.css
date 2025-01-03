@@ -1,12 +1,11 @@
 * {
-    font-family: 'Barlow Condensed';
-    text-transform: uppercase;
+    font-family: 'Orbitron';
     color: white;
 }
 
 main {
     flex: 1;
-    padding: 0vw;
+    padding: 0px;
     background-color: rgba(0,0,0,1);
     overflow-x: hidden;
     min-height: 60vh;
@@ -23,7 +22,7 @@ body {
 header {
     position: fixed;
     width: 100vw;
-    max-height: 7.5vh;
+    max-height: 5vh;
     margin: auto;
     padding: 20px 0px;
     transition: top 0.75s ease-in-out, background-color 0.75s ease-in-out;
@@ -67,7 +66,6 @@ button {
     background-color: rgba(0,0,0,0);
     color: white;
     padding: 0px 50px;
-    margin: 15px 0px;
     border: solid white 3px;
     transition: 0.3s ease-in-out;
     font-size: 0.75em;

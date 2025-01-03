@@ -21,22 +21,28 @@ document.addEventListener("DOMContentLoaded", function() {
         firebase.app();
     }
 
+    document.querySelector("header").style.top = "-15rem";
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector("header").style.top = "0";
-        } else {
-            document.querySelector("header").style.top = "-15rem";
-        }
-        prevScrollpos = currentScrollPos;
+        setTimeout(function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector("header").style.top = "0";
+            } else {
+              document.querySelector("header").style.top = "-15rem";
+            }
+          prevScrollpos = currentScrollPos;
 
-        // Change background if scroll is beyond 100vh
-        if (currentScrollPos > window.innerHeight) {
-            document.querySelector("header").style.backgroundColor = "rgba(0,0,0,1)";
-        } else {
-            document.querySelector("header").style.backgroundColor = "rgba(0,0,0,0)";
-        }
+            // Change background if scroll is beyond 100vh
+            if (currentScrollPos > window.innerHeight) {
+                document.querySelector("header").style.backgroundColor = "rgba(0,0,0,1)";
+                document.querySelector("header").style.top = "0rem";
+           } else {
+               document.querySelector("header").style.backgroundColor = "rgba(0,0,0,0)";
+               document.querySelector("header").style.top = "-15rem";
+           }
+        }, 100);
+        
     }
 
     const screenWidth = window.innerWidth;

@@ -34,7 +34,8 @@ header ul li p {
 }
 
 header img {
-    height: 15vh;
+    height: 7.5vh;
+    margin: 0px 15px 0px 15px;
 }
 
 #menu {
@@ -115,18 +116,18 @@ header img {
     justify-items: center;
     align-content: space-evenly;
     align-items: center;
-    grid-gap: 40px;
+    grid-gap: 50px 0px;
 }
 
 .grid-child {
-    margin: 10px;
+    margin-left: 5vw;
     height: 100%;
-    padding-left: 5vw;
+    padding: 1vw;
 }
 
 .grid-child img {
     min-height: 70%;
-    width: 80%;
+    width: 90%;
     border-radius: 10px;
 }
 
@@ -169,7 +170,7 @@ header img {
     width: 70%;
     padding: 10px 50px;
     position: absolute;
-    top: 50vh;
+    top: 40vh;
 }
 
 /* LAYOUT */
@@ -196,7 +197,8 @@ header img {
 }
 
 .article img {
-    width: 100%;
+    width: 80%;
+    margin: 0px 10%;
 }
 
 .highlight {
@@ -239,25 +241,7 @@ header ul li {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    h1 {
-        font-size: 1.5em;
-    }
-    h2 {
-        font-size: 1.35em;
-    }
-    h3 {
-        font-size: 1.1em;
-    }
-    h4 {
-        font-size: 1em;
-    }
-    h5 {
-        font-size: 0.85em;
-    }
-    h6 {
-        font-size: 0.75em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 100%;
     }
     .overview-h1 {
@@ -286,32 +270,14 @@ header ul li {
     }
 
     header b {
-        font-size: 0.8em;
+        font-size: 0.7em;
         
     }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    h1 {
-        font-size: 2em;
-    }
-    h2 {
-        font-size: 1.75em;
-    }
-    h3 {
-        font-size: 1.5em;
-    }
-    h4 {
-        font-size: 1.25em;
-    }
-    h5 {
-        font-size: 1em;
-    }
-    h6 {
-        font-size: 0.75em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 110%;
     }
     .grid-container {
@@ -327,36 +293,18 @@ header ul li {
         font-size: 3vw;
     }
     header b {
-        font-size: 1em;
+        font-size: 0.75em;
         
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    h1 {
-        font-size: 2.75em;
-    }
-    h2 {
-        font-size: 2.5em;
-    }
-    h3 {
-        font-size: 2.25em;
-    }
-    h4 {
-        font-size: 2em;
-    }
-    h5 {
-        font-size: 1.5em;
-    }
-    h6 {
-        font-size: 1em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 120%;
     }
     header b {
-        font-size: 1.1em;
+        font-size: 0.8em;
     }
     .grid-container {
         grid-template-columns: repeat(1, 1fr);
@@ -388,25 +336,7 @@ header ul li {
         justify-content: space-evenly;
         align-items: center;
     }
-    h1 {
-        font-size: 3em;
-    }
-    h2 {
-        font-size: 2.5em;
-    }
-    h3 {
-        font-size: 2em;
-    }
-    h4 {
-        font-size: 1.5em;
-    }
-    h5 {
-        font-size: 1.25em;
-    }
-    h6 {
-        font-size: 1em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 130%;
     }
     .grid-container {
@@ -425,7 +355,7 @@ header ul li {
         display: none;
     }
     header b {
-        font-size: 1.25em;
+        font-size: 0.9em;
         
     }
     footer {
@@ -437,25 +367,7 @@ header ul li {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    h1 {
-        font-size: 3.5em;
-    }
-    h2 {
-        font-size: 3.25em;
-    }
-    h3 {
-        font-size: 3em;
-    }
-    h4 {
-        font-size: 2.75em;
-    }
-    h5 {
-        font-size: 2.5em;
-    }
-    h6 {
-        font-size: 1.15em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 150%;
     }
     .grid-container {
@@ -494,7 +406,7 @@ header ul li {
         font-size: 1.25vw;
     }
     header b {
-        font-size: 1.3em;
+        font-size: 1em;
         
     }
 }
@@ -513,25 +425,7 @@ header ul li {
         justify-content: space-evenly;
         align-items: center;
     }
-    h1 {
-        font-size: 4em;
-    }
-    h2 {
-        font-size: 3.5em;
-    }
-    h3 {
-        font-size: 3em;
-    }
-    h4 {
-        font-size: 2.5em;
-    }
-    h5 {
-        font-size: 2.25em;
-    }
-    h6 {
-        font-size: 1.75em;
-    }
-    p, input, label, select {
+    input, label, select {
         font-size: 230%;
     }
     header ul li a {
@@ -553,7 +447,7 @@ header ul li {
         font-size: 3vw;
     }
     header b {
-        font-size: 1.5em;
+        font-size: 1.1em;
         
     }
 }
