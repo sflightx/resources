@@ -1,0 +1,48 @@
+/* STATIC */
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 50px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+/* HEADER */
+
+header ul {  
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    transition: opacity 0.5s, visibility 0.5s;
+    
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+header ul li p {
+    margin: 0;
+}
+
+header img {
+    height: 7.5vh;
+    margin: 0px 15px 0px 15px;
+}
+
+/* SUBHEADER*/
+
+.sticky {
+    margin: 20px 25vw;
+    padding: 20px 25px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 25px;
+}
