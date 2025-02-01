@@ -59,8 +59,6 @@ header img {
     height: 15vw;
 }
 
-/* sflightx.com/team ONLY */
-
 #banner {
     display: grid;
     overflow: hidden;
@@ -71,6 +69,19 @@ header img {
     grid-gap: 50px 0px;
     grid-template-columns: repeat(1, 1fr);
 }
+
+#banner-info {
+    background-position: center center;
+    background-size: cover;
+    padding: 15vh 5vw;
+    margin: 0;
+}
+
+.banner-full {
+    height: 100vh;
+}
+
+/* sflightx.com/team ONLY */
 
 #article-team-mod {
     display: grid;
@@ -84,20 +95,13 @@ header img {
 }
 
 #article-team-div {
-    padding: 20px 100px;
+    padding: 20px 3vw;
+    text-align: center;
 }
 
 .banner-card {
     align-content: center;
     padding: 50px 0px;
-}
-
-.full-size-banner {
-    background-position: center center;
-    background-size: cover;
-    padding: 15vh 5vw;
-    margin: 0;
-    text-align: center;
 }
 
 #tag {
@@ -153,29 +157,18 @@ header img {
     width: 20vw;
 }
 
-#banner-1 {
-    background-image: url(../../pictures/maya.jpg);
-    padding: 10vh 15vw;
-}
-
-#banner-2 {
-    background-image: url(../../pictures/pad.png);
-}
-
-#banner-3 {
-    background-image: url(../../pictures/hope-on-pad.jpg);
-}
-
-#banner-4 {
-    background-image: url(../../pictures/stellar-liftoff.jpg);
-}
+/* MEDIA */
 
 @media only screen and (max-width: 600px) {
-
+    #footer-link a {
+        margin-left: 2vh;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-    
+    #footer-link a {
+        margin-left: 2vh;
+    }
 }
 
 @media only screen and (min-width: 768px) {

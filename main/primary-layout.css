@@ -110,11 +110,15 @@ input[type=submit]:hover {
 }
 
 @media only screen and (max-width: 600px) {
-
+    footer p , footer a{
+        padding-bottom: 2vh;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-    
+    footer p , footer a{
+        padding-bottom: 2vh;
+    }
 }
 
 @media only screen and (min-width: 768px) {
