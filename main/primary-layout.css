@@ -2,6 +2,7 @@
 @font-face {
     font-family: 'Glacial'; /* Your custom font name */
     src: url('../../resources/main/font/GlacialIndifference-Bold.woff2') format('woff2');
+    src: url('../../resources/main/font/GlacialIndifference-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,9 +16,8 @@ main {
     flex: 1;
     padding: 0px;
     background-color: rgba(0,0,0,1);
-    overflow-x: hidden;
     min-height: 60vh;
-    font-size: 2vw;
+    font-size: 1em;
 }
 
 body {
@@ -43,7 +43,7 @@ header {
 }
 
 footer {
-    padding: 30px 75px;
+    padding: 50px 20px;
     text-align: center;
 }
 
@@ -107,4 +107,37 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: white;
     color: black;
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media only screen and (min-width: 600px) {
+    
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+    footer {
+        display: grid;
+        overflow: hidden;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+        grid-gap: 50px 0px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    
+}
+
+@media only screen and (min-width: 2400px) {
+
 }

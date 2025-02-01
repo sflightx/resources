@@ -46,3 +46,162 @@ header img {
     background-color: rgb(50, 50, 50);
     border-radius: 25px;
 }
+
+.stat-container {
+    display: grid;
+}
+
+/* GENERAL */
+
+.profile {
+    border-radius: 25px;
+    width: 15vw;
+    height: 15vw;
+}
+
+/* sflightx.com/team ONLY */
+
+#banner {
+    display: grid;
+    overflow: hidden;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    grid-gap: 50px 0px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+#article-team-mod {
+    display: grid;
+    overflow: hidden;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    grid-gap: 50px 0px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+#article-team-div {
+    padding: 20px 100px;
+}
+
+.banner-card {
+    align-content: center;
+    padding: 50px 0px;
+}
+
+.full-size-banner {
+    background-position: center center;
+    background-size: cover;
+    padding: 15vh 5vw;
+    margin: 0;
+    text-align: center;
+}
+
+#tag {
+    margin: 0;
+    color: #aaaaaa;
+}
+
+#position {
+    margin: 0;
+}
+
+/* sflightx.com/mission ONLY*/
+
+.mission {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    width: calc(95vw-50px); 
+    height: 100vh; 
+    padding: 5vw;
+}
+
+.mission h1, .mission p {
+    margin: 5px 0px;
+}
+
+.mission button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.mission button:hover h5 {
+    color: black;
+}
+
+.detail-container, .overview-header {
+    margin: 50px 5vw;
+}
+
+.overview-header h5, .overview-header h1 {
+    margin: 0px;
+}
+
+.sec-span {
+    color: gray;
+}
+
+#bg-img {
+    width: 100vw;
+}
+
+#banner-logo {
+    width: 20vw;
+}
+
+#banner-1 {
+    background-image: url(../../pictures/maya.jpg);
+    padding: 10vh 15vw;
+}
+
+#banner-2 {
+    background-image: url(../../pictures/pad.png);
+}
+
+#banner-3 {
+    background-image: url(../../pictures/hope-on-pad.jpg);
+}
+
+#banner-4 {
+    background-image: url(../../pictures/stellar-liftoff.jpg);
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media only screen and (min-width: 600px) {
+    
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+    #footer-link {
+        display: flex;
+    }
+
+    #footer-link a {
+        margin: 0px 2vw;
+    }
+
+    #article-team-mod {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    
+}
+
+@media only screen and (min-width: 2400px) {
+    #article-team-mod {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
