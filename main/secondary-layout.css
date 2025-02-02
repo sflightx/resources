@@ -104,7 +104,6 @@ header img {
 
 .banner-stat-container {
     width: 90vw;
-    display: flex;
     justify-content: space-around;
     text-align: center;
 }
@@ -242,6 +241,9 @@ header img {
     .banner-img {
         width: 40vw;
         object-fit: cover;
+    }
+    .banner-stat-container {
+        display: flex;
     }
 }
 
