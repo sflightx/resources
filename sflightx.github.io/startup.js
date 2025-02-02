@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       case 'patreon':
         window.location.href = "https://patreon.com/sflightx";
         break;
+        case 'bluesky':
+        window.location.href = "https://bsky.app/profile/sflightx.com";
+        break;
       case 'jno':
         window.location.href = "https://www.simplerockets.com/u/sFlightX";
         break;

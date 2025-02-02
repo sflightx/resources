@@ -4,7 +4,7 @@
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
-    font-size: 50px;  /* Preferred icon size */
+    font-size: 40px;  /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -16,16 +16,13 @@
 
 /* HEADER */
 
-header ul {  
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100%;
-    transition: opacity 0.5s, visibility 0.5s;
-    
+header ul {
+    display: flex;
+    list-style: none;
 }
 
 header ul li a {
+    margin: 20px 2vw;
     text-decoration: none;
 }
 
@@ -34,7 +31,7 @@ header ul li p {
 }
 
 header img {
-    height: 7.5vh;
+    height: 10vh;
     margin: 0px 15px 0px 15px;
 }
 
@@ -77,9 +74,63 @@ header img {
     margin: 0;
 }
 
-.banner-full {
-    height: 100vh;
+.banner-img {
+    width: 90vw;
+    object-fit: cover;
 }
+
+.banner-div {
+    padding: 30px 50px;
+}
+
+.banner-full {
+    height: 80vh;
+    padding: 15vh 5vw;
+    background-position: center center;
+    background-size: cover;
+}
+
+.footer-link-img {
+    width: 3vw;
+    height: 3vw;
+}
+
+/* sflightx.com/vehicle ONLY */
+
+.banner-stat {
+    padding: 25px 30px;
+    margin: 5vh 0px;
+}
+
+.banner-stat-container {
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.banner-stat-child {
+    padding: 10px 30px;
+}
+
+.banner-stat-child p {
+    font-size: 5em;
+    margin: 0;
+}
+
+.banner-overview-header {
+    margin: 50px 5vw;
+}
+
+.banner-overview-header h5, .overview-header h1 {
+    margin: 0px;
+    font-size: 3em;
+}
+
+.banner-overview-img {
+    width: 40vw;
+}
+
 
 /* sflightx.com/team ONLY */
 
@@ -137,13 +188,10 @@ header img {
     color: black;
 }
 
-.detail-container, .overview-header {
+.detail-container {
     margin: 50px 5vw;
 }
 
-.overview-header h5, .overview-header h1 {
-    margin: 0px;
-}
 
 .sec-span {
     color: gray;
@@ -172,7 +220,6 @@ header img {
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 992px) {
@@ -186,6 +233,15 @@ header img {
 
     #article-team-mod {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #banner-info {
+        display: flex;
+    }
+
+    .banner-img {
+        width: 40vw;
+        object-fit: cover;
     }
 }
 
