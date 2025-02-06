@@ -17,7 +17,6 @@
 /* HEADER */
 
 header ul {
-    display: flex;
     list-style: none;
 }
 
@@ -33,6 +32,14 @@ header ul li p {
 header img {
     height: 10vh;
     margin: 0px 15px 0px 15px;
+}
+
+#nav_list {
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.75);
+    width: 100vw;
+    height: 100vh;
 }
 
 /* SUBHEADER*/
@@ -81,11 +88,12 @@ header img {
 
 .banner-div {
     padding: 30px 50px;
+    text-align: center;
 }
 
 .banner-full {
     height: 80vh;
-    padding: 15vh 5vw;
+    padding: 15vh 7.5vw;
     background-position: center center;
     background-size: cover;
 }
@@ -188,7 +196,12 @@ header img {
 }
 
 .detail-container {
+    min-height: 50vh;
     margin: 50px 5vw;
+}
+
+.detail-container p {
+    color: lightgray;
 }
 
 
@@ -206,19 +219,14 @@ header img {
 
 /* MEDIA */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
     #footer-link a {
         margin-left: 2vh;
     }
-}
-
-@media only screen and (min-width: 600px) {
-    #footer-link a {
-        margin-left: 2vh;
+    header ul li {
+        margin: 7.5vh 15vw;
+        text-align: right;
     }
-}
-
-@media only screen and (min-width: 768px) {
 }
 
 @media only screen and (min-width: 992px) {
@@ -244,6 +252,18 @@ header img {
     }
     .banner-stat-container {
         display: flex;
+    }
+    .banner-div {
+        text-align: left;
+    }
+    #nav_list {
+        position: relative;
+        background-color: rgba(0,0,0,0);
+        width: auto;
+        height: auto;
+    }
+    #menu {
+        display: none;
     }
 }
 
