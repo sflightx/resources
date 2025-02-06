@@ -19,15 +19,20 @@ document.addEventListener("DOMContentLoaded", function() {
             img.src = childData.thumbnail;
             div.appendChild(img);
 
-            const title = document.createElement('p');
+            const title = document.createElement('h1');
             title.textContent = childData.name;
             div.appendChild(title);
 
             const learnMoreButton = document.createElement('button');
-            learnMoreButton.textContent = 'Learn More';
+            
             learnMoreButton.addEventListener('click', function() {
                 window.open('https://sflightx.com/missions/?id=' + childData.key, '_blank');
             });
+
+            const button_txt = document.createElement('h4');
+            button_txt.textContent = 'Learn More';
+
+            learnMoreButton.appendChild(button_txt);
             div.appendChild(learnMoreButton);
 
             layout.appendChild(div);
@@ -43,35 +48,32 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         data.reverse();
         data.forEach(childData => {
-            const div = document.createElement('div');
-            div.classList.add('upcoming-grid-child');
 
-            const img = document.createElement('img');
-            img.src = childData.thumbnail;
-            div.appendChild(img);
-
-            const childDiv = document.createElement('div');
-            childDiv.classList.add('upcoming-grid-child-container');
+            const innerDiv = document.createElement('div');
+            innerDiv.classList.add("upcoming-banner-full")
+            innerDiv.style.backgroundImage = `url(${childData.thumbnail})`;
 
             const title = document.createElement('p');
             title.classList.add('upcoming-title');
             title.textContent = childData.name;
-            childDiv.appendChild(title);
+            innerDiv.appendChild(title);
 
-            const subtitle = document.createElement('p');
+            const subtitle = document.createElement('h1');
             subtitle.textContent = "Upcoming Launch";
-            childDiv.appendChild(subtitle);
+            innerDiv.appendChild(subtitle);
 
             const learnMoreButton = document.createElement('button');
-            learnMoreButton.textContent = 'Learn More';
             learnMoreButton.addEventListener('click', function() {
                 window.open('https://sflightx.com/missions/?id=' + childData.key, '_blank');
             });
-            childDiv.appendChild(learnMoreButton);
 
-            div.appendChild(childDiv);
+            const button_txt = document.createElement('h3');
+            button_txt.textContent = 'Learn More';
 
-            layout.appendChild(div);
+            learnMoreButton.appendChild(button_txt);
+            innerDiv.appendChild(learnMoreButton);
+
+            layout.appendChild(innerDiv);
         });
     });
 });

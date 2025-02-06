@@ -14,13 +14,13 @@
 main {
     flex: 1;
     padding: 0px;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(15,15,15,1);
     min-height: 60vh;
     font-size: 1.1em;
 }
 
 body {
-    background: black;
+    background: rgb(15,15,15);
     margin: 0;
     padding: 0;
     max-height: 100vh;
@@ -38,12 +38,13 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(15,15,15,0);
 }
 
 footer {
     padding: 50px 20px;
     text-align: center;
+    background-color: rgba(0,0,0,1);
 }
 
 ul {
@@ -53,7 +54,7 @@ ul {
 }
 
 table {
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(15,15,15,0.75);
     padding: 25px 50px;
     width: 100vw;
     height: 100%;
@@ -68,7 +69,8 @@ td {
 }
 
 button {
-    background-color: rgba(0,0,0,0);
+    border-radius: 30px;
+    background-color: rgba(15,15,15,0);
     color: white;
     padding: 0px 50px;
     border: solid white 3px;
@@ -79,6 +81,15 @@ button {
 form {
     width: 75%;
     margin: 50px 0px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+button:hover p, button:hover b, button:hover h3, button:hover h4{
+    color: black;
 }
 
 input[type=text], select {
