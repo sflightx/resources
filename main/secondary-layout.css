@@ -118,6 +118,17 @@ header img {
     grid-template-columns: repeat(1, 1fr);
 }
 
+#banner-semi {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    grid-gap: 50px 0px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
 #banner-info {
     background-position: center center;
     background-size: cover;
@@ -128,7 +139,7 @@ header img {
 .banner-img {
     border-radius: 30px;
     width: 90vw;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 .banner-div {
@@ -146,6 +157,11 @@ header img {
 .footer-link-img {
     width: 3vw;
     height: 3vw;
+}
+
+#subtext {
+    font-size: 1em;
+    color: #aaaaaa;
 }
 
 /* sflightx.com/vehicle ONLY */
