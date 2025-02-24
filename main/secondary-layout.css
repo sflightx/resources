@@ -30,8 +30,9 @@ header ul li p {
 }
 
 header img {
-    height: 10vh;
+    height: 7.5vh;
     margin: 0px 15px 0px 15px;
+    border-radius: 25px;
 }
 
 #nav_list {
