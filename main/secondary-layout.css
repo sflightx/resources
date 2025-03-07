@@ -35,6 +35,14 @@ header img {
     border-radius: 25px;
 }
 
+.header-thumbnail {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25px;
+}
+
 #nav_list {
     position: absolute;
     z-index: 5;
@@ -69,14 +77,16 @@ header img {
 }
 
 .grid-child {
-    margin: 3vh 5vw;
+    margin: 1vh 0;
     padding: 1vw;
 }
 
 .grid-child img {
-    min-height: 70%;
+    min-height: 25vh;
     width: 90%;
-    border-radius: 30px;
+    border-radius: 25px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .grid-child p {
@@ -102,6 +112,11 @@ header img {
 .upcoming-image {
     background-position: center center;
     background-size: cover;
+}
+
+.col {
+    width: 100%;
+    height: 100%;
 }
 
 /* GENERAL */

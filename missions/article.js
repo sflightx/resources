@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const article = document.getElementById('article');
 
     const database = firebase.database();
-    const upcomingRef = database.ref('launch_manifest/upcoming');
+    const upcomingRef = database.ref('launch_manifest/launches');
 
     upcomingRef.once('value', snapshot => {
         console.log('Data snapshot received:', snapshot.val());
@@ -24,25 +24,51 @@ document.addEventListener("DOMContentLoaded", function() {
         data.reverse();
         data.forEach(childData => {
 
-            const img = document.createElement('img');
-            img.src = childData.thumbnail;
-            img.style.width = '100%';
-            img.style.height = '25vh';
-            img.style.objectFit = 'cover';
-            img.style.objectPosition = 'center';
-            img.style.borderRadius = '25px';
+            if (childData.key == key) {
 
-            const desc = document.createElement('p');
-            desc.id = 'subtext';
-            desc.textContent = childData.desc;
+                const desc = document.createElement('p');
+                desc.id = 'subtext';
+                desc.textContent = childData.desc;
 
-            const company = document.createElement('h2');
-            company.id = 'company';
-            getCompany(childData.companyId);
+                const company = document.createElement('h2');
+                company.id = 'company';
+                getCompany(childData.companyId);
 
-            grid.appendChild(desc);
-            grid.appendChild(company);
-            articleHeader.appendChild(img);
+                const link = document.createElement('div');
+                link.style.padding = '10px';
+                link.style.display = 'flex';
+                getLink(childData, link);
+
+                const img = document.createElement('img');
+                img.src = childData.thumbnail;
+                img.classList.add('header-thumbnail');
+
+                const nextIcon = document.createElement('span');
+                nextIcon.classList.add('material-symbols-outlined');
+                nextIcon.textContent = 'arrow_forward_ios';
+
+                const companyDiv = document.createElement('div');
+                companyDiv.style.display = 'flex';
+                companyDiv.style.alignItems = 'center';
+                companyDiv.appendChild(company);
+                companyDiv.appendChild(nextIcon);
+
+
+                const col1 = document.createElement('div');
+                col1.classList.add('col');
+                col1.appendChild(desc);
+
+                const col2 = document.createElement('div');
+                col2.classList.add('col');
+                
+                col2.appendChild(companyDiv);
+                col2.appendChild(link);
+
+                grid.appendChild(col1);
+                grid.appendChild(col2);
+                articleHeader.appendChild(img);
+                return;
+            }            
         });
     });
 
@@ -91,6 +117,27 @@ let getCompany = (companyId) => {
     return company;
 }
 
+getLink = (data, div) => {
+    const links = data.link;
+    const keys = Object.keys(links);
+    keys.forEach(key => {
+        const button = document.createElement('button');
+        button.style.margin = '10px';
+        button.href = links[key];
+        const button_txt = document.createElement('h4');
+        button_txt.textContent = key;
+        button.addEventListener('click', function() {
+            window.open('https://sflightx.com/missions/?id=' + links[key], '_blank');
+        });
+        button.appendChild(button_txt);
+        button.target = '_blank';
+        div.appendChild(button);
+    });
+    return div;
+}
+
 grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
 grid.style.margin = '20px 50px';
+grid.style.padding = '20px';
 grid.style.borderRadius = '25px';
+grid.style.minHeight = '12.5vh';
