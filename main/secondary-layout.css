@@ -58,7 +58,7 @@ header img {
 
 /* GRID */
 
-.grid-container {
+.grid-container, #grid {
     display: grid;
     overflow: hidden;
     justify-content: space-evenly;
@@ -87,8 +87,7 @@ header img {
     padding: 15vh 5vw;
     height: 75vh;
     align-content: end;
-    background-position: center center;
-    background-size: cover;
+    
 }
 
 .upcoming-banner-full h1 {
@@ -96,8 +95,13 @@ header img {
 }
 
 .upcoming-title {
-    font-size: 10vw;
+    font-size: 7.5vw;
     margin: 0;
+}
+
+.upcoming-image {
+    background-position: center center;
+    background-size: cover;
 }
 
 /* GENERAL */
@@ -161,7 +165,7 @@ header img {
 }
 
 #subtext {
-    font-size: 1em;
+    font-size: 3vw;
     color: #aaaaaa;
 }
 
@@ -340,6 +344,15 @@ header img {
     }
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #subtext {
+        font-size: 1em;
+        color: #aaaaaa;
     }
 }
 

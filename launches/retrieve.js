@@ -50,17 +50,33 @@ document.addEventListener("DOMContentLoaded", function() {
         data.forEach(childData => {
 
             const innerDiv = document.createElement('div');
-            innerDiv.classList.add("upcoming-banner-full")
-            innerDiv.style.backgroundImage = `url(${childData.thumbnail})`;
+            innerDiv.classList.add("banner")
+            innerDiv.style.height = '50vh';
+
+            const image = document.createElement('div');
+            image.classList.add('upcoming-image');
+            image.style.backgroundImage = 'url(' + childData.thumbnail + ')';
+            image.style.height = '50vh';
+            image.style.width = '100%';
+            innerDiv.appendChild(image);
+
+            const secondaryDiv = document.createElement('div');
+            secondaryDiv.style.padding = '25px 50px';
+
 
             const title = document.createElement('p');
             title.classList.add('upcoming-title');
             title.textContent = childData.name;
-            innerDiv.appendChild(title);
+            secondaryDiv.appendChild(title);
 
-            const subtitle = document.createElement('h1');
+            const details = document.createElement('p');
+            details.id = 'subtext';
+            details.textContent = childData.desc;
+            secondaryDiv.appendChild(details);
+
+            const subtitle = document.createElement('h3');
             subtitle.textContent = "Upcoming Launch";
-            innerDiv.appendChild(subtitle);
+            secondaryDiv.appendChild(subtitle);
 
             const learnMoreButton = document.createElement('button');
             learnMoreButton.addEventListener('click', function() {
@@ -71,9 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
             button_txt.textContent = 'Learn More';
 
             learnMoreButton.appendChild(button_txt);
-            innerDiv.appendChild(learnMoreButton);
+            secondaryDiv.appendChild(learnMoreButton);
 
             layout.appendChild(innerDiv);
+            layout.appendChild(secondaryDiv);
         });
     });
 });
