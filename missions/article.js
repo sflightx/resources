@@ -75,26 +75,16 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(snippetFilename)
     .then((response) => response.text())
     .then((html) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        while (article.firstChild) {
-            article.removeChild(article.firstChild);
-        }
-        Array.from(doc.body.childNodes).forEach(node => {
-            article.appendChild(node);
-        });
+        article.innerHTML = html;
         const preformattedText = key.replaceAll("-", " ");
         const formattedText = preformattedText.replaceAll("_", "-")
             .replace(/\b\w/g, char => char.toUpperCase());
-        console.log(formattedText);
         articleTitle.textContent = formattedText;
     }).catch((error) => {
         articleTitle = 'Article Not Found';
         article.innerHTML = "Error loading article.";
         console.log(error);
     });
-    
-    console.log(articleTitle);
 
     articleHeader.appendChild(articleTitle);
     articleHeader.appendChild(grid);
@@ -106,7 +96,6 @@ let getCompany = (companyId) => {
     const companyRef = database.ref('static/company');
     var company = '';
     companyRef.once('value', snapshot => {
-        console.log('Data snapshot received:', snapshot.val());
         var data = [];
         snapshot.forEach(child => {
             data.push(child.val());
@@ -117,7 +106,6 @@ let getCompany = (companyId) => {
                 company = childData.name;
             }
         });
-        console.log(company); // Moved inside the callback
         companyText = document.getElementById('company');
         companyText.textContent = company; 
     });
@@ -130,11 +118,11 @@ getLink = (data, div) => {
     keys.forEach(key => {
         const button = document.createElement('button');
         button.style.margin = '10px';
-        button.href = links[key];
+        button.setAttribute('data-link', links[key]);
         const button_txt = document.createElement('h4');
         button_txt.textContent = key;
         button.addEventListener('click', function() {
-            window.open('https://sflightx.com/missions/?id=' + links[key], '_blank');
+            window.open('https://' + button.getAttribute('data-link'), '_blank');
         });
         button.appendChild(button_txt);
         button.target = '_blank';
@@ -144,7 +132,7 @@ getLink = (data, div) => {
 }
 
 grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-grid.style.margin = '20px 0px';
+grid.style.margin = '20px 50px';
 grid.style.padding = '20px';
 grid.style.borderRadius = '25px';
 grid.style.minHeight = '12.5vh';
