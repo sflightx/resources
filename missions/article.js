@@ -39,9 +39,47 @@ document.addEventListener("DOMContentLoaded", function() {
                 link.style.display = 'flex';
                 getLink(childData, link);
 
+                const metadata = document.createElement('div');
+                metadata.id = 'grid';
+                metadata.style.padding = '0px';
+                metadata.style.backgroundColor = 'rgba(27, 27, 27, 1)';
+
                 const img = document.createElement('img');
                 img.src = childData.thumbnail;
+                img.id = 'thumbnail';
                 img.classList.add('header-thumbnail');
+
+                const metadataDiv = document.createElement('div');
+                metadataDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                metadataDiv.id = 'metadata';
+                metadataDiv.classList.add('header-thumbnail');
+                
+                const data1 = document.createElement('div');
+                data1.id = 'data';
+                const icon1 = document.createElement('span');
+                icon1.classList.add('material-symbols-outlined');
+                icon1.textContent = 'location_on';
+                icon1.id = 'small-icon';
+                data1.appendChild(icon1);
+                data1.appendChild(document.createTextNode(childData.launch_site.address));
+
+                const data2 = document.createElement('div');
+                data2.id = 'data';
+                const icon2 = document.createElement('span');
+                icon2.classList.add('material-symbols-outlined');
+                icon2.textContent = 'location_on';
+                icon2.id = 'small-icon';
+                data2.appendChild(icon2);
+                data2.appendChild(document.createTextNode(childData.launch_site.complex));
+
+                const data3 = document.createElement('div');
+                data3.id = 'data';
+                const icon3 = document.createElement('span');
+                icon3.classList.add('material-symbols-outlined');
+                icon3.textContent = 'location_on';
+                icon3.id = 'small-icon';
+                data3.appendChild(icon3);
+                data3.appendChild(document.createTextNode(childData.launch_site.pad));
 
                 const nextIcon = document.createElement('span');
                 nextIcon.classList.add('material-symbols-outlined');
@@ -65,9 +103,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 col2.appendChild(companyDiv);
                 col2.appendChild(link);
 
+                metadataDiv.appendChild(data1);
+                metadataDiv.appendChild(data2);
+                metadataDiv.appendChild(data3);
+
                 grid.appendChild(col1);
                 grid.appendChild(col2);
-                articleHeader.appendChild(img);
+                metadata.appendChild(img);
+                metadata.appendChild(metadataDiv);
+                articleHeader.appendChild(metadata);
                 return;
             }            
         });
@@ -155,8 +199,3 @@ checkIcon = (key) => {
     }
 }
 
-grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-grid.style.margin = '20px 0px';
-grid.style.padding = '20px';
-grid.style.borderRadius = '25px';
-grid.style.minHeight = '12.5vh';
