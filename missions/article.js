@@ -132,7 +132,7 @@ getLink = (data, div) => {
 }
 
 grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-grid.style.margin = '20px 50px';
+grid.style.margin = '20px 0px';
 grid.style.padding = '20px';
 grid.style.borderRadius = '25px';
 grid.style.minHeight = '12.5vh';
