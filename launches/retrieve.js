@@ -52,9 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const innerDiv = document.createElement('div');
             innerDiv.classList.add("banner")
             innerDiv.style.height = '50vh';
+            innerDiv.style.paddingTop = '7.5vh';
 
             const image = document.createElement('div');
-            image.classList.add('upcoming-image');
+            image.classList.add('header-thumbnail');
             image.style.backgroundImage = 'url(' + childData.thumbnail + ')';
             image.style.height = '50vh';
             image.style.width = '100%';
