@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const learnMoreButton = document.createElement('button');
             
             learnMoreButton.addEventListener('click', function() {
-                window.open('https://sflightx.com/missions/?id=' + childData.key, '_blank');
+                window.open('https://sflightx.com/missions/?y=' + childData.y_ts + '?id=' + childData.key, '_blank');
             });
 
             const button_txt = document.createElement('h4');
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const learnMoreButton = document.createElement('button');
             learnMoreButton.addEventListener('click', function() {
-                window.open('https://sflightx.com/missions/?id=' + childData.key, '_blank');
+                window.open('https://sflightx.com/missions/?y=' + childData.y_ts + '?id=' + childData.key, '_blank');
             });
 
             const button_txt = document.createElement('h3');

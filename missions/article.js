@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Get the key from the URL (e.g., ?key=article1)
+    // Get the key from the URL (e.g., ?id=sky-shield-reaction-mission.html)
     const urlParams = new URLSearchParams(window.location.search);
     const key = urlParams.get("id");
     const baseUrl = "https://sflightx.com/article/launch/";
     var articleTitle = document.createElement('h1');
 
-    const snippetFilename = `${baseUrl}${key}.html`; // Assuming filenames match keys
-
+    const snippetFilename = `${baseUrl}${key}`; // Assuming filenames match keys
+    console.log('Fetching article:', snippetFilename);
     const articleHeader = document.getElementById('article-header');
     const article = document.getElementById('article');
 
