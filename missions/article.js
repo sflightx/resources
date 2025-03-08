@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const nextIcon = document.createElement('span');
                 nextIcon.classList.add('material-symbols-outlined');
                 nextIcon.textContent = 'arrow_forward_ios';
+                nextIcon.style.fontSize = '20px';
 
                 const companyDiv = document.createElement('div');
                 companyDiv.style.display = 'flex';
@@ -118,17 +119,40 @@ getLink = (data, div) => {
     keys.forEach(key => {
         const button = document.createElement('button');
         button.style.margin = '10px';
+        button.style.padding = '10px';
         button.setAttribute('data-link', links[key]);
-        const button_txt = document.createElement('h4');
-        button_txt.textContent = key;
         button.addEventListener('click', function() {
             window.open('https://' + button.getAttribute('data-link'), '_blank');
         });
-        button.appendChild(button_txt);
+        button.style.display = 'flex';
+        button.style.alignItems = 'center';
+        const icon = document.createElement('h4');
+        icon.classList.add('material-symbols-outlined');
+        icon.textContent = checkIcon(key);
+        icon.style.margin = '0px 10px 0px 0px';
+        button.appendChild(icon);
+        button.appendChild(document.createTextNode(' ' + key.toUpperCase()));
         button.target = '_blank';
         div.appendChild(button);
     });
     return div;
+}
+
+checkIcon = (key) => {
+    switch (key) {
+        case 'website':
+            return 'public';
+        case 'twitter':
+            return 'twitter';
+        case 'instagram':
+            return 'instagram';
+        case 'facebook':
+            return 'facebook';
+        case 'youtube':
+            return 'youtube';
+        default:
+            return 'public';
+    }
 }
 
 grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
