@@ -75,7 +75,14 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(snippetFilename)
     .then((response) => response.text())
     .then((html) => {
-        article.innerHTML = html;
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        while (article.firstChild) {
+            article.removeChild(article.firstChild);
+        }
+        Array.from(doc.body.childNodes).forEach(node => {
+            article.appendChild(node);
+        });
         const preformattedText = key.replaceAll("-", " ");
         const formattedText = preformattedText.replaceAll("_", "-")
             .replace(/\b\w/g, char => char.toUpperCase());
@@ -137,7 +144,7 @@ getLink = (data, div) => {
 }
 
 grid.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-grid.style.margin = '20px 50px';
+grid.style.margin = '20px 0px';
 grid.style.padding = '20px';
 grid.style.borderRadius = '25px';
 grid.style.minHeight = '12.5vh';
