@@ -1,43 +1,47 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const database = firebase.database();
-    const recentRef = database.ref('athena/contract');
+document.addEventListener('DOMContentLoaded', function() {
+    const path = 'athena/contract';
+    const layout = document.getElementById('horizontal-scroll-grid');
 
-    recentRef.once('value', snapshot => {
-        console.log('Data snapshot received:', snapshot.val());
-        var layout = document.getElementById('horizontal-scroll-grid');
+    const database = firebase.database();
+    const databaseRef = database.ref(path);
+
+    databaseRef.once('value', snapshot => {
         var data = [];
         snapshot.forEach(child => {
             data.push(child.val());
         });
         data.reverse();
+        console.log('Data received from getContracts:', data);
         data.forEach(childData => {
             const div = document.createElement('div');
             div.classList.add('grid-child');
-            const img = document.createElement('img');
-            img.style.display = 'none';
-            if (!childData.thumbnail == null) {
+            div.id = 'bg-dark';
+            div.style.display = 'flex';
+            div.style.flexDirection = 'column';
+            div.style.alignItems = 'center';
+
+            if (childData.thumbnail === undefined || childData.thumbnail === null) {
+
+            } else {
+                const img = document.createElement('img');
                 img.src = childData.thumbnail;
-                img.style.display = 'block';
+                div.appendChild(img);
             }
-            div.appendChild(img);
 
             const title = document.createElement('h1');
             title.textContent = childData.title;
+            title.style.textAlign = 'center';
+            title.style.fontSize = '4vw';
             div.appendChild(title);
 
-            const description = document.createElement('p');
-            description.textContent = childData.desc;
-            description.id = 'subtext'
-            div.appendChild(description);
-
             const learnMoreButton = document.createElement('button');
-            
+
             learnMoreButton.addEventListener('click', function() {
-                window.open('https://athena.sflightx.com/contract/?id=' + childData.key, '_blank');
+                window.open(`https://athena.sflightx.com/contracts/?id=${childData.key}`, '_blank');
             });
 
             const button_txt = document.createElement('h4');
-            button_txt.textContent = 'Apply';
+            button_txt.textContent = 'Apply Now';
 
             learnMoreButton.appendChild(button_txt);
             div.appendChild(learnMoreButton);
