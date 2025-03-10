@@ -36,10 +36,14 @@ header img {
 }
 
 .header-thumbnail {
-    width: 65vw;
+    width: 95%;
+    margin: 20px auto;
     object-fit: cover;
     object-position: center;
     border-radius: 25px;
+    display: block;
+    height: auto;
+    max-height: 100%;
 }
 
 #nav_list {
@@ -83,12 +87,12 @@ header img {
 
 .grid-child {
     margin: 1vh 0;
-    padding: 1vw;
+    padding: 5%;
 }
 
 .grid-child img {
     min-height: 25vh;
-    width: 90%;
+    width: 100%;
     border-radius: 25px;
     object-fit: cover;
     object-position: center;
@@ -185,7 +189,7 @@ header img {
 }
 
 #subtext {
-    font-size: 3vw;
+    font-size: 1em;
     color: #aaaaaa;
 }
 
@@ -307,7 +311,7 @@ header img {
 }
 
 #bg-img {
-    width: 100vw;
+    width: 100%;
 }
 
 #banner-logo {
@@ -360,10 +364,18 @@ header img {
     }
     .banner-stat-container {
         display: flex;
+        justify-content: space-around;
     }
+
+    .banner-stat-child {
+        flex: 1;
+        margin: 0 10px;
+    }
+
     .banner-div {
         text-align: left;
     }
+    
     #nav_list {
         position: relative;
         background-color: rgba(15,15,15,0);
@@ -380,7 +392,7 @@ header img {
         grid-template-columns: repeat(2, 25fr);
     }
     #subtext {
-        font-size: 1em;
+        font-size: 1.25em;
         color: #aaaaaa;
     }
     #thumbnail {
