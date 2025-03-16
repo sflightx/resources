@@ -1,7 +1,6 @@
-import firebase, { initializeApp } from 'firebase/app';
-
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
     apiKey: "AIzaSyATiu2dMGbYxGYH0S_31J8XsK5OBpTLMfQ",
@@ -14,15 +13,15 @@ const firebaseConfig = {
     measurementId: "G-813MEL2GZF"
 };
 
-if (!firebase.apps.length) {
+const app = initializeApp(firebaseConfig);
+
+if (!getAuth().app) {
     // Initialize Firebase
     console.log("Initializing Firebase...");
-    const auth = firebase.auth(app);
+    const auth = getAuth(app);
 } else {
     // Use the existing Firebase app
     console.log("Firebase already initialized.");
-    firebase.app();
 }
-initializeApp(firebaseConfig);
 
-export default firebase;
+export { app, getAuth, getDatabase };
