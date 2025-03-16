@@ -1,6 +1,8 @@
-const serviceAccount = 'ttps://sflightx.com/resources/serviceAuth/credential.json';
+const serviceAccount = 'https://sflightx.com/resources/serviceAuth/credential.json';
+
 const db = firebase.database();
 const app = firebase.initializeApp(serviceAccount);
+
 if (!firebase.apps.length) {
     console.log("Initializing Firebase...");
     const auth = firebase.auth(app);
