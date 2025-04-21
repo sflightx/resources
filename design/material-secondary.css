@@ -1,0 +1,42 @@
+/* Drawer hidden by default */
+#drawer {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#drawer.open {
+    transform: translateX(0);
+}
+
+#backdrop.hidden {
+    display: none;
+}
+
+#backdrop {
+    display: block;
+}
+
+.drawer-header {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.drawer-item {
+    padding: 48px 24px 0px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .logo img {
+    height: 7.5vh;
+}
