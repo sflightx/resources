@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     customElements.whenDefined('md-switch').then(() => {
+      const logo = document.getElementById("logo");
       const themeToggle = document.getElementById('themeToggle');
       const body = document.body;
   
@@ -27,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
           body.classList.remove('dark-theme');
           localStorage.setItem('theme', 'light');
         }
+        logo.src = themeToggle.selected
+        ? "https://sflightx.com/resources/static/logo-dark.png"
+        : "https://sflightx.com/resources/static/logo.png";
       });
     });
   });

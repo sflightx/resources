@@ -13,7 +13,6 @@
 }
 
 #locator {
-    position: sticky;
     background-color: var(--md-sys-color-surface);
 }
 
