@@ -205,11 +205,3 @@ body.dark-theme {
     --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12);
     --elevation-2: 0 4px 6px rgba(0, 0, 0, 0.16);
 }
-
-.container {
-    background-color: var(--md-sys-color-surface-container);
-}
-
-.large-button:hover {
-    background-color: var(--md-sys-color-surface-container-highest);
-}

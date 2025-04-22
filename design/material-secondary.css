@@ -19,6 +19,7 @@
 
 #backdrop {
     display: block;
+    opacity: 0.5;
 }
 
 .drawer-header,
@@ -44,11 +45,6 @@ header .logo {
 
 header .logo img {
     height: 7.5vh;
-}
-
-a {
-    color: var(--md-sys-color-on-background);
-    text-decoration: underline;
 }
 
 a:hover {
