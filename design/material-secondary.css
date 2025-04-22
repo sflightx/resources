@@ -42,8 +42,23 @@ header .logo {
     gap: 1rem;
 }
 
-header .logo img {
+footer #logo {
+    height: 15vh;
+    margin-bottom: 10px;
+}
+
+header img,
+footer img {
     height: 7.5vh;
+}
+
+.footer-link-img {
+    height: 3.5vh;
+    min-width: 100%;
+}
+
+footer p {
+    padding: 8px 0px;
 }
 
 a:hover {
@@ -63,7 +78,8 @@ a:hover {
     display: block;
     width: 100%;
     padding: 24px;
-    margin: 0px 0px 24px 0px; /*propagate*/
+    margin: 0px 0px 24px 0px;
+    /*propagate*/
     border-radius: 16px;
     background-color: var(--md-sys-color-surface-container);
     color: var(--md-sys-color-on-surface);
@@ -75,15 +91,59 @@ a:hover {
     padding: 8px 0px;
 }
 
+#horizontal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 48px;
+    align-items: end;
+}
+
+#footer-logo,
+#legal-link {
+    flex: 1 1 250px;
+    min-width: 250px;
+}
+
+#icon-link {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.text-link {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.text-link a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.text-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+    #legal-link {
+        text-align: left;
+    }
+}
+
+
 @media screen and (max-width: 1024px) {
     #locator {
         display: none;
     }
 }
 
-/* Hide the #menu element on screens wider than 1024px */
 @media screen and (min-width: 1024px) {
     #menu {
         display: none !important;
-    }    
+    }
 }

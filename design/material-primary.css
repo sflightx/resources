@@ -35,6 +35,7 @@
     transition: background-color 0.3s, color 0.3s;
     scroll-behavior: smooth;
     text-decoration: none;
+    max-width: none;
 }
 
 body {
@@ -74,7 +75,9 @@ main {
 }
 
 footer {
-    padding: 20px 40px;
+    width: 100%;
+    padding: 8px;
+    margin: 24px 0px;
     background-color: var(--md-sys-color-background);
 }
 
