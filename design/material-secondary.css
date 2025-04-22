@@ -63,7 +63,7 @@ a:hover {
     display: block;
     width: 100%;
     padding: 24px;
-    margin: 0px 0px 24px 0px;
+    margin: 0px 0px 24px 0px; /*propagate*/
     border-radius: 16px;
     background-color: var(--md-sys-color-surface-container);
     color: var(--md-sys-color-on-surface);
