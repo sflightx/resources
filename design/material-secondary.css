@@ -84,3 +84,10 @@ a:hover {
         display: none;
     }
 }
+
+/* Hide the #menu element on screens wider than 1024px */
+@media screen and (min-width: 1024px) {
+    #menu {
+        display: none !important;
+    }    
+}
