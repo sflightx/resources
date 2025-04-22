@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('theme', 'light');
         }
         logo.src = themeToggle.selected
-        ? "https://sflightx.com/resources/static/logo-dark.png"
-        : "https://sflightx.com/resources/static/logo.png";
+        ? "https://sflightx.com/resources/static/logo.png"
+        : "https://sflightx.com/resources/static/logo-dark.png";
       });
     });
   });

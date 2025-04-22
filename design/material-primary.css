@@ -234,6 +234,6 @@ a {
     background-color: var(--md-sys-color-surface-container-highest);
 }
 
-md-filled-tonal-button {
+md-filled-tonal-button, md-filled-button {
     padding: 0px 24px;
 }
