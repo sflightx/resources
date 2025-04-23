@@ -149,7 +149,7 @@ a:hover {
 .banner {
     width: 100%;
     height: auto;
-    padding: 48px 48px 0px 48px;
+    padding: 16px 16px 0px 16px;
     display: grid;
     overflow: hidden;
     justify-content: space-evenly;
@@ -173,11 +173,33 @@ a:hover {
     gap: 24px;
 }
 
+.banner#stat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 16px;
+    justify-content: center;
+}
+
 .banner#semi img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 48px;
+}
+
+.container#stat {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 24px;
+    justify-content: center;
+    align-items: center; /* Centers content vertically */
+    text-align: center; /* Centers text content */
+}
+
+.container#stat h1 {
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 768px) {

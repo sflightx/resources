@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     customElements.whenDefined('md-switch').then(() => {
       const logo = document.getElementById("logo");
+      const footer_logo = document.getElementById("footer_logo");
       const themeToggle = document.getElementById('themeToggle');
       const body = document.body;
   
@@ -29,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('theme', 'light');
         }
         logo.src = themeToggle.selected
+        ? "https://sflightx.com/resources/static/logo.png"
+        : "https://sflightx.com/resources/static/logo-dark.png";
+        footer_logo.src = themeToggle.selected
         ? "https://sflightx.com/resources/static/logo.png"
         : "https://sflightx.com/resources/static/logo-dark.png";
       });
