@@ -50,7 +50,7 @@ header {
     position: fixed;
     width: 100vw;
     height: 10vh;
-    margin: auto;
+    margin: 0px;
     padding: 0px 48px;
     z-index: 5;
     display: flex;
@@ -70,18 +70,18 @@ label {
 main {
     flex: 1;
     padding: 0px;
-    margin: 24px;
+    margin: 0px;
     min-height: 60vh;
 }
 
 footer {
     width: 100%;
-    padding: 8px;
+    padding: 24px 48px;
     margin: 24px 0px;
     background-color: var(--md-sys-color-background);
 }
 
-.drawer {
+#drawer, #side-sheet {
     position: fixed;
     top: 0;
     left: 0;
@@ -231,6 +231,10 @@ a {
 
 .container {
     background-color: var(--md-sys-color-surface-container);
+}
+
+.container#static {
+    background-color: var(--md-sys-color-surface-container-high);
 }
 
 .large-button:hover {
