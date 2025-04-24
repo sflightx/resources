@@ -54,20 +54,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
+    
+        if (!Array.isArray(content)) {
+            console.error("renderArticle error: content is not an array", content);
+            container.textContent = "Error: Article failed to load.";
+            return;
+        }
+    
         let hasTwitterEmbed = false;
-
+    
         content.forEach(item => {
             const el = createElementFromJson(item);
-
-            if (el.classList.contains('twitter-tweet')) {
-                hasTwitterEmbed = true;
+    
+            // Ensure blockquotes span full width
+            if (item.type === 'blockquote') {
                 el.style.width = '100%';
                 el.style.maxWidth = '100%';
+                el.style.margin = '1em 0';
             }
-
+    
+            if (el.classList.contains('twitter-tweet')) {
+                hasTwitterEmbed = true;
+            }
+    
             container.appendChild(el);
         });
-
+    
+        // Inject Twitter embed script if needed
         if (hasTwitterEmbed && !document.getElementById('twitter-widgets-script')) {
             const script = document.createElement('script');
             script.id = 'twitter-widgets-script';
@@ -76,13 +89,18 @@ document.addEventListener("DOMContentLoaded", function () {
             script.charset = "utf-8";
             document.body.appendChild(script);
         }
-
-        // Force dark mode for Twitter embeds
+    
+        // Ensure dark mode inside blockquote iframe (after Twitter loads)
         setTimeout(() => {
             const iframes = container.querySelectorAll('iframe');
             iframes.forEach(iframe => {
-                iframe.style.colorScheme = 'dark';
+                try {
+                    iframe.contentWindow.document.documentElement.style.colorScheme = 'dark';
+                } catch (e) {
+                    // Cross-origin iframe – cannot access, expected for Twitter
+                }
             });
-        }, 1000); // Delay to ensure Twitter loads first
+        }, 1500);
     }
+    
 });
