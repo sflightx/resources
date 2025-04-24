@@ -19,57 +19,58 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('article').textContent = "Failed to load article.";
         });
 
-    // Convert JSON to DOM
-    function createElementFromJson(json) {
-        const el = document.createElement(json.type);
-    
-        // Loop through the keys and apply attributes, styles, and content
-        for (const [key, value] of Object.entries(json)) {
-            if (key === 'type' || key === 'children') continue;
-    
-            switch (key) {
-                case 'slot':
-                    el.setAttribute('slot', value);
-                    break;
-                case 'class':
-                    el.className = value;
-                    break;
-                case 'style':
-                    if (typeof value === 'object') {
-                        for (const [styleKey, styleValue] of Object.entries(value)) {
-                            el.style[styleKey] = styleValue;
+        function createElementFromJson(json) {
+            const el = document.createElement(json.type);
+        
+            for (const [key, value] of Object.entries(json)) {
+                if (key === 'type' || key === 'children') continue;
+        
+                switch (key) {
+                    case 'slot':
+                        el.setAttribute('slot', value);
+                        break;
+                    case 'class':
+                        el.className = value;
+                        break;
+                    case 'style':
+                        if (typeof value === 'object') {
+                            for (const [styleKey, styleValue] of Object.entries(value)) {
+                                el.style[styleKey] = styleValue;
+                            }
                         }
-                    }
-                    break;
-                case 'content':
-                    if (typeof value === 'string' && /<\/?[a-z][\s\S]*>/i.test(value)) {
-                        el.innerHTML = value;
-                    } else {
-                        el.textContent = value;
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    case 'content':
+                        if (typeof value === 'string' && /<\/?[a-z][\s\S]*>/i.test(value)) {
+                            el.innerHTML = value;
+                        } else {
+                            el.textContent = value;
+                        }
+                        break;
+                    default:
+                        el.setAttribute(key, value); // Handle arbitrary attributes like src, title, frameborder, etc.
+                        break;
+                }
             }
+        
+            const children = json.children || json.content || [];
+            if (!Array.isArray(children)) {
+                return el;
+            }
+        
+            children.forEach(child => {
+                const childElement = createElementFromJson(child);
+                el.appendChild(childElement);
+            });
+        
+            return el;
         }
-    
-        const children = json.children || json.content || [];
-        if (!Array.isArray(children)) {
-            return el; // If no children, just return the element created.
-        }
-    
-        children.forEach(child => {
-            const childElement = createElementFromJson(child);
-            el.appendChild(childElement); // Append child elements to the current element
-        });
-    
-        return el;
-    }
-    
+        
+
+
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
-        
+
         // Ensure content is an array or object with a 'children' array property
         if (Array.isArray(content)) {
             content.forEach(item => {
@@ -86,16 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
             container.textContent = "Error: Article failed to load.";
             return;
         }
-    
+
         let hasTwitterEmbed = false;
-    
+
         // Check for Twitter embeds
         content.forEach(item => {
             if (item.type === 'blockquote' && item.class === 'twitter-tweet') {
                 hasTwitterEmbed = true;
             }
         });
-    
+
         // Inject Twitter embed script if needed
         if (hasTwitterEmbed && !document.getElementById('twitter-widgets-script')) {
             const script = document.createElement('script');
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
             script.charset = "utf-8";
             document.body.appendChild(script);
         }
-    
+
         // Ensure dark mode inside blockquote iframe (after Twitter loads)
         setTimeout(() => {
             const iframes = container.querySelectorAll('iframe');
