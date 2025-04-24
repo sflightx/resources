@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     import(`https://sflightx.com/article/sflightx/${key}.js`)
         .then(module => {
             console.log('articleContent:', module.default);
-
-
             renderArticle(module.default);
         })
         .catch(error => {
@@ -25,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function createElementFromJson(json) {
         const el = document.createElement(json.type);
 
+        // Loop through the keys and apply attributes, styles, and content
         for (const [key, value] of Object.entries(json)) {
             if (key === 'type' || key === 'children') continue;
 
@@ -34,28 +33,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 for (const [styleKey, styleValue] of Object.entries(value)) {
                     el.style[styleKey] = styleValue;
                 }
-            }
-
-            else if (key === 'content') {
+            } else if (key === 'content') {
                 if (typeof value === 'string' && /<\/?[a-z][\s\S]*>/i.test(value)) {
                     el.innerHTML = value;
                 } else {
                     el.textContent = value;
                 }
             }
-
         }
 
-        const children = article.children || article.content || [];
+        const children = json.children || json.content || [];
         if (!Array.isArray(children)) {
             console.error("renderArticle error: content is not an array", children);
-            return;
+            return el; // If no children, just return the element created.
         }
+
         children.forEach(child => {
             const childElement = createElementFromJson(child);
-            container.appendChild(childElement);
+            el.appendChild(childElement); // Append child elements to the current element
         });
-        
 
         return el;
     }
@@ -82,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         let hasTwitterEmbed = false;
     
-        // Check for twitter embeds
+        // Check for Twitter embeds
         content.forEach(item => {
             if (item.type === 'blockquote' && item.class === 'twitter-tweet') {
                 hasTwitterEmbed = true;
@@ -110,6 +106,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }, 1500);
-    }    
-    
+    }
 });
