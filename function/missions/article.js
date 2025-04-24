@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Dynamic import from your CDN or server
     import(`https://sflightx.com/article/sflightx/${key}.js`)
         .then(module => {
+            console.log('articleContent:', module.default);
+
+
             renderArticle(module.default);
         })
         .catch(error => {
@@ -43,44 +46,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
-        if (json.children && Array.isArray(json.children)) {
-            json.children.forEach(child => {
-                el.appendChild(createElementFromJson(child));
-            });
+        const children = article.children || article.content || [];
+        if (!Array.isArray(children)) {
+            console.error("renderArticle error: content is not an array", children);
+            return;
         }
+        children.forEach(child => {
+            const childElement = createElementFromJson(child);
+            container.appendChild(childElement);
+        });
+        
 
         return el;
     }
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
-
-        if (!Array.isArray(content)) {
-            console.error("renderArticle error: content is not an array", content);
+        
+        // Ensure content is an array or object with a 'children' array property
+        if (Array.isArray(content)) {
+            content.forEach(item => {
+                const el = createElementFromJson(item);
+                container.appendChild(el);
+            });
+        } else if (content && Array.isArray(content.children)) {
+            content.children.forEach(item => {
+                const el = createElementFromJson(item);
+                container.appendChild(el);
+            });
+        } else {
+            console.error("renderArticle error: content is not an array or doesn't contain a 'children' property", content);
             container.textContent = "Error: Article failed to load.";
             return;
         }
-
+    
         let hasTwitterEmbed = false;
-
+    
+        // Check for twitter embeds
         content.forEach(item => {
-            const el = createElementFromJson(item);
-
-            // Ensure blockquotes span full width
-            if (item.type === 'blockquote') {
-                el.style.width = '100%';
-                el.style.maxWidth = '100%';
-                el.style.margin = '1em 0';
-            }
-
-            if (el.classList.contains('twitter-tweet')) {
+            if (item.type === 'blockquote' && item.class === 'twitter-tweet') {
                 hasTwitterEmbed = true;
             }
-
-            container.appendChild(el);
         });
-
+    
         // Inject Twitter embed script if needed
         if (hasTwitterEmbed && !document.getElementById('twitter-widgets-script')) {
             const script = document.createElement('script');
@@ -90,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             script.charset = "utf-8";
             document.body.appendChild(script);
         }
-
+    
         // Ensure dark mode inside blockquote iframe (after Twitter loads)
         setTimeout(() => {
             const iframes = container.querySelectorAll('iframe');
@@ -102,6 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }, 1500);
-    }
-
+    }    
+    
 });
