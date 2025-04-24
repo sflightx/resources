@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 el.setAttribute(key, value);
             }
+            if (key === 'innerHTML') {
+                el.innerHTML = value;
+            }
+            
         }
         
 
@@ -48,12 +52,28 @@ document.addEventListener("DOMContentLoaded", function () {
         return el;
     }
 
-    // Append to container
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
+        let twitterScriptInjected = false;
+    
         content.forEach(item => {
             const el = createElementFromJson(item);
             container.appendChild(el);
+    
+            // Check if the block is a Twitter tweet
+            if (
+                item.type === "blockquote" &&
+                item.class === "twitter-tweet" &&
+                !twitterScriptInjected
+            ) {
+                const script = document.createElement("script");
+                script.async = true;
+                script.src = "https://platform.twitter.com/widgets.js";
+                script.charset = "utf-8";
+                document.body.appendChild(script);
+                twitterScriptInjected = true;
+            }
         });
     }
+    
 });
