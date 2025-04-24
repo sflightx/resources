@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
       headline: "Launches",
     },
     {
-      href: "https://sflightx.com/mission",
+      href: "https://sflightx.com/missions",
       headline: "Mission",
     },
     {
