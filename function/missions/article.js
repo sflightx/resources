@@ -31,15 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 for (const [styleKey, styleValue] of Object.entries(value)) {
                     el.style[styleKey] = styleValue;
                 }
-            } else if (key === 'content') {
-                el.textContent = value;
-            } else {
-                el.setAttribute(key, value);
             }
-            if (key === 'innerHTML') {
-                el.innerHTML = value;
+            if (json.innerHTML) {
+                el.innerHTML = json.innerHTML;
+            } else if (json.content) {
+                el.textContent = json.content;
             }
-
         }
 
 
