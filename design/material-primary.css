@@ -262,7 +262,8 @@ a {
 }
 
 md-filled-tonal-button,
-md-filled-button {
+md-filled-button,
+md-outlined-button {
     padding: 0px 24px;
 }
 
