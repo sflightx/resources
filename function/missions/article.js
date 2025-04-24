@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (const [key, value] of Object.entries(json)) {
             if (key === 'type' || key === 'children') continue;
-        
+
             if (key === 'class') {
                 el.className = value;
             } else if (key === 'style' && typeof value === 'object') {
@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if (key === 'innerHTML') {
                 el.innerHTML = value;
             }
-            
+
         }
-        
+
 
         if (json.children && Array.isArray(json.children)) {
             json.children.forEach(child => {
@@ -54,26 +54,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
-        let twitterScriptInjected = false;
-    
+        let hasTwitterEmbed = false;
+
         content.forEach(item => {
             const el = createElementFromJson(item);
-            container.appendChild(el);
-    
-            // Check if the block is a Twitter tweet
-            if (
-                item.type === "blockquote" &&
-                item.class === "twitter-tweet" &&
-                !twitterScriptInjected
-            ) {
-                const script = document.createElement("script");
-                script.async = true;
-                script.src = "https://platform.twitter.com/widgets.js";
-                script.charset = "utf-8";
-                document.body.appendChild(script);
-                twitterScriptInjected = true;
+
+            if (el.classList.contains('twitter-tweet')) {
+                hasTwitterEmbed = true;
+                el.style.width = '100%';
+                el.style.maxWidth = '100%';
             }
+
+            container.appendChild(el);
         });
+
+        if (hasTwitterEmbed && !document.getElementById('twitter-widgets-script')) {
+            const script = document.createElement('script');
+            script.id = 'twitter-widgets-script';
+            script.async = true;
+            script.src = "https://platform.twitter.com/widgets.js";
+            script.charset = "utf-8";
+            document.body.appendChild(script);
+        }
+
+        // Force dark mode for Twitter embeds
+        setTimeout(() => {
+            const iframes = container.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.style.colorScheme = 'dark';
+            });
+        }, 1000); // Delay to ensure Twitter loads first
     }
-    
 });
