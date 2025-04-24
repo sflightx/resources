@@ -111,6 +111,18 @@ a {
     color: var(--md-sys-color-on-background);
 }
 
+/* Stretch the Twitter embed blockquote to full width */
+.twitter-tweet {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto;
+}
+
+/* Force Twitter embeds to use dark mode */
+.twitter-tweet-rendered iframe {
+    color-scheme: dark;
+}
+
 /* Material Design 3 Typography */
 
 
