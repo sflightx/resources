@@ -12,44 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = [];
             snapshot.forEach(child => data.push(child.val()));
             data.reverse();
-            console.log('Data received from getUpcoming:', data);
             data.forEach(childData => {
-                const innerDiv = document.createElement('div');
-                innerDiv.classList.add('banner');
-                innerDiv.style.height = '50vh';
-                innerDiv.style.paddingTop = '7.5vh';
-
-                const image = document.createElement('img');
-                image.classList.add('header-thumbnail');
-                image.src = childData.thumbnail;
-                innerDiv.appendChild(image);
+                layout.style.backgroundImage = `url(${childData.thumbnail})`;
+                layout.style.backgroundSize = 'cover';
+                layout.style.backgroundPosition = 'center';
+                layout.style.display = 'flex';
+                layout.style.flexDirection = 'column';
+                layout.style.justifyContent = 'flex-end';
 
                 const secondaryDiv = document.createElement('div');
-                secondaryDiv.classList.add('secondary-div');
-                secondaryDiv.style.padding = '50px';
+                secondaryDiv.classList.add('container');
+                secondaryDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
 
-                const title = document.createElement('p');
+                const title = document.createElement('h1');
                 title.textContent = childData.name;
-                title.classList.add('upcoming-title');
+                title.classList.add('md-typescale-display-large');
                 secondaryDiv.appendChild(title);
 
                 const details = document.createElement('p');
                 details.textContent = childData.desc;
-                details.id = 'subtext';
+                details.classList.add('md-typescale-title-medium');
                 secondaryDiv.appendChild(details);
 
-                const subtitle = document.createElement('h3');
-                subtitle.textContent = 'Upcoming Launch';
-                secondaryDiv.appendChild(subtitle);
-
-                const learnMoreButton = document.createElement('button');
+                const learnMoreButton = document.createElement('md-filled-tonal-button');
                 learnMoreButton.innerHTML = '<h3>Learn More</h3>';
                 learnMoreButton.addEventListener('click', () => {
                     window.open(`https://sflightx.com/missions/?id=${childData.key}`, '_blank');
                 });
                 secondaryDiv.appendChild(learnMoreButton);
 
-                layout.appendChild(innerDiv);
                 layout.appendChild(secondaryDiv);
             });
         })

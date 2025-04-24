@@ -165,7 +165,7 @@ a:hover {
     background-position: center;
 }
 
-.banner#semi {
+.banner#semi, .banner#grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -221,12 +221,26 @@ a:hover {
     }
 
     .banner#semi img {
-        width: 45%; /* Fallback for older browsers */
+        width: 45%;
         width: calc(50% - 48px);
     }
 
     .banner#semi > * {
-        flex: 1 1 calc(50% - 48px); /* Adjust the gap as needed */
+        flex: 1 1 calc(50% - 48px);
         box-sizing: border-box;
+    }
+
+    .banner#grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .banner#grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 }
