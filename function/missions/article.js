@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Dynamic import from your CDN or server
-    import(`https://sflightx.com/article/${key}.js`)
+    import(`https://sflightx.com/article/sflightx/${key}.js`)
         .then(module => {
             renderArticle(module.default);
         })
@@ -22,14 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
     function createElementFromJson(json) {
         const el = document.createElement(json.type);
 
-        if (json.class) el.className = json.class;
-        if (json.id) el.id = json.id;
-        if (json.style) {
-            for (const [key, value] of Object.entries(json.style)) {
-                el.style[key] = value;
+        for (const [key, value] of Object.entries(json)) {
+            if (key === 'type' || key === 'children') continue;
+        
+            if (key === 'class') {
+                el.className = value;
+            } else if (key === 'style' && typeof value === 'object') {
+                for (const [styleKey, styleValue] of Object.entries(value)) {
+                    el.style[styleKey] = styleValue;
+                }
+            } else if (key === 'content') {
+                el.textContent = value;
+            } else {
+                el.setAttribute(key, value);
             }
         }
-        if (json.content) el.textContent = json.content;
+        
 
         if (json.children && Array.isArray(json.children)) {
             json.children.forEach(child => {
@@ -41,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Append to container
-    function renderArticle(content, containerId = 'app') {
+    function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
         content.forEach(item => {
             const el = createElementFromJson(item);
