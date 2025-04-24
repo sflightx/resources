@@ -22,39 +22,50 @@ document.addEventListener("DOMContentLoaded", function () {
     // Convert JSON to DOM
     function createElementFromJson(json) {
         const el = document.createElement(json.type);
-
+    
         // Loop through the keys and apply attributes, styles, and content
         for (const [key, value] of Object.entries(json)) {
             if (key === 'type' || key === 'children') continue;
-
-            if (key === 'class') {
-                el.className = value;
-            } else if (key === 'style' && typeof value === 'object') {
-                for (const [styleKey, styleValue] of Object.entries(value)) {
-                    el.style[styleKey] = styleValue;
-                }
-            } else if (key === 'content') {
-                if (typeof value === 'string' && /<\/?[a-z][\s\S]*>/i.test(value)) {
-                    el.innerHTML = value;
-                } else {
-                    el.textContent = value;
-                }
+    
+            switch (key) {
+                case 'slot':
+                    el.setAttribute('slot', value);
+                    break;
+                case 'class':
+                    el.className = value;
+                    break;
+                case 'style':
+                    if (typeof value === 'object') {
+                        for (const [styleKey, styleValue] of Object.entries(value)) {
+                            el.style[styleKey] = styleValue;
+                        }
+                    }
+                    break;
+                case 'content':
+                    if (typeof value === 'string' && /<\/?[a-z][\s\S]*>/i.test(value)) {
+                        el.innerHTML = value;
+                    } else {
+                        el.textContent = value;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
-
+    
         const children = json.children || json.content || [];
         if (!Array.isArray(children)) {
-            console.error("renderArticle error: content is not an array", children);
             return el; // If no children, just return the element created.
         }
-
+    
         children.forEach(child => {
             const childElement = createElementFromJson(child);
             el.appendChild(childElement); // Append child elements to the current element
         });
-
+    
         return el;
     }
+    
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
