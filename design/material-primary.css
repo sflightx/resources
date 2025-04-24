@@ -48,7 +48,7 @@ body {
 
 header {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     margin: 0px;
     padding: 0px 48px;
