@@ -1,12 +1,13 @@
+import { db } from './initializeFirebase.js';
+import { ref, get } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const path = 'launch_manifest/upcoming';
-    const layout = document.getElementById('upcoming-container');
-    layout.style.maxHeight = '100vh';
+    const layout = document.getElementById('full');
 
-    const database = firebase.database();
-    const databaseRef = database.ref(path);
+    const databaseRef = ref(db, path);
 
-    databaseRef.once('value')
+    get(databaseRef)
         .then(snapshot => {
             const data = [];
             snapshot.forEach(child => data.push(child.val()));

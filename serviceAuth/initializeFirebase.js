@@ -1,6 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+// initializeFirebase.js
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyATiu2dMGbYxGYH0S_31J8XsK5OBpTLMfQ",
@@ -13,15 +14,12 @@ const firebaseConfig = {
     measurementId: "G-813MEL2GZF"
 };
 
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-if (!getAuth().app) {
-    // Initialize Firebase
-    console.log("Initializing Firebase...");
-    const auth = getAuth(app);
-} else {
-    // Use the existing Firebase app
-    console.log("Firebase already initialized.");
-}
+// Always call getAuth(app) and getDatabase(app) directly
+const auth = getAuth(app);
+const db = getDatabase(app);
 
-export { app, getAuth, getDatabase };
+export { app, auth, db };
+export default app; // Export the app instance for use in other modules
