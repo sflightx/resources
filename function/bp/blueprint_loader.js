@@ -6,6 +6,8 @@ const detailContainer = document.createElement("div");
 const dataContainer = document.getElementById("data");
 const contentContainer = document.getElementById("grid");
 
+const errorMessage = document.getElementById("errormsg");
+
 const descriptionContainer = document.createElement("div");
 const downloadContainer = document.createElement("div");
 const authorContainer = document.createElement("div");
@@ -30,7 +32,6 @@ authorContainer.style.margin = "0px";
 const title = document.getElementById("app-bar-title");
 const loadingMessage = document.createElement("p");
 loadingMessage.textContent = "Loading blueprint...";
-detailContainer.appendChild(loadingMessage);
 
 // Blueprint Fetching
 async function fetchBlueprint(key) {
@@ -46,11 +47,14 @@ async function fetchBlueprint(key) {
             renderBlueprint(data, key);
         } else {
             loadingMessage.textContent = `No blueprint found for key: ${key}`;
+            errorMessage.appendChild(loadingMessage);
         }
     } catch (error) {
         console.error("Error fetching data:", error);
         loadingMessage.textContent = "Error loading blueprint data.";
+        errorMessage.appendChild(loadingMessage);
     }
+    
 }
 
 // Blueprint Rendering
@@ -175,7 +179,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (key) {
         fetchBlueprint(key);
     } else {
-        detailContainer.innerHTML = `<p>No key provided in URL.</p>`;
+        // Optional: show loading message or fallback content
+        detailContainer.innerHTML = `<p>Loading homepage...</p>`;
         dataContainer.appendChild(detailContainer);
+
+        // Load the home page script dynamically
+        const script = document.createElement("script");
+        script.src = "../../resources/function/bp/home.js"; // change this path to match your actual home script file
+        script.type = "module";  // if your script uses ES modules
+        script.onload = () => {
+            console.log("Home page script loaded.");
+        };
+        script.onerror = () => {
+            detailContainer.innerHTML = `<p>Failed to load homepage script.</p>`;
+        };
+
+        document.body.appendChild(script);
     }
 });
