@@ -40,7 +40,7 @@ function renderBlueprintGrid(blueprints) {
         card.style.borderRadius = "16px";
         card.style.overflow = "hidden";
         card.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
-        card.style.background = "#1e1e1e";
+        card.style.background = "var(--md-sys-color-surface-container-high)";
         card.style.color = "#fff";
         card.style.cursor = "pointer";
         card.style.transition = "transform 0.2s";
