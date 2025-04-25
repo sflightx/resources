@@ -4,6 +4,7 @@ import { ref, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-dat
 // DOM References
 const detailContainer = document.createElement("div");
 const dataContainer = document.getElementById("data");
+const contentContainer = document.getElementById("grid");
 
 const descriptionContainer = document.createElement("div");
 const downloadContainer = document.createElement("div");
@@ -22,7 +23,7 @@ downloadContainer.style.display = "flex";
 downloadContainer.style.justifyContent = "end";
 downloadContainer.style.padding = "32px";
 
-detailContainer.style.padding = "16px";
+detailContainer.style.padding = "32px";
 authorContainer.className = "secondary-container";
 authorContainer.style.margin = "0px";
 
@@ -70,7 +71,7 @@ function renderBlueprint(data, key) {
             <md-suggestion-chip label="${data.req_game}" class="md3-chip"></md-suggestion-chip>
             <md-suggestion-chip label="${data.req_type}" class="md3-chip"></md-suggestion-chip>
         </div>
-        <div style="display: flex; gap: 48px; text-align: center;">
+        <div style="display: flex; gap: 24px; text-align: center;">
             <div style="display: flex; gap: 8px; align-items: center;">
                 <md-icon><span class="material-symbols-rounded">download</span></md-icon>
                 <p style="padding: 0;">${data.downloads ?? 0}</p>
@@ -115,15 +116,18 @@ function renderBlueprint(data, key) {
     const uid = data.author;
     const dateString = new Date(data.date).toLocaleDateString() || "Unknown";
 
-    function renderAuthor(username = "Unknown", profile = "") {
+    function renderAuthor(username = "Unknown", profile = "null", uid = "null") {
         authorContainer.innerHTML = `
-            <div style="display: flex; gap: 48px; text-align: center;">
+            <div style="display: flex; gap: 48px; text-align: center; justify-content: space-between; width: 100%;">
                 <div>
                     ${profile
                         ? `<img src="${profile}" alt="Profile" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">`
                         : `<md-icon><span class="material-symbols-rounded">person</span></md-icon>`
                     }
-                    <p>${username}</p>
+                    <p style="padding: 0;">${username}</p>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: end;">
+                    <md-outlined-button href="https://sflightx.com/u/${uid}">View Profile</md-outlined-button>
                 </div>
             </div>
         `;
@@ -136,7 +140,7 @@ function renderBlueprint(data, key) {
         get(userRef)
             .then(snapshot => {
                 const { username = "Unknown", profile = "" } = snapshot.val() || {};
-                renderAuthor(username, profile);
+                renderAuthor(username, profile, uid);
             })
             .catch(error => {
                 console.error("Error fetching user data:", error);
@@ -144,16 +148,25 @@ function renderBlueprint(data, key) {
             });
     }
 
+    contentContainer.innerHTML = "";
+    
+
     // Append all rendered parts
     descriptionContainer.innerHTML = ""; // Clear before appending
     const div = document.createElement("div");
     div.appendChild(detailContainer);
-    div.appendChild(authorContainer);
 
     descriptionContainer.appendChild(div);
     descriptionContainer.appendChild(downloadContainer);
     dataContainer.innerHTML = ""; // Clear previous
     dataContainer.appendChild(descriptionContainer);
+
+    const contentDiv = document.createElement("div");
+
+    authorContainer.className = "container";
+    contentDiv.appendChild(authorContainer);
+
+    contentContainer.appendChild(contentDiv);
 }
 
 // On Load
