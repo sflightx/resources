@@ -32,7 +32,7 @@ async function fetchBlueprint(key) {
 // 🧱 Render to HTML
 function renderBlueprint(data, key) {
     imageContainer.style.backgroundImage = `url(${data.image_url || "https://sflightx.com/resources/image/blueprint.png"})`;
-    const container = document.createElement("div");
+    imageContainer.style.borderRadius = "24px";
     container.innerHTML = `
         <h2>${data.name || "Unnamed Blueprint"}</h2>
         <p><strong>Key:</strong> ${key}</p>
@@ -54,5 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingMessage = `<p>No key provided in URL.</p>`;
     }
     container.innerHTML = loadingMessage;
-    dataContainer .appendChild(container);
+    dataContainer.appendChild(container);
 });

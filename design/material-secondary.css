@@ -83,13 +83,13 @@ a:hover {
     height: auto;
     padding: 24px;
     margin: 0px 0px 24px 0px;
-    border-radius: 48px;
+    border-radius: 24px;
 }
 
 .container img {
     width: 100%;
     height: auto;
-    border-radius: 48px;
+    border-radius: 24px;
 }
 
 .large-button {
@@ -192,7 +192,7 @@ a:hover {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 48px;
+    border-radius: 24px;
 }
 
 .container#stat {
@@ -243,6 +243,10 @@ a:hover {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+
+    .banner#image {
+        height: 50vh;
     }
 }
 
