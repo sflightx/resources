@@ -62,7 +62,7 @@ function renderBlueprint(data, key) {
     // Background image setup
     dataContainer.style.backgroundImage = `url(${data.image_url || "https://sflightx.com/resources/image/blueprint.png"})`;   
     dataContainer.style.backgroundSize = "cover";
-    dataContainer.style.backgroundPosition = "top center";
+    dataContainer.style.backgroundPosition = "center top";
     dataContainer.style.height = "75vh";
 
     // Title
