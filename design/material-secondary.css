@@ -169,7 +169,7 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 24px;
+    gap: 16px;
 }
 
 .banner#stat {
@@ -208,6 +208,13 @@ a:hover {
 .container#stat h1 {
     margin: 0;
     padding: 0;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 @media (max-width: 768px) {
