@@ -229,6 +229,11 @@ a:hover {
     #locator {
         display: none;
     }
+
+    
+    #app-bar-title {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -254,6 +259,10 @@ a:hover {
 
     .banner#image {
         height: 50vh;
+    }
+
+    #secondary-title {
+        display: none;
     }
 }
 
