@@ -1,40 +1,69 @@
 import { db } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
-import { ref, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+import { ref, get, query, orderByChild, limitToLast, endAt } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
 const dataContainer = document.getElementById("data");
 const banner = document.getElementById("full");
 banner.style.height = "auto";
-dataContainer.innerHTML = `<p style="padding: 24px;">Loading blueprints...</p>`;
 
-// Fetch all blueprints
-async function fetchBlueprints() {
+let allKeys = [];
+let lastKey = null;
+let isLoading = false;
+let isDone = false;
+const PAGE_SIZE = 25;
+
+// Fetch blueprints with pagination
+async function fetchBlueprintsPage() {
+    if (isLoading || isDone) return;
+    isLoading = true;
+    dataContainer.innerHTML += `<p id="loading" style="padding: 24px;">Loading...</p>`;
+
     try {
-        const blueprintRef = ref(db, "upload/blueprint");
-        const snapshot = await get(blueprintRef);
+        let blueprintQuery;
+        const baseRef = ref(db, "upload/blueprint");
+
+        if (!lastKey) {
+            blueprintQuery = query(baseRef, orderByChild("date"), limitToLast(PAGE_SIZE));
+        } else {
+            blueprintQuery = query(baseRef, orderByChild("date"), endAt(lastKey - 1), limitToLast(PAGE_SIZE));
+        }
+
+        const snapshot = await get(blueprintQuery);
+        document.getElementById("loading")?.remove();
 
         if (snapshot.exists()) {
             const blueprints = snapshot.val();
-            renderBlueprintGrid(blueprints);
+            const entries = Object.entries(blueprints).sort((a, b) => b[1].date - a[1].date);
+
+            if (entries.length < PAGE_SIZE) isDone = true;
+            if (entries.length > 0) lastKey = entries[entries.length - 1][1].date;
+
+            renderBlueprintGrid(entries);
         } else {
-            dataContainer.innerHTML = `<p>No blueprints found.</p>`;
+            isDone = true;
+            if (!lastKey) dataContainer.innerHTML = `<p style="padding: 24px;">No blueprints found.</p>`;
         }
     } catch (error) {
         console.error("Error fetching blueprints:", error);
-        dataContainer.innerHTML = `<p>Failed to load blueprints.</p>`;
+        document.getElementById("loading")?.remove();
+        if (!lastKey) dataContainer.innerHTML = `<p>Failed to load blueprints.</p>`;
+    } finally {
+        isLoading = false;
     }
 }
 
-// Render grid of blueprints
-function renderBlueprintGrid(blueprints) {
-    dataContainer.innerHTML = "";
+function renderBlueprintGrid(entries) {
+    const grid = dataContainer.querySelector(".grid") || (() => {
+        const newGrid = document.createElement("div");
+        newGrid.className = "grid";
+        newGrid.style.display = "grid";
+        newGrid.style.gridTemplateColumns = "repeat(auto-fill, minmax(280px, 1fr))";
+        newGrid.style.gap = "16px";
+        newGrid.style.padding = "24px";
+        dataContainer.appendChild(newGrid);
+        return newGrid;
+    })();
 
-    const grid = document.createElement("div");
-    grid.style.display = "grid";
-    grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(280px, 1fr))";
-    grid.style.gap = "16px";
-    grid.style.padding = "24px";
-
-    Object.entries(blueprints).forEach(([key, data]) => {
+    entries.forEach(([key, data]) => {
         const card = document.createElement("div");
         card.className = "md-surface";
         card.style.borderRadius = "16px";
@@ -59,11 +88,7 @@ function renderBlueprintGrid(blueprints) {
         `;
 
         const description = card.querySelector("#description");
-        const authorContainer = document.createElement("div"); // New container for each card
-
-        // Author Info
-        const uid = data.author;
-        const dateString = new Date(data.date).toLocaleDateString() || "Unknown";
+        const authorContainer = document.createElement("div");
 
         function renderAuthor(username = "Unknown", profile = "null") {
             authorContainer.innerHTML = `
@@ -80,6 +105,7 @@ function renderBlueprintGrid(blueprints) {
             description.appendChild(authorContainer);
         }
 
+        const uid = data.author;
         if (!uid) {
             renderAuthor();
         } else {
@@ -101,9 +127,14 @@ function renderBlueprintGrid(blueprints) {
 
         grid.appendChild(card);
     });
-
-    dataContainer.appendChild(grid);
 }
 
+// Load more on scroll bottom
+window.addEventListener("scroll", () => {
+    const scrollThreshold = 300;
+    const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - scrollThreshold;
+    if (bottom) fetchBlueprintsPage();
+});
+
 // Init
-fetchBlueprints();
+fetchBlueprintsPage();
