@@ -43,7 +43,20 @@ async function fetchBlueprint(key) {
     try {
         const snapshot = await get(blueprintRef);
         if (snapshot.exists()) {
-            const data = snapshot.val();
+            let data = snapshot.val();
+            
+            // If the data is an array, reverse it.
+            if (Array.isArray(data)) {
+                data = data.reverse();
+            }
+            // If it's an object, reverse the entries (key-value pairs)
+            else if (typeof data === 'object') {
+                data = Object.entries(data).reverse().reduce((acc, [key, value]) => {
+                    acc[key] = value;
+                    return acc;
+                }, {});
+            }
+
             renderBlueprint(data, key);
         } else {
             loadingMessage.textContent = `No blueprint found for key: ${key}`;
@@ -54,8 +67,8 @@ async function fetchBlueprint(key) {
         loadingMessage.textContent = "Error loading blueprint data.";
         errorMessage.appendChild(loadingMessage);
     }
-    
 }
+
 
 // Blueprint Rendering
 function renderBlueprint(data, key) {
@@ -180,10 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (key) {
         fetchBlueprint(key);
     } else {
-        // Optional: show loading message or fallback content
-        detailContainer.innerHTML = `<p>Loading homepage...</p>`;
-        dataContainer.appendChild(detailContainer);
-
         // Load the home page script dynamically
         const script = document.createElement("script");
         script.src = "https://sflightx.com/resources/function/bp/home.js"; // change this path to match your actual home script file

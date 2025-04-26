@@ -5,27 +5,21 @@ const dataContainer = document.getElementById("data");
 const banner = document.getElementById("full");
 banner.style.height = "auto";
 
-let allKeys = [];
 let lastKey = null;
 let isLoading = false;
 let isDone = false;
 const PAGE_SIZE = 25;
 
-// Fetch blueprints with pagination
 async function fetchBlueprintsPage() {
     if (isLoading || isDone) return;
     isLoading = true;
     dataContainer.innerHTML += `<p id="loading" style="padding: 24px;">Loading...</p>`;
 
     try {
-        let blueprintQuery;
         const baseRef = ref(db, "upload/blueprint");
-
-        if (!lastKey) {
-            blueprintQuery = query(baseRef, orderByChild("date"), limitToLast(PAGE_SIZE));
-        } else {
-            blueprintQuery = query(baseRef, orderByChild("date"), endAt(lastKey - 1), limitToLast(PAGE_SIZE));
-        }
+        const blueprintQuery = !lastKey
+            ? query(baseRef, orderByChild("date"), limitToLast(PAGE_SIZE))
+            : query(baseRef, orderByChild("date"), endAt(lastKey - 1), limitToLast(PAGE_SIZE));
 
         const snapshot = await get(blueprintQuery);
         document.getElementById("loading")?.remove();
@@ -51,7 +45,20 @@ async function fetchBlueprintsPage() {
     }
 }
 
-function renderBlueprintGrid(entries) {
+async function fetchUserData(uid) {
+    try {
+        const publicRef = ref(db, `userdata/${uid}`);
+        const snapshot = await get(publicRef);
+        const userData = snapshot.val();
+        const { username = "Unknown", profile: profile = "" } = userData || {};
+        return { username, profile };
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        return { username: "Unknown", profile: "" };
+    }
+}
+
+async function renderBlueprintGrid(entries) {
     const grid = dataContainer.querySelector(".grid") || (() => {
         const newGrid = document.createElement("div");
         newGrid.className = "grid";
@@ -63,6 +70,9 @@ function renderBlueprintGrid(entries) {
         return newGrid;
     })();
 
+    const authorPromises = [];
+
+    // Render blueprints and collect author promises
     entries.forEach(([key, data]) => {
         const card = document.createElement("div");
         card.className = "md-surface";
@@ -90,14 +100,13 @@ function renderBlueprintGrid(entries) {
         const description = card.querySelector("#description");
         const authorContainer = document.createElement("div");
 
-        function renderAuthor(username = "Unknown", profile = "null") {
+        async function renderAuthor(username = "Unknown", profile = "") {
             authorContainer.innerHTML = `
                 <div>
-                    <div style="display: flex; gap: 8px; text-align: center; align-items: anchor-center; width: 100%;">
+                    <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
                         ${profile
                             ? `<img src="${profile}" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">`
-                            : `<md-icon><span class="material-symbols-rounded">person</span></md-icon>`
-                        }
+                            : `<md-icon><span class="material-symbols-rounded">person</span></md-icon>`}
                         <p>${username}</p>
                     </div>
                 </div>
@@ -106,19 +115,11 @@ function renderBlueprintGrid(entries) {
         }
 
         const uid = data.author;
-        if (!uid) {
-            renderAuthor();
+        if (uid) {
+            // Fetch user data only once and render
+            authorPromises.push(fetchUserData(uid).then(user => renderAuthor(user.username, user.profile)));
         } else {
-            const userRef = ref(db, `userdata/${uid}`);
-            get(userRef)
-                .then(snapshot => {
-                    const { username = "Unknown", profile = "" } = snapshot.val() || {};
-                    renderAuthor(username, profile);
-                })
-                .catch(error => {
-                    console.error("Error fetching user data:", error);
-                    renderAuthor();
-                });
+            renderAuthor(); // No user data, fallback to defaults
         }
 
         card.addEventListener("click", () => {
@@ -127,14 +128,16 @@ function renderBlueprintGrid(entries) {
 
         grid.appendChild(card);
     });
+
+    // Wait for all author data to be fetched before rendering
+    await Promise.all(authorPromises);
 }
 
-// Load more on scroll bottom
 window.addEventListener("scroll", () => {
     const scrollThreshold = 300;
-    const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - scrollThreshold;
-    if (bottom) fetchBlueprintsPage();
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - scrollThreshold) {
+        fetchBlueprintsPage();
+    }
 });
 
-// Init
 fetchBlueprintsPage();
