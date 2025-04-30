@@ -21,7 +21,7 @@ window.sendEmbed = async function sendEmbed() {
 
     try {
         // Send the data to your backend POST endpoint
-        const res = await fetch("https://api.sflightx.com/discord/postManifest.js", {  // Adjust URL to your production backend
+        const res = await fetch("https://api.sflightx.com/discord/postManifest", {  // Adjust URL to your production backend
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
