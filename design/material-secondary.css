@@ -57,6 +57,10 @@ footer #logo {
     margin-bottom: 10px;
 }
 
+footer a {
+    width: 25vw;
+}
+
 header img,
 footer img,
 #side-sheet img {
