@@ -1,40 +1,38 @@
 window.sendEmbed = async function sendEmbed() {
     const data = {
+        // Getting values from the form fields
         title: document.getElementById("title").value,
         description: document.getElementById("description").value,
-        color: document.getElementById("color").value,
-        url: document.getElementById("url")?.value || "",
+        color: document.getElementById("color").value ? "#" + document.getElementById("color").value : "",
+        imageUrl: document.getElementById("imageUrl").value,
 
-        // Author block
+        // Adding author, fields, footer, etc., can be done similarly
         author: "SFlightX",
-        authorIconUrl: document.getElementById("authorIconUrl")?.value || "",
-        authorUrl: document.getElementById("authorUrl")?.value || "",
-
-        // Thumbnail (top-right)
-        thumbnail: document.getElementById("thumbnail")?.value || "",
-
-        // Fields (example)
+        authorIconUrl: "",  // Add if you want an author icon
+        authorUrl: "",  // Add if you want an author URL
+        thumbnail: "",  // Add if you want a thumbnail
         fields: [
             { name: "Vehicle", value: "Falcon 9", inline: true },
             { name: "Payload", value: "Starlink Group 6-39", inline: true }
         ],
-
-        // Main image
-        imageUrl: document.getElementById("imageUrl").value,
-
-        // Footer
         footer: "SFlightX | Launch Manifest",
-        footerUrl: document.getElementById("footerUrl")?.value || ""
+        footerUrl: ""  // Add if you want a footer URL
     };
 
     try {
-        const res = await fetch("/postManifest", {
+        // Send the data to your backend POST endpoint
+        const res = await fetch("https://api.sflightx.com/discord/postManifest.js", {  // Adjust URL to your production backend
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
 
-        alert(res.ok ? "✅ Embed sent!" : "❌ Failed to send embed.");
+        if (res.ok) {
+            alert("✅ Embed sent!");
+        } else {
+            const errorData = await res.json();
+            alert("❌ Failed to send embed: " + errorData.error);
+        }
     } catch (err) {
         alert("❌ Error sending embed: " + err.message);
         console.error(err);
