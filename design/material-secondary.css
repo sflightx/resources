@@ -177,6 +177,7 @@ a:hover {
 }
 
 .banner#semi, .banner#grid {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 16px;
@@ -264,6 +265,10 @@ a:hover {
 
     #secondary-title {
         display: none;
+    }
+
+    .banner#half {
+        width: 50vw;
     }
 }
 
