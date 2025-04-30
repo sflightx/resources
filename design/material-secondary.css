@@ -176,7 +176,8 @@ a:hover {
     background-position: center;
 }
 
-.banner#semi, .banner#grid {
+.banner#semi,
+.banner#grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -203,8 +204,10 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 24px;
     justify-content: center;
-    align-items: center; /* Centers content vertically */
-    text-align: center; /* Centers text content */
+    align-items: center;
+    /* Centers content vertically */
+    text-align: center;
+    /* Centers text content */
 }
 
 .container#stat h1 {
@@ -217,6 +220,84 @@ a:hover {
     justify-content: center;
     align-items: center;
     gap: 16px;
+}
+
+#embed-preview,
+#embed-preview * {
+    font-family: "Roboto", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.discord-embed {
+    min-width: 100px;
+    width: fit-content;
+    margin: 1rem;
+    background-color: #2f3136;
+    border-left: 4px solid #5865f2;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #dcddde;
+}
+
+.discord-embed .author {
+    font-size: 14px;
+    margin-bottom: 0.25rem;
+    color: #b9bbbe;
+}
+
+.discord-embed .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.discord-embed .description {
+    font-size: 14px;
+    margin: 0.5rem 0;
+}
+
+.discord-embed .fields {
+    display: flex;
+    gap: 1rem;
+}
+
+.discord-embed .field {
+    flex: 1;
+}
+
+.discord-embed .field-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #b9bbbe;
+}
+
+.discord-embed .field-value {
+    font-size: 14px;
+}
+
+.discord-embed .timestamp {
+    font-size: 12px;
+    color: #72767d;
+    margin-top: 1rem;
+}
+
+.discord-embed .thumbnail {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.discord-embed .main-image {
+    margin-top: 1rem;
+    border-radius: 4px;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -232,7 +313,7 @@ a:hover {
         display: none;
     }
 
-    
+
     #app-bar-title {
         display: none;
     }
@@ -240,7 +321,7 @@ a:hover {
 
 @media screen and (min-width: 1024px) {
     #drawer #menu {
-        display: none ;
+        display: none;
     }
 
     .banner#semi img {
@@ -248,7 +329,7 @@ a:hover {
         width: calc(50% - 48px);
     }
 
-    .banner#semi > * {
+    .banner#semi>* {
         flex: 1 1 calc(50% - 48px);
         box-sizing: border-box;
     }

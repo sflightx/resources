@@ -19,30 +19,38 @@ app.get("/", (req, res) => {
 });
 
 app.post("/send-embed", async (req, res) => {
-  const { title, description, color, footerText, imageUrl, authorName } = req.body;
+    const { color, title, url, authorIconUrl, authorUrl, author, description, thumbnail, fields, imageUrl, footer, footerUrl } = req.body;
 
-  if (!title || !description || !color || !footerText || !imageUrl || !authorName) {
-    return res.status(400).json({ error: "Missing required embed fields" });
-  }
+    if (!title || !description) {
+        return res.status(400).json({ error: "Missing required embed fields: title and description are mandatory." });
+    }
 
-  try {
-    const embed = new EmbedBuilder()
-      .setTitle(title)
-      .setDescription(description)
-      .setColor(parseInt(color.replace("#", ""), 16))
-      .setFooter({ text: footerText })
-      .setImage(imageUrl)
-      .setAuthor({ name: authorName })
-      .setTimestamp(new Date());
+    try {
+        const embed = new EmbedBuilder();
 
-    const channel = await bot.channels.fetch(CHANNEL_ID);
-    await channel.send({ embeds: [embed] });
+        if (color) embed.setColor(parseInt(color.replace("#", ""), 16));
+        if (title) embed.setTitle(title);
+        if (url) embed.setURL(url);
+        if (author) embed.setAuthor({ name: author, iconURL: authorIconUrl || undefined, url: authorUrl || undefined });
+        if (description) embed.setDescription(description);
+        if (thumbnail) embed.setThumbnail(thumbnail);
+        if (fields && Array.isArray(fields)) embed.addFields(fields);
+        if (imageUrl) embed.setImage(imageUrl);
+        embed.setTimestamp(new Date());
+        if (footer) embed.setFooter({ text: footer, iconURL: footerUrl || undefined });
 
-    res.status(200).json({ success: true });
-  } catch (err) {
-    console.error("Error sending embed:", err);
-    res.status(500).json({ error: "Failed to send embed" });
-  }
+        const channel = await bot.channels.fetch(CHANNEL_ID);
+        if (!channel || !channel.isTextBased()) {
+            return res.status(404).json({ error: "Channel not found or is not text-based." });
+        }
+
+        await channel.send({ embeds: [embed] });
+
+        res.status(200).json({ success: true });
+    } catch (err) {
+        console.error("Error sending embed:", err.message || err);
+        res.status(500).json({ error: "Failed to send embed. Please check the server logs for more details." });
+    }
 });
 
 bot.once("ready", () => console.log(`Bot ready as ${bot.user.tag}`));
