@@ -350,6 +350,7 @@ a:hover {
 
     .banner#half {
         width: 50vw;
+        max-width: 50vw;
     }
 }
 
