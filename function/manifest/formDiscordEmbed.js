@@ -28,7 +28,7 @@ window.sendEmbed = async function sendEmbed() {
     };
 
     try {
-        const res = await fetch("/send-embed", {
+        const res = await fetch("https://sflightx.com/resources/function/manifest/postManifest.js", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
