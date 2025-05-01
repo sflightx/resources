@@ -11,11 +11,12 @@ onAuthStateChanged(auth, (user) => {
 
 
 window.sendEmbed = function sendEmbed() {
-    if (!auth.currentUser) {
+    var user = auth.currentUser;
+    if (!user) {
         alert("Please log in to send the embed.");
         return;
     }
-    sendEmbedWithUser(authUser);
+    sendEmbedWithUser(user);
 }
 
 async function sendEmbedWithUser(user) {
