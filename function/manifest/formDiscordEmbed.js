@@ -50,8 +50,8 @@ async function sendEmbedWithUser(user) {
         color: selectedColor,
         imageUrl: document.getElementById("imageUrl").value,
 
-        author: user ? user.displayName : "Anonymous",
-        authorIconUrl: "",
+        author: user ? `${user.displayName} (CEO)` : "Anonymous",
+        authorIconUrl: user ? user.photoURL : "",
         authorUrl: user ? user.photoURL : "",
         thumbnail: "",
         fields: payloads.map((payload, i) => ({
@@ -71,13 +71,13 @@ async function sendEmbedWithUser(user) {
         });
 
         if (res.ok) {
-            alert("✅ Embed sent!");
+            alert("Embed sent!");
         } else {
             const errorData = await res.json();
-            alert("❌ Failed to send embed: " + errorData.error);
+            alert("Failed to send embed: " + errorData.error);
         }
     } catch (err) {
-        alert("❌ Error sending embed: " + err.message);
+        alert("Error sending embed: " + err.message);
         console.error(err);
     }
 }
