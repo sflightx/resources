@@ -239,7 +239,11 @@ a:hover {
     border-left: 4px solid #5865f2;
     padding: 1rem;
     border-radius: 4px;
-    color: #dcddde;
+    color: #dcddde !important;
+}
+
+.discord-embed * {
+    color: #dcddde !important;
 }
 
 .discord-embed .author {
