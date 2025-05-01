@@ -3,6 +3,16 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 
 window.sendEmbed = async function sendEmbed() {
     const user = auth.currentUser;
+
+    if (!user) {
+        // If the user is not authenticated yet, wait for the auth state to change
+        onAuthStateChanged(auth, (user) => {
+            // Once the user is authenticated, call the sendEmbed function again
+            sendEmbed();  // Recurse to continue sending once user is available
+        });
+        return;  // Exit the current function as we are waiting for the auth state change
+    }
+
     // Get the selected chip's color dynamically
     const chipSet = document.getElementById('status-chips');
     let selectedColor = "#000000"; // Default color if no chip is selected
