@@ -12,3 +12,5 @@ function googleLogin() {
             document.getElementById("error-message").textContent = error.message;
         });
 }
+
+window.googleLogin = googleLogin;
