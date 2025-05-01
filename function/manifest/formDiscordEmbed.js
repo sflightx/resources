@@ -1,21 +1,26 @@
 import { auth } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-window.sendEmbed = async function sendEmbed() {
-    const user = auth.currentUser;
-
+onAuthStateChanged(auth, (user) => {
     if (!user) {
-        // If the user is not authenticated yet, wait for the auth state to change
-        onAuthStateChanged(auth, (user) => {
-            // Once the user is authenticated, call the sendEmbed function again
-            sendEmbed();  // Recurse to continue sending once user is available
-        });
-        return;  // Exit the current function as we are waiting for the auth state change
+        console.log("User not authenticated, waiting for authentication state change.");
+        window.open("https://auth.sflightx.com/oauth", "_blank");
+        return;        
     }
+  });
 
-    // Get the selected chip's color dynamically
+
+window.sendEmbed = function sendEmbed() {
+    if (!auth.currentUser) {
+        alert("Please log in to send the embed.");
+        return;
+    }
+    sendEmbedWithUser(authUser);
+}
+
+async function sendEmbedWithUser(user) {
     const chipSet = document.getElementById('status-chips');
-    let selectedColor = "#000000"; // Default color if no chip is selected
+    let selectedColor = "#000000";
 
     const selectedChip = chipSet.querySelector('md-filter-chip[selected]');
     if (selectedChip) {
@@ -36,6 +41,7 @@ window.sendEmbed = async function sendEmbed() {
     payloadList.querySelectorAll('md-list-item').forEach((item) => {
         payloads.push(item.textContent.trim());
     });
+    console.log("Payloads:", payloads);
 
     const data = {
         title: document.getElementById("title").value,

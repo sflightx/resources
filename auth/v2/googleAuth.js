@@ -14,7 +14,8 @@ import {
         window.close();
       })
       .catch((error) => {
-        document.getElementById("error-message").textContent = error.message;
+        console.error("Error during Google login:", error);
+        alert("Error during Google login: " + error.message);
       });
   }
   
