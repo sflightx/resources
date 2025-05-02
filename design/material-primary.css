@@ -5,6 +5,7 @@
     font-style: normal;
 }
 
+/* Material Symbols Icon */
 .material-symbols-rounded {
     font-family: 'Material Symbols Rounded';
     font-weight: normal;
@@ -12,26 +13,22 @@
     font-size: 1.5rem;
     display: inline-block;
     line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    cursor: default;
     -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: color 0.2s ease;
+    vertical-align: middle;
 }
 
 .material-symbols-rounded:hover {
     color: var(--md-sys-color-primary);
 }
 
-/* Apply Glacial font to all elements by default */
+/* Global Typography and Layout */
 * {
     font-family: 'Glacial', sans-serif;
-    color: var(--md-sys-color-on-background);
     font-size: 1em;
+    color: var(--md-sys-color-on-background);
     transition: background-color 0.3s, color 0.3s;
     scroll-behavior: smooth;
     text-decoration: none;
@@ -40,24 +37,25 @@
 
 body {
     margin: 0;
-    padding: 0px;
+    padding: 0;
     display: flex;
-    overflow-x: hidden;
+    flex-direction: column;
     background-color: var(--md-sys-color-background);
+    overflow-x: hidden;
 }
 
+/* Structural Layout */
 header {
     position: fixed;
-    width: 100vw;
+    top: 0;
+    width: 100%;
     height: 10vh;
-    margin: 0px;
-    padding: 0px 48px;
+    padding: 0 48px;
     z-index: 5;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    background-color: var(--md-sys-color-background);
+    justify-content: space-between;
+    background-color: var(--md-sys-color-surface);
     border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
@@ -69,18 +67,19 @@ label {
 
 main {
     flex: 1;
-    padding: 0px;
-    margin: 0px;
     min-height: 60vh;
+    padding: 0;
+    margin-top: 10vh;
 }
 
 footer {
     width: 100%;
     padding: 24px 48px;
-    margin: 24px 0px;
-    background-color: var(--md-sys-color-background);
+    margin: 24px 0;
+    background-color: var(--md-sys-color-surface);
 }
 
+/* Navigation Drawer / Side Sheet */
 #drawer,
 #side-sheet {
     position: fixed;
@@ -88,44 +87,121 @@ footer {
     left: 0;
     height: 100%;
     width: 18rem;
-    background-color: var(--md-sys-color-background);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background-color: var(--md-sys-color-surface);
+    box-shadow: var(--md-elevation-level3);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 40;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a {
-    padding: 16px 0px 16px 0px;
+/* Typography Defaults */
+p, h1, h2, h3, h4, h5, h6, a {
+    padding: 16px 0;
 }
 
 a {
-    color: var(--md-sys-color-on-background);
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
 }
 
 img {
     border-radius: 24px;
+    max-width: 100%;
 }
 
-/* Stretch the Twitter embed blockquote to full width */
+/* Twitter Embed */
 .twitter-tweet {
     width: 100% !important;
     max-width: 100% !important;
     margin: auto;
 }
-
-/* Force Twitter embeds to use dark mode */
 .twitter-tweet-rendered iframe {
     color-scheme: dark;
 }
+
+/* Elevation Tokens */
+:root {
+    --md-elevation-level1: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --md-elevation-level2: 0 3px 6px rgba(0, 0, 0, 0.08);
+    --md-elevation-level3: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Containers (Surface Roles) */
+.container {
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.container#static {
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
+.large-button:hover {
+    background-color: var(--md-sys-color-surface-container-highest);
+}
+
+/* M3 Buttons */
+md-filled-button,
+md-filled-tonal-button,
+md-outlined-button {
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: var(--md-typescale-label-large-font-size);
+    font-weight: var(--md-typescale-label-large-font-weight);
+    line-height: var(--md-typescale-label-large-line-height);
+    letter-spacing: var(--md-typescale-label-large-letter-spacing);
+}
+
+/* Lists */
+md-list {
+    margin: 24px 48px;
+    border-radius: 16px;
+    background-color: var(--md-sys-color-surface-container-low);
+    padding: 0;
+}
+
+md-subheader {
+    font-size: var(--md-typescale-title-small-font-size);
+    font-weight: var(--md-typescale-title-small-font-weight);
+    padding-top: 12px;
+}
+
+@media screen and (min-width: 600px) {
+    md-list-item div[slot="headline"] {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    md-list-item div[slot="trailing-supporting-text"] {
+        font-size: 1.1rem;
+        color: var(--md-sys-color-on-surface-variant);
+    }
+}
+
+/* Material 3 Typography Classes – Already Aligned, Keep As-Is */
+.md-typescale-display-large,
+.md-typescale-display-medium,
+.md-typescale-display-small,
+.md-typescale-headline-large,
+.md-typescale-headline-medium,
+.md-typescale-headline-small,
+.md-typescale-title-large,
+.md-typescale-title-medium,
+.md-typescale-title-small,
+.md-typescale-body-large,
+.md-typescale-body-medium,
+.md-typescale-body-small,
+.md-typescale-label-large,
+.md-typescale-label-medium,
+.md-typescale-label-small {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
 
 /* Material Design 3 Typography */
 
@@ -249,48 +325,3 @@ img {
     line-height: var(--md-typescale-label-small-line-height);
     letter-spacing: var(--md-typescale-label-small-letter-spacing);
 }
-
-
-/* Material Design 3 Design */
-
-.container {
-    background-color: var(--md-sys-color-surface-container);
-}
-
-.container#static {
-    background-color: var(--md-sys-color-surface-container-high);
-}
-
-.large-button:hover {
-    background-color: var(--md-sys-color-surface-container-highest);
-}
-
-md-filled-tonal-button,
-md-filled-button,
-md-outlined-button {
-    padding: 0px 24px;
-}
-
-md-list {
-    margin: 24px 48px;
-    border-radius: 16px;
-}
-
-@media screen and (min-width: 600px) {
-    md-list-item div[slot="headline"] {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-    
-    md-list-item div[slot="trailing-supporting-text"] {
-        font-size: 1.1rem;
-        color: var(--md-sys-color-on-surface-variant);
-    }
-    
-    md-subheader {
-        font-size: 1.25rem;
-        font-weight: 600;
-        padding-top: 12px;
-    }
-}
-
