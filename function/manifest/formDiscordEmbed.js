@@ -53,7 +53,6 @@ async function sendEmbedWithUser(user) {
         author: user ? `${user.displayName} (CEO)` : "Anonymous",
         authorIconUrl: user ? user.photoURL : "",
         authorUrl: user ? user.photoURL : "",
-        thumbnail: "",
         fields: payloads.map((payload, i) => ({
             name: `Payload ${i + 1}`,
             value: payload,

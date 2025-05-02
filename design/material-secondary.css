@@ -176,6 +176,14 @@ a:hover {
     background-position: center;
 }
 
+.banner#full {
+    height: 35vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .banner#semi,
 .banner#grid {
     display: flex;
