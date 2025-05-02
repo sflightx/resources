@@ -89,10 +89,12 @@ footer img,
 .secondary-container {
     width: 100%;
     padding: 16px;
-    margin-bottom: 24px;
     border-radius: var(--radius-large);
-    background-color: var(--md-sys-color-surface-container);
     box-shadow: var(--elevation-1);
+}
+
+.container {
+    background-color: var(--md-sys-color-surface-container);
 }
 
 .container img {
@@ -173,8 +175,7 @@ footer img,
 .banner#semi,
 .banner#grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    gap: 8px;
 }
 
 .banner#stat {
@@ -189,6 +190,15 @@ footer img,
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: var(--radius-large);
+}
+
+.secondary-banner#full {
+    display: flex;
+    height: 50vh;
+    background-color: var(--md-sys-color-surface-container-low);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* === Stat Cards === */
@@ -273,6 +283,11 @@ footer img,
 
     .banner#semi img {
         width: 100%;
+    }
+
+    .banner#semi,
+    .banner#grid {
+        flex-wrap: wrap;
     }
 
     .banner#grid {
