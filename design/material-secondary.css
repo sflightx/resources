@@ -273,6 +273,12 @@ footer img,
     border-radius: 4px;
 }
 
+.twitter-tweet {
+    width: 100%;
+    overflow: hidden;
+}
+
+
 /* === Media Queries === */
 @media (max-width: 1024px) {
 
