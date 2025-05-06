@@ -164,7 +164,7 @@ footer img,
 .banner {
     display: grid;
     gap: 32px;
-    padding: 16px;
+    padding: 8px;
 }
 
 .banner#full {
