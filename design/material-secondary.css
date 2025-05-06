@@ -278,6 +278,14 @@ footer img,
     overflow: hidden;
 }
 
+#display-name {
+    text-align: center;
+}
+
+#display-name p {
+    padding: 0;
+    margin: 0;
+}
 
 /* === Media Queries === */
 @media (max-width: 1024px) {
