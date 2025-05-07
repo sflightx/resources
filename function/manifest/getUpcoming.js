@@ -1,6 +1,3 @@
-import { db } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
-import { ref, get } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     const path = 'launch_manifest/upcoming';
     const mainContainer = document.getElementById('full-launch');
@@ -11,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(snapshot => {
             const data = [];
             snapshot.forEach(child => data.push(child.val()));
-            data.reverse();
+            data.reverse(); // Reverse to display latest first
 
             // Clear existing content
             mainContainer.innerHTML = '';
@@ -56,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 launchSection.appendChild(overlay);
                 mainContainer.appendChild(launchSection);
-            } else {
-                // Scroll container for multiple launches
+            } else if (data.length > 1) {
+                // Multiple launches style (scroll container)
                 const scrollWrapper = document.createElement('div');
                 scrollWrapper.style.display = 'flex';
                 scrollWrapper.style.overflowX = 'auto';
