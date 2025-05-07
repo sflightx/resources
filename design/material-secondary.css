@@ -172,8 +172,7 @@ footer img,
     background: center/cover no-repeat;
 }
 
-.banner#semi,
-.banner#grid {
+.banner#semi {
     display: flex;
     gap: 8px;
 }
