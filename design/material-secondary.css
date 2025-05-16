@@ -110,6 +110,10 @@ footer img,
     border-radius: var(--radius-medium);
 }
 
+.step {
+    margin: 16px 0px;
+}
+
 /* === Buttons === */
 .large-button {
     display: block;
