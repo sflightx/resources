@@ -90,6 +90,7 @@ footer img,
 .secondary-container {
     width: 100%;
     padding: 16px;
+    margin: 8px 0px;
     border-radius: var(--radius-large);
     box-shadow: var(--elevation-1);
 }
