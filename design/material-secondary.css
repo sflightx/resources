@@ -114,6 +114,11 @@ footer img,
     margin: 16px 0px;
 }
 
+#main {
+    display: grid;
+    gap: 8px;
+}
+
 /* === Buttons === */
 .large-button {
     display: block;
