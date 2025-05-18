@@ -120,15 +120,6 @@ footer img {
     box-shadow: var(--elevation-1);
 }
 
-.container {
-    background-color: var(--md-sys-color-surface-container);
-}
-
-.container:hover {
-    background-color: var(--md-sys-color-container-highest);
-    color: var(--md-sys-color-on-container-highest);
-}
-
 .container img {
     width: 100%;
     height: auto;

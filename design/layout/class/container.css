@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  padding: 16px;
+  box-shadow: var(--elevation-low);
+  color: var(--md-sys-color-on-surface);
+}
+
+.container img {
+  width: 100%;
+  border-radius: var(--radius-medium);
+}
+
+.container:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.container,
+.container:disabled:hover {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.container[shape="rectangle"] {
+  border-radius: 0px;
+}
+
+.container[shape="semi-squircle"] {
+  border-radius: var(--radius-small);
+}
+
+.container[shape="squircle"] {
+  border-radius: var(--radius-medium);
+}
+
+.container[shape="rounded"] {
+  border-radius: var(--radius-large);
+}
+
+.container[offset~="top"] {
+  margin-top: 8px;
+}
+
+.container[offset~="left"] {
+  margin-left: 8px;
+}
+
+.container[offset~="bottom"] {
+  margin-bottom: 8px;
+}
+
+.container[offset~="right"] {
+  margin-right: 8px;
+}
