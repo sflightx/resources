@@ -16,7 +16,7 @@
 }
 
 .container,
-.container:disabled:hover {
+.container[disabled]:hover {
   background-color: var(--md-sys-color-surface-container);
 }
 
