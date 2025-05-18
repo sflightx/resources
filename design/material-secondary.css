@@ -241,6 +241,26 @@ footer img,
     gap: 16px;
 }
 
+/* === Grid Containers === */
+
+.grid-container {
+    margin: 16px 0px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+}
+
+#grid-child {
+    padding: 8px;
+    min-width: 80px;
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px var(--md-sys-color-outlime-variant);
+}
+
 /* === Discord Embed === */
 .discord-embed {
     margin: 1rem;
@@ -307,21 +327,21 @@ footer img,
 
 /* === Media Queries === */
 @media (max-width: 1024px) {
-
+    
     #locator,
     #app-bar-title {
         display: none;
     }
-
+    
     .banner#semi img {
         width: 100%;
     }
-
+    
     .banner#semi,
     .banner#grid {
         flex-wrap: wrap;
     }
-
+    
     .banner#grid {
         grid-template-columns: 1fr;
     }
@@ -331,7 +351,7 @@ footer img,
     .banner#semi img {
         width: calc(50% - 16px);
     }
-
+    
     .banner#grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -341,7 +361,7 @@ footer img,
     .banner#grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
+    
     .banner#half,
     .container#half {
         width: 50vw;
