@@ -93,15 +93,3 @@ img {
 .twitter-tweet-rendered iframe {
     color-scheme: dark;
 }
-
-/* Containers (Surface Roles) */
-.container {
-    background-color: var(--md-sys-color-surface-container);
-    border-radius: 16px;
-    padding: 24px;
-}
-
-.container#static {
-    background-color: var(--md-sys-color-surface-container-high);
-}
-
