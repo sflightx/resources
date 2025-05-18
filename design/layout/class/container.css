@@ -11,12 +11,12 @@
   border-radius: var(--radius-medium);
 }
 
-.container:hover {
+.container[enabled]:hover {
   background-color: var(--md-sys-color-surface-container-high);
 }
 
 .container,
-.container[disabled]:hover {
+.container:hover {
   background-color: var(--md-sys-color-surface-container);
 }
 
