@@ -1,3 +1,26 @@
+/* Material 3 Typography Classes – Already Aligned, Keep As-Is */
+.md-typescale-display-large,
+.md-typescale-display-medium,
+.md-typescale-display-small,
+.md-typescale-headline-large,
+.md-typescale-headline-medium,
+.md-typescale-headline-small,
+.md-typescale-title-large,
+.md-typescale-title-medium,
+.md-typescale-title-small,
+.md-typescale-body-large,
+.md-typescale-body-medium,
+.md-typescale-body-small,
+.md-typescale-label-large,
+.md-typescale-label-medium,
+.md-typescale-label-small {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
 /* Material Design 3 Typography */
 
 .md-typescale-display-large {
@@ -118,27 +141,4 @@
     font-size: var(--md-typescale-label-small-font-size);
     line-height: var(--md-typescale-label-small-line-height);
     letter-spacing: var(--md-typescale-label-small-letter-spacing);
-}
-
-/* Material 3 Typography Classes – Already Aligned, Keep As-Is */
-.md-typescale-display-large,
-.md-typescale-display-medium,
-.md-typescale-display-small,
-.md-typescale-headline-large,
-.md-typescale-headline-medium,
-.md-typescale-headline-small,
-.md-typescale-title-large,
-.md-typescale-title-medium,
-.md-typescale-title-small,
-.md-typescale-body-large,
-.md-typescale-body-medium,
-.md-typescale-body-small,
-.md-typescale-label-large,
-.md-typescale-label-medium,
-.md-typescale-label-small {
-    font-family: var(--font-family);
-    font-weight: var(--font-weight);
-    font-size: var(--font-size);
-    line-height: var(--line-height);
-    letter-spacing: var(--letter-spacing);
 }
