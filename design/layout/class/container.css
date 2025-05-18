@@ -59,11 +59,11 @@
   margin-right: 8px;
 }
 
-.container[offset~="vertical"] {
+.container[offset~="horizontal"] {
   margin: 0px 8px;
 }
 
-.container[offset~="horizontal"] {
+.container[offset~="vertical"] {
   margin: 8px 0px;
 }
 
@@ -87,11 +87,11 @@
   padding-right: 16px;
 }
 
-.container[indent~="vertical"] {
+.container[indent~="horizontal"] {
   padding: 0px 16px;
 }
 
-.container[indent~="horizontal"] {
+.container[indent~="vertical"] {
   padding: 16px 0px;
 }
 
