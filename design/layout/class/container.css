@@ -2,6 +2,7 @@
   max-width: 100%;
   width: auto;
   padding: 16px;
+  border-radius: 0px;
   box-shadow: var(--elevation-low);
   color: var(--md-sys-color-on-surface);
 }
@@ -56,4 +57,20 @@
 .container[offset~="right"] {
   width: calc(100%-16px);
   margin-right: 8px;
+}
+
+.container[indent~="top"] {
+  padding-top: 16px;
+}
+
+.container[indent~="bottom"] {
+  padding-bottom: 16px;
+}
+
+.container[indent~="left"] {
+  padding-left: 16px;
+}
+
+.container[indent~="right"] {
+  padding-right: 16px;
 }
