@@ -80,8 +80,11 @@ footer .logo {
 }
 
 header img,
-footer img,
 #side-sheet img {
+    height: 48px;
+}
+
+footer img {
     height: 24px;
 }
 
