@@ -1,5 +1,6 @@
 .container {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   padding: 16px;
   box-shadow: var(--elevation-low);
   color: var(--md-sys-color-on-surface);
