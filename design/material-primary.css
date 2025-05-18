@@ -67,12 +67,13 @@ label {
 
 main {
     flex: 1;
-    min-height: 60vh;
+    min-height: 75vh;
     padding: 0;
     margin-top: 64px;
 }
 
 footer {
+    min-height: 25vh;
     width: 100%;
     padding: 16px 24px;
     margin: 24px 0;

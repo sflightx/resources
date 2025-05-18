@@ -82,7 +82,7 @@ footer .logo {
 header img,
 footer img,
 #side-sheet img {
-    height: 48px;
+    height: 24px;
 }
 
 /* === Containers === */
@@ -115,6 +115,7 @@ footer img,
 }
 
 #main {
+    min-height: 75vh;
     display: grid;
     gap: 8px;
 }
