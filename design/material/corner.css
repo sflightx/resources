@@ -1,0 +1,5 @@
+.corner {
+  --shape-radius-small: 8px;
+  --shape-radius-medium: 12px;
+  --shape-radius-large: 24px;
+}

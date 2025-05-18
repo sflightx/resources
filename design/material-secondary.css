@@ -145,20 +145,6 @@ footer img {
     gap: 8px;
 }
 
-/* === Buttons === */
-.large-button {
-    display: block;
-    width: 100%;
-    padding: 16px;
-    margin-bottom: 24px;
-    border-radius: var(--radius-medium);
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    font-size: 1.25rem;
-    text-align: center;
-    cursor: pointer;
-}
-
 .large-button:hover {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
