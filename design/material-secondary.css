@@ -140,7 +140,7 @@ footer img {
 }
 
 #main {
-    min-height: 75vh;
+    min-height: 85vh;
     display: grid;
     gap: 8px;
 }
