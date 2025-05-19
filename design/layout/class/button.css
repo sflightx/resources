@@ -11,7 +11,7 @@ button[filled] {
 }
 
 button[outlined] {
-  border: 1px solid var(--md-sys-color-outlime-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
 
 button:hover {
