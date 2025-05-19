@@ -110,15 +110,6 @@ footer img {
     }
 }
 
-/* === Containers === */
-.secondary-container {
-    width: 100%;
-    padding: 16px;
-    margin: 8px 0px;
-    border-radius: var(--radius-large);
-    box-shadow: var(--elevation-1);
-}
-
 .step {
     margin: 16px 0px;
 }
@@ -127,11 +118,6 @@ footer img {
     min-height: 85vh;
     display: grid;
     gap: 8px;
-}
-
-.large-button:hover {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
 }
 
 /* === Footer === */
