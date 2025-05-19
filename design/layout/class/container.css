@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  gap: 8px;
   max-width: 100%;
   width: auto;
   box-shadow: var(--elevation-low);
