@@ -23,22 +23,6 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.container[shape="rectangle"] {
-  border-radius: 0px;
-}
-
-.container[shape="semi-squircle"] {
-  border-radius: var(--radius-small);
-}
-
-.container[shape="squircle"] {
-  border-radius: var(--radius-medium);
-}
-
-.container[shape="rounded"] {
-  border-radius: var(--radius-large);
-}
-
 .container[offset~="top"] {
   margin-top: 8px;
 }
