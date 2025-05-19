@@ -88,28 +88,6 @@ footer img {
     height: 24px;
 }
 
-/* === Gradients === */
-
-.gradient-background {
-    background: linear-gradient(59deg, #cc330d, #00a0fa, #3d198f, #d66ead, #17e537);
-    background-size: 300% 300%;
-    animation: gradient-animation 45s ease infinite;
-}
-
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    
-    50% {
-        background-position: 100% 50%;
-    }
-    
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .step {
     margin: 16px 0px;
 }
