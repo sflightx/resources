@@ -1,100 +1,110 @@
-html,
-body {
-  font-family: 'Glacial', sans-serif;
+/* Global default: DM Sans */
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
+html,
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Typography tokens using DM Sans */
 :root {
-  --md-ref-typeface-plain: 'Glacial';
+  --md-ref-typeface-plain: "DM Sans";
+  
   /* Display */
-  --md-typescale-display-large-font-family: 'Glacial';
+  --md-typescale-display-large-font-family: "DM Sans";
   --md-typescale-display-large-font-weight: 400;
   --md-typescale-display-large-font-size: 57px;
   --md-typescale-display-large-line-height: 64px;
   --md-typescale-display-large-letter-spacing: -0.25px;
   
-  --md-typescale-display-medium-font-family: 'Glacial';
+  --md-typescale-display-medium-font-family: "DM Sans";
   --md-typescale-display-medium-font-weight: 400;
   --md-typescale-display-medium-font-size: 45px;
   --md-typescale-display-medium-line-height: 52px;
   --md-typescale-display-medium-letter-spacing: 0px;
   
-  --md-typescale-display-small-font-family: 'Glacial';
+  --md-typescale-display-small-font-family: "DM Sans";
   --md-typescale-display-small-font-weight: 400;
   --md-typescale-display-small-font-size: 36px;
   --md-typescale-display-small-line-height: 44px;
   --md-typescale-display-small-letter-spacing: 0px;
   
   /* Headline */
-  --md-typescale-headline-large-font-family: 'Glacial';
+  --md-typescale-headline-large-font-family: "DM Sans";
   --md-typescale-headline-large-font-weight: 400;
   --md-typescale-headline-large-font-size: 32px;
   --md-typescale-headline-large-line-height: 40px;
   --md-typescale-headline-large-letter-spacing: 0px;
   
-  --md-typescale-headline-medium-font-family: 'Glacial';
+  --md-typescale-headline-medium-font-family: "DM Sans";
   --md-typescale-headline-medium-font-weight: 400;
   --md-typescale-headline-medium-font-size: 28px;
   --md-typescale-headline-medium-line-height: 36px;
   --md-typescale-headline-medium-letter-spacing: 0px;
   
-  --md-typescale-headline-small-font-family: 'Glacial';
+  --md-typescale-headline-small-font-family: "DM Sans";
   --md-typescale-headline-small-font-weight: 400;
   --md-typescale-headline-small-font-size: 24px;
   --md-typescale-headline-small-line-height: 32px;
   --md-typescale-headline-small-letter-spacing: 0px;
   
   /* Title */
-  --md-typescale-title-large-font-family: 'Glacial';
+  --md-typescale-title-large-font-family: "DM Sans";
   --md-typescale-title-large-font-weight: 400;
   --md-typescale-title-large-font-size: 23px;
   --md-typescale-title-large-line-height: 28px;
   --md-typescale-title-large-letter-spacing: 0px;
   
-  --md-typescale-title-medium-font-family: 'Glacial';
+  --md-typescale-title-medium-font-family: "DM Sans";
   --md-typescale-title-medium-font-weight: 500;
   --md-typescale-title-medium-font-size: 20px;
   --md-typescale-title-medium-line-height: 24px;
   --md-typescale-title-medium-letter-spacing: 0.15px;
   
-  --md-typescale-title-small-font-family: 'Glacial';
+  --md-typescale-title-small-font-family: "DM Sans";
   --md-typescale-title-small-font-weight: 500;
   --md-typescale-title-small-font-size: 16px;
   --md-typescale-title-small-line-height: 20px;
   --md-typescale-title-small-letter-spacing: 0.1px;
   
   /* Body */
-  --md-typescale-body-large-font-family: 'Glacial';
+  --md-typescale-body-large-font-family: "DM Sans";
   --md-typescale-body-large-font-weight: 400;
   --md-typescale-body-large-font-size: 17px;
   --md-typescale-body-large-line-height: 24px;
   --md-typescale-body-large-letter-spacing: 0.5px;
   
-  --md-typescale-body-medium-font-family: 'Glacial';
+  --md-typescale-body-medium-font-family: "DM Sans";
   --md-typescale-body-medium-font-weight: 400;
   --md-typescale-body-medium-font-size: 15px;
   --md-typescale-body-medium-line-height: 20px;
   --md-typescale-body-medium-letter-spacing: 0.25px;
   
-  --md-typescale-body-small-font-family: 'Glacial';
+  --md-typescale-body-small-font-family: "DM Sans";
   --md-typescale-body-small-font-weight: 400;
   --md-typescale-body-small-font-size: 13px;
   --md-typescale-body-small-line-height: 16px;
   --md-typescale-body-small-letter-spacing: 0.4px;
   
   /* Label */
-  --md-typescale-label-large-font-family: 'Glacial';
+  --md-typescale-label-large-font-family: "DM Sans";
   --md-typescale-label-large-font-weight: 500;
   --md-typescale-label-large-font-size: 15px;
   --md-typescale-label-large-line-height: 20px;
   --md-typescale-label-large-letter-spacing: 0.1px;
   
-  --md-typescale-label-medium-font-family: 'Glacial';
+  --md-typescale-label-medium-font-family: "DM Sans";
   --md-typescale-label-medium-font-weight: 500;
   --md-typescale-label-medium-font-size: 13px;
   --md-typescale-label-medium-line-height: 16px;
   --md-typescale-label-medium-letter-spacing: 0.5px;
   
-  --md-typescale-label-small-font-family: 'Glacial';
+  --md-typescale-label-small-font-family: "DM Sans";
   --md-typescale-label-small-font-weight: 500;
   --md-typescale-label-small-font-size: 12px;
   --md-typescale-label-small-line-height: 16px;
