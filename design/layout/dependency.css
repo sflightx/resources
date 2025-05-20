@@ -5,3 +5,93 @@
 
 @import 'style/offset.css';
 @import 'style/indent.css';
+
+* {
+    font-family: 'Glacial', sans-serif;
+    font-size: 1em;
+    color: var(--md-sys-color-on-background);
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    max-width: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--md-sys-color-background);
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--md-sys-color-surface);
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main {
+    flex: 1;
+    min-height: 75vh;
+    padding: 0;
+    margin-top: 64px;
+}
+
+footer {
+    min-height: 25vh;
+    width: 100%;
+    padding: 16px 24px;
+    background-color: var(--md-sys-color-surface);
+}
+
+#drawer,
+#side-sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 18rem;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: var(--md-elevation-level3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 40;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+    padding-top: 8px;
+}
+
+a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+img {
+    border-radius: 24px;
+    max-width: 100%;
+}
+
+.twitter-tweet {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto;
+}
+.twitter-tweet-rendered iframe {
+    color-scheme: dark;
+}
