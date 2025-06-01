@@ -63,10 +63,6 @@ footer {
     z-index: 40;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    padding-top: 8px;
-}
-
 a {
     color: var(--md-sys-color-primary);
     text-decoration: none;
