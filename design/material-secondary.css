@@ -71,15 +71,6 @@ body {
     background-color: var(--md-sys-color-surface-variant);
 }
 
-/* === Logos === */
-header .logo,
-footer .logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-header img,
 #side-sheet img {
     height: 48px;
 }
