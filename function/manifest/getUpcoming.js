@@ -1,3 +1,6 @@
+import { db } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
+import { ref, get } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const path = 'launch_manifest/upcoming';
     const mainContainer = document.getElementById('full-launch');
