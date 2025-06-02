@@ -272,10 +272,7 @@ footer img {
     .banner#grid {
         flex-wrap: wrap;
     }
-    
-    .banner#grid {
-        grid-template-columns: 1fr;
-    }
+
 }
 
 @media (min-width: 1024px) {

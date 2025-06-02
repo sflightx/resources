@@ -4,6 +4,24 @@
   gap: 8px;
 }
 
+#grid[stat] {
+  display: grid;
+  gap: 16px;
+  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+@media screen and (min-width: 600px) {
+  #grid[stat] {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+}
+@media screen and (min-width: 1024px) {
+  #grid[stat] {
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+  }
+}
+
 #grid > [child] {
     padding: 8px;
     min-width: 80px;
