@@ -1,4 +1,7 @@
-<footer>
+class SFlightXFooter extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+      <footer>
     <div class="footer-container" indent="all">
         <a href="https://sflightx.com">
             <img id="footer-logo" src="https://sflightx.com/resources/v4/database/logo/logo.png" alt="sFlightX Logo" />
@@ -92,3 +95,8 @@
         </div>
     </div>
 </footer>
+    `;
+    }
+}
+
+customElements.define('sflightx-footer', SFlightXFooter);

@@ -121,10 +121,6 @@ body {
     height: 48px;
 }
 
-footer img {
-    height: 24px;
-}
-
 .step {
     margin: 16px 0px;
 }
@@ -143,11 +139,6 @@ footer img {
     gap: 24px;
     align-items: flex-end;
     padding-top: 16px;
-}
-
-#legal-link {
-    flex: 1 1 250px;
-    min-width: 250px;
 }
 
 #icon-link {
