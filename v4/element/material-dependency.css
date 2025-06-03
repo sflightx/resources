@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
+
+@import url('https://help.sflightx.com/main.css');
+@import url('https://help.sflightx.com/tailwind.css');
+
+@import 'material/scheme.css';
+@import 'material/corner.css';
+@import 'material/elevation.css';
+@import 'material/typography.css';
+@import 'material/md-kit.css';
+
+@import 'layout/dependency.css';
+
+/* Temporary Fix */
+
+@import 'material-secondary.css';
+
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* === Material Symbols Icon === */
+
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5rem;
+    display: inline-block;
+    line-height: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: color 0.2s ease;
+    vertical-align: middle;
+}
+
+.material-symbols-rounded:hover {
+    color: var(--md-sys-color-primary);
+}

@@ -1,0 +1,298 @@
+/* === Core === */
+:root {
+    --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --elevation-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+}
+
+/* === Base Layout === */
+body {
+    font-family: "Roboto", sans-serif;
+    color: var(--md-sys-color-on-background);
+    background-color: var(--md-sys-color-background);
+    margin: 0;
+    padding: 0;
+}
+
+/* === Drawer / Side Sheet === */
+#drawer,
+#side-sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: var(--elevation-2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 20;
+}
+
+#drawer.open,
+#side-sheet.open {
+    transform: translateX(0);
+}
+
+#backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: var(--md-sys-color-scrim);
+    opacity: 0.5;
+    z-index: 10;
+}
+
+#backdrop.hidden {
+    display: none;
+}
+
+/* === Headers === */
+#drawer-header,
+#locator-header,
+#side-sheet-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* === Drawer Item === */
+.drawer-item {
+    padding: 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.drawer-item:hover {
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+#side-sheet img {
+    height: 48px;
+}
+
+footer img {
+    height: 24px;
+}
+
+.step {
+    margin: 16px 0px;
+}
+
+#main {
+    min-height: 85vh;
+    display: grid;
+    gap: 8px;
+}
+
+/* === Footer === */
+#horizontal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-end;
+    padding-top: 16px;
+}
+
+#legal-link {
+    flex: 1 1 250px;
+    min-width: 250px;
+}
+
+#icon-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.text-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.text-link a {
+    color: var(--md-sys-color-on-surface-variant);
+    text-decoration: none;
+}
+
+.text-link a:hover {
+    text-decoration: underline;
+    color: var(--md-sys-color-primary);
+}
+
+#outline {
+    color: var(--md-sys-color-outline);
+}
+
+/* === Banners === */
+.banner {
+    display: grid;
+    gap: 32px;
+    padding: 8px;
+}
+
+.banner#full {
+    height: 35vh;
+    background: center/cover no-repeat;
+}
+
+.banner#semi {
+    display: flex;
+    gap: 8px;
+}
+
+.banner#stat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    text-align: center;
+}
+
+.banner#semi img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-large);
+}
+
+.secondary-banner#full {
+    display: flex;
+    height: 50vh;
+    background-color: var(--md-sys-color-surface-container-low);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* === Stat Cards === */
+.container#stat {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    text-align: center;
+}
+
+.container#stat h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* === Action Group === */
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* === Discord Embed === */
+.discord-embed {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #2f3136;
+    color: #dcddde;
+    border-left: 4px solid #5865f2;
+    border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+}
+
+.discord-embed .author,
+.discord-embed .field-title,
+.discord-embed .timestamp {
+    color: #b9bbbe;
+    font-size: 0.875rem;
+}
+
+.discord-embed .title {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.discord-embed .description {
+    font-size: 0.875rem;
+}
+
+.discord-embed .fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.discord-embed .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 4px;
+}
+
+.discord-embed .main-image {
+    margin-top: 1rem;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.twitter-tweet {
+    width: 100%;
+    overflow: hidden;
+}
+
+#display-name {
+    text-align: center;
+}
+
+#display-name p {
+    padding: 0;
+    margin: 0;
+}
+
+/* === Media Queries === */
+@media (max-width: 1024px) {
+    
+    #locator,
+    #app-bar-title {
+        display: none;
+    }
+    
+    .banner#semi img {
+        width: 100%;
+    }
+    
+    .banner#semi,
+    .banner#grid {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .banner#semi img {
+        width: calc(50% - 16px);
+    }
+    
+    .banner#grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+    .banner#grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .banner#half,
+    .container#half {
+        width: 50vw;
+        max-width: 50vw;
+    }
+}

@@ -1,0 +1,44 @@
+/* === Material 3 UI === */
+
+md-filled-button,
+md-filled-tonal-button,
+md-outlined-button {
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: var(--md-typescale-label-large-font-size);
+    font-weight: var(--md-typescale-label-large-font-weight);
+    line-height: var(--md-typescale-label-large-line-height);
+    letter-spacing: var(--md-typescale-label-large-letter-spacing);
+}
+
+md-list {
+    border-radius: 24px;
+    padding: 0;
+    font-size: 1.25rem;
+}
+
+md-list-item div[slot="trailing-supporting-text"] {
+    font-size: 1.1rem;
+}
+
+md-subheader {
+    font-size: var(--md-typescale-title-small-font-size);
+    font-weight: var(--md-typescale-title-small-font-weight);
+    padding-top: 16px;
+}
+
+/* === Custom Material 3 UI === */
+
+
+
+@media screen and (min-width: 600px) {
+    md-list-item div[slot="headline"] {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    md-list-item div[slot="trailing-supporting-text"] {
+        font-size: 1.35rem;
+        color: var(--md-sys-color-on-surface-variant);
+    }
+}

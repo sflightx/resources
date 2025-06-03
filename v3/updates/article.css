@@ -1,0 +1,49 @@
+.twitter-tweet {
+    width: 100%;
+    height: auto;
+}
+
+.feature-article {
+    background-color: black;
+    position: relative;
+    width: calc(95vw-50px);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.feature-article-container {
+    margin: 0px 50px;
+    text-align: center;
+    max-height: 25vh;
+    max-width: 100%;
+    position: absolute;
+    bottom: 10%;
+    text-align: left;
+}
+
+#bg-img {
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+}
+
+#feature-article-title {
+    font-size: 5vw;
+    margin: 0px;
+    width: 50vw;
+}
+
+.menuImage {
+    max-height: 75%;
+    max-width: 15vw;
+}
+
+.profileImage {
+    right: 0px;
+}
+
+.article h1, .article h2, .article h3, .article h4, .article h5, .article h6, .article p {
+    text-transform: none;
+    padding: 5px 10vw;
+    line-height: 1.5;
+}
