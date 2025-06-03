@@ -17,10 +17,6 @@
 
 @import 'layout/dependency.css';
 
-/* Temporary Fix */
-
-@import 'material-secondary.css';
-
 * {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
