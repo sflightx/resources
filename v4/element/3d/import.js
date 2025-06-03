@@ -38,7 +38,7 @@ controls.enableZoom = false;
 let loadedObject = null;
 const objLoader = new OBJLoader();
 objLoader.load(
-  'https://sflightx.com/resources/database/model/maya_block_6.obj',
+  'https://sflightx.com/resources/v4/database/model/maya_block_6.obj',
   function (object) {
     // Make all materials darker and more matte
     object.traverse((child) => {

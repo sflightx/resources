@@ -1,7 +1,7 @@
 const scripts = [
-    "https://sflightx.com/resources/function/drawer.js",
-    "https://sflightx.com/resources/function/scroll.js",
-    "https://sflightx.com/resources/function/theme-mode.js"
+    "https://sflightx.com/resources/v4/function/drawer.js",
+    "https://sflightx.com/resources/v4/function/scroll.js",
+    "https://sflightx.com/resources/v4/function/theme-mode.js"
   ];
 
   scripts.forEach(src => {
