@@ -1,4 +1,4 @@
-import { auth } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
+import { auth } from 'https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js';
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 onAuthStateChanged(auth, (user) => {
