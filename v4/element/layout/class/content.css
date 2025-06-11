@@ -4,6 +4,10 @@
     gap: 16px;
 }
 
+[content] > * {
+    max-width: min-content;
+}
+
 [desktop-gap] {
     padding: 5vh 10vw;
 }
