@@ -8,3 +8,9 @@
 [desktop-gap] {
     padding: 5vh 10vw;
 }
+
+[center] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
