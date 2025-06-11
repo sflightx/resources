@@ -3,3 +3,7 @@
     flex-direction: column;
     gap: 16px;
 }
+
+[desktop-gap] {
+    padding: 5vh 10vw;
+}
