@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 emailToUse = data.email;
             } catch (err) {
                 alert('Username not found. Please sign up.');
-                window.location.href = '/signup.html';
+                window.location.href = '#signup';
                 return;
             }
         }
@@ -40,17 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const signInMethods = await fetchSignInMethodsForEmail(auth, emailToUse);
             if (!signInMethods || signInMethods.length === 0) {
                 alert('Account does not exist. Redirecting to sign up.');
-                window.location.href = '/signup.html';
+                window.location.href = '#signup';
                 return;
             }
 
             // Try to sign in
             await signInWithEmailAndPassword(auth, emailToUse, passwordInput);
-            window.location.href = '/dashboard.html';
+            window.location.href = 'https://app.sflightx.com/bp';
         } catch (error) {
             if (error.code === 'auth/user-not-found') {
                 alert('Account does not exist. Redirecting to sign up.');
-                window.location.href = '/signup.html';
+                window.location.href = '#signup';
             } else if (error.code === 'auth/wrong-password') {
                 alert('Incorrect password.');
             } else {
