@@ -1,4 +1,4 @@
-import { db } from 'https://sflightx.com/resources/serviceAuth/initializeFirebase.js';
+import { db } from 'https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js';
 import { ref, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
 // DOM References
