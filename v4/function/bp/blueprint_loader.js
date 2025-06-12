@@ -18,7 +18,7 @@ contentContainer.id = "grid";
 
 descriptionContainer.className = "container";
 descriptionContainer.style.borderRadius = "0px";
-descriptionContainer.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+descriptionContainer.style.backgroundColor = "var(--md-sys-color-surface-container-low)";
 descriptionContainer.style.margin = "0px";
 descriptionContainer.style.height = "100%";
 descriptionContainer.style.display = "flex";
