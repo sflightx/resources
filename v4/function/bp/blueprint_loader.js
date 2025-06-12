@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         // Load the home page script dynamically
         const script = document.createElement("script");
-        script.src = "https://sflightx.com/resources/function/bp/home.js"; // change this path to match your actual home script file
+        script.src = "https://sflightx.com/resources/v4/function/bp/home.js"; // change this path to match your actual home script file
         script.type = "module";  // if your script uses ES modules
         script.onload = () => {
             console.log("Home page script loaded.");
