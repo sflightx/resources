@@ -2,7 +2,7 @@ import { auth, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "ht
 
 document.addEventListener('DOMContentLoaded', function () {
     if (!auth) {
-        alert('Auth failed to load.');
+        console.log('Auth failed to load.');
         return;
     }
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const passwordInput = passwordField.shadowRoot.querySelector('input').value;
 
         if (!emailInput || !passwordInput) {
-            alert('Please enter both email/username and password.');
+            console.log('Please enter both email/username and password.');
             return;
         }
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = await res.json();
                 emailToUse = data.email;
             } catch (err) {
-                alert('Username not found. Please sign up.');
+                console.log('Username not found. Please sign up.');
                 window.location.href = '#signup';
                 return;
             }
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Check if user exists by fetching sign-in methods for the email
             const signInMethods = await fetchSignInMethodsForEmail(auth, emailToUse);
             if (!signInMethods || signInMethods.length === 0) {
-                alert('Account does not exist. Redirecting to sign up.');
+                console.log('Account does not exist. Redirecting to sign up.');
                 window.location.href = '#signup';
                 return;
             }
@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'https://app.sflightx.com/bp';
         } catch (error) {
             if (error.code === 'auth/user-not-found') {
-                alert('Account does not exist. Redirecting to sign up.');
+                console.log('Account does not exist. Redirecting to sign up.');
                 window.location.href = '#signup';
             } else if (error.code === 'auth/wrong-password') {
-                alert('Incorrect password.');
+                console.log('Incorrect password.');
             } else {
-                alert(error.message);
+                console.log(error.message);
             }
         }
     });
