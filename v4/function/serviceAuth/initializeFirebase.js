@@ -2,7 +2,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
 import {
   getAuth,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  EmailAuthProvider // Import EmailAuthProvider
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
 
@@ -22,6 +23,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
-// Export GoogleAuthProvider so other modules can use it
-export { app, auth, db, GoogleAuthProvider };
+// Export GoogleAuthProvider and EmailAuthProvider so other modules can use them
+export { app, auth, db, GoogleAuthProvider, EmailAuthProvider };
 export default app;
