@@ -34,8 +34,6 @@ md-subheader {
 
 /* === Custom Material 3 UI === */
 
-
-
 @media screen and (min-width: 600px) {
     md-list-item div[slot="headline"] {
         font-size: 1.5rem;
