@@ -1,9 +1,10 @@
-// initializeFirebase.js
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
 import {
   getAuth,
   GoogleAuthProvider,
-  EmailAuthProvider // Import EmailAuthProvider
+  EmailAuthProvider,
+  signInWithEmailAndPassword,
+  fetchSignInMethodsForEmail
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
 
@@ -23,6 +24,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
-// Export GoogleAuthProvider and EmailAuthProvider so other modules can use them
-export { app, auth, db, GoogleAuthProvider, EmailAuthProvider };
+// Export Firebase Auth utilities for use in other modules
+export {
+  app,
+  auth,
+  db,
+  GoogleAuthProvider,
+  EmailAuthProvider,
+  signInWithEmailAndPassword,
+  fetchSignInMethodsForEmail
+};
 export default app;

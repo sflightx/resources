@@ -1,0 +1,61 @@
+import { auth, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "../../resources/v4/function/serviceAuth/initializeFirebase.js";
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (!auth) {
+        alert('Auth failed to load.');
+        return;
+    }
+
+    document.querySelector('#login-form md-filled-button').addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const emailField = document.querySelector('#login-form md-outlined-text-field[type="email"]');
+        const passwordField = document.getElementById('passwordField');
+        const emailInput = emailField.shadowRoot.querySelector('input').value.trim();
+        const passwordInput = passwordField.shadowRoot.querySelector('input').value;
+
+        if (!emailInput || !passwordInput) {
+            alert('Please enter both email/username and password.');
+            return;
+        }
+
+        let emailToUse = emailInput;
+
+        // If input is not an email, try to resolve username to email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+            try {
+                const res = await fetch(`/api/resolve-username?username=${encodeURIComponent(emailInput)}`);
+                if (!res.ok) throw new Error('Username not found');
+                const data = await res.json();
+                emailToUse = data.email;
+            } catch (err) {
+                alert('Username not found. Please sign up.');
+                window.location.href = '/signup.html';
+                return;
+            }
+        }
+
+        try {
+            // Check if user exists by fetching sign-in methods for the email
+            const signInMethods = await fetchSignInMethodsForEmail(auth, emailToUse);
+            if (!signInMethods || signInMethods.length === 0) {
+                alert('Account does not exist. Redirecting to sign up.');
+                window.location.href = '/signup.html';
+                return;
+            }
+
+            // Try to sign in
+            await signInWithEmailAndPassword(auth, emailToUse, passwordInput);
+            window.location.href = '/dashboard.html';
+        } catch (error) {
+            if (error.code === 'auth/user-not-found') {
+                alert('Account does not exist. Redirecting to sign up.');
+                window.location.href = '/signup.html';
+            } else if (error.code === 'auth/wrong-password') {
+                alert('Incorrect password.');
+            } else {
+                alert(error.message);
+            }
+        }
+    });
+});
