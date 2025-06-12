@@ -11,6 +11,11 @@ md-outlined-button {
     letter-spacing: var(--md-typescale-label-large-letter-spacing);
 }
 
+md-filled-button {
+    background-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
+}
+
 md-list {
     border-radius: 24px;
     padding: 0;
