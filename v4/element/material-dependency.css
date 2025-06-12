@@ -296,8 +296,7 @@ body {
 /* === Media Queries === */
 @media (max-width: 1024px) {
     
-    #locator,
-    #app-bar-title {
+    #locator {
         display: none;
     }
     
