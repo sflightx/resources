@@ -1,4 +1,4 @@
-import { auth, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "../../resources/v4/function/serviceAuth/initializeFirebase.js";
+import { auth, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     if (!auth) {
