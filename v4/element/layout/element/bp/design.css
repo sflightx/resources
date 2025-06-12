@@ -1,0 +1,35 @@
+#app-bar-title {
+    display: block;
+}
+
+#title {
+    display: none;
+}
+
+#cta {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    #app-bar-title {
+        display: none;
+    }
+
+    #title {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #cta {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 8px;
+    }
+}

@@ -2,9 +2,9 @@ import { db } from 'https://sflightx.com/resources/v4/function/serviceAuth/initi
 import { ref, get, query, orderByChild, limitToLast, endAt } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
 const dataContainer = document.getElementById("data");
-const banner = document.getElementById("full");
 
-let lastKey = null;
+let lastKey = null;         // last 'date' value loaded
+let lastEntryKey = null;    // last Firebase key loaded (the blueprint id)
 let isLoading = false;
 let isDone = false;
 const PAGE_SIZE = 25;
@@ -16,21 +16,41 @@ async function fetchBlueprintsPage() {
 
     try {
         const baseRef = ref(db, "upload/blueprint");
-        const blueprintQuery = !lastKey
-            ? query(baseRef, orderByChild("date"), limitToLast(PAGE_SIZE))
-            : query(baseRef, orderByChild("date"), endAt(lastKey - 1), limitToLast(PAGE_SIZE));
+        let blueprintQuery;
+        if (!lastKey) {
+            blueprintQuery = query(baseRef, orderByChild("date"), limitToLast(PAGE_SIZE));
+        } else {
+            // endAt(lastKey) will include items with the same date, so we'll skip the exact lastEntryKey below
+            blueprintQuery = query(baseRef, orderByChild("date"), endAt(lastKey), limitToLast(PAGE_SIZE));
+        }
 
         const snapshot = await get(blueprintQuery);
         document.getElementById("loading")?.remove();
 
         if (snapshot.exists()) {
-            const blueprints = snapshot.val();
-            const entries = Object.entries(blueprints).sort((a, b) => b[1].date - a[1].date);
+            let blueprints = snapshot.val();
+            let entries = Object.entries(blueprints).sort((a, b) => b[1].date - a[1].date);
+
+            // If not the first page, remove the first entry if it matches the previous lastEntryKey
+            if (lastEntryKey && entries.length) {
+                if (entries[0][0] === lastEntryKey) {
+                    entries.shift();
+                }
+            }
+
+            if (entries.length === 0) {
+                isDone = true;
+                return;
+            }
+
+            // Update lastKey and lastEntryKey for next page
+            const lastEntry = entries[entries.length - 1];
+            lastKey = lastEntry[1].date;
+            lastEntryKey = lastEntry[0];
 
             if (entries.length < PAGE_SIZE) isDone = true;
-            if (entries.length > 0) lastKey = entries[entries.length - 1][1].date;
 
-            renderBlueprintGrid(entries);
+            await renderBlueprintGrid(entries);
         } else {
             isDone = true;
             if (!lastKey) dataContainer.innerHTML = `<p style="padding: 24px;">No blueprints found.</p>`;
@@ -71,9 +91,12 @@ async function renderBlueprintGrid(entries) {
 
     const authorPromises = [];
 
-    // Render blueprints and collect author promises
     entries.forEach(([key, data]) => {
+        // Prevent duplicate cards if data is reloaded accidentally
+        if (grid.querySelector(`[data-key="${key}"]`)) return;
+
         const card = document.createElement("div");
+        card.setAttribute("data-key", key);
         card.className = "md-surface";
         card.style.borderRadius = "16px";
         card.style.overflow = "hidden";
@@ -115,10 +138,9 @@ async function renderBlueprintGrid(entries) {
 
         const uid = data.author;
         if (uid) {
-            // Fetch user data only once and render
             authorPromises.push(fetchUserData(uid).then(user => renderAuthor(user.username, user.profile)));
         } else {
-            renderAuthor(); // No user data, fallback to defaults
+            renderAuthor();
         }
 
         card.addEventListener("click", () => {
@@ -128,7 +150,6 @@ async function renderBlueprintGrid(entries) {
         grid.appendChild(card);
     });
 
-    // Wait for all author data to be fetched before rendering
     await Promise.all(authorPromises);
 }
 
