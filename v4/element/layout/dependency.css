@@ -15,7 +15,6 @@
 * {
     font-family: 'Glacial', sans-serif;
     font-size: 1em;
-    color: var(--md-sys-color-on-background);
     transition: background-color 0.3s, color 0.3s;
     scroll-behavior: smooth;
     text-decoration: none;
