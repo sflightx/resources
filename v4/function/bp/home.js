@@ -3,7 +3,6 @@ import { ref, get, query, orderByChild, limitToLast, endAt } from "https://www.g
 
 const dataContainer = document.getElementById("data");
 const banner = document.getElementById("full");
-banner.style.height = "auto";
 
 let lastKey = null;
 let isLoading = false;
