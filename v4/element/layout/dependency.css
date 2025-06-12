@@ -24,8 +24,6 @@
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     background-color: var(--md-sys-color-background);
     overflow-x: hidden;
 }
