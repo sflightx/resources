@@ -1,4 +1,4 @@
-const navData = [
+export const navData = [
   {
     href: "https://sflightx.com/launches",
     headline: "Launches",
@@ -20,5 +20,3 @@ const navData = [
     headline: "Stellar",
   }
 ];
-
-renderNavigation(navData);

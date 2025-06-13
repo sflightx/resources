@@ -1,4 +1,4 @@
-const navData = [
+export const navData = [
   {
     href: "#step-1",
     headline: "Introduction",
@@ -15,5 +15,3 @@ const navData = [
     supportingText: "Learn about the app before proceeding"
   }
 ];
-
-renderNavigation(navData);
