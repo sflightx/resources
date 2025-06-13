@@ -79,10 +79,6 @@ footer img {
     height: 24px;
 }
 
-.step {
-    margin: 16px 0px;
-}
-
 #main {
     min-height: 85vh;
     display: grid;
