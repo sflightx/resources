@@ -1,4 +1,4 @@
-function renderNavigation(navData) {
+export function renderNavigation(navData) {
   const navContainer = document.getElementById("navItems");
   const locContainer = document.getElementById("locItems");
 
