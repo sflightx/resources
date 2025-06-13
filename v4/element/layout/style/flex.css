@@ -1,0 +1,32 @@
+.locator {
+    position: sticky;
+    top: 72px;
+}
+
+.step {
+    margin: 16px 0px;
+}
+
+#flex {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    #flex {
+        flex-direction: row;
+    }
+
+    #flex>important {
+        width: 100%;
+        flex: 2;
+    }
+
+    #flex>child {
+        width: 100%;
+        flex: 1;
+    }
+
+}
