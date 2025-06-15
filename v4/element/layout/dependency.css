@@ -82,6 +82,38 @@ img {
     max-width: 100% !important;
     margin: auto;
 }
+
 .twitter-tweet-rendered iframe {
     color-scheme: dark;
+}
+
+/* for profile */
+
+#action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.profile-img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#profile .material-symbols-rounded {
+    font-size: 2rem;
+}
+
+#profile-items>* {
+    width: 100%;
+}
+
+#mission-form {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 16px;
 }
