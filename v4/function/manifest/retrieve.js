@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const company = document.getElementById("company");
-        company.textContent = "Company for " + (user.displayName || "No name set");
-
         try {
             // 1. Get user's companyId
             const userCompanyRef = ref(db, `userdata/${user.uid}/companyId`);
