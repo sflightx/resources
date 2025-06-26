@@ -3,7 +3,7 @@ const scripts = [
     "https://sflightx.com/resources/v4/function/scroll.js",
     "https://sflightx.com/resources/v4/function/theme-mode.js",
     "https://sflightx.com/resources/v4/function/footer.js",
-    "https://sflightx.com/resources/v4/data/nav-loader.js",
+    "https://sflightx.com/resources/v4/data/drawer/nav-loader.js",
     "https://sflightx.com/resources/v4/function/element/dialog.js"
   ];
 
