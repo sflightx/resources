@@ -10,6 +10,7 @@ const scripts = [
   scripts.forEach(src => {
     const script = document.createElement("script");
     script.src = src;
+    script.type = "module";
     script.defer = true;
     document.head.appendChild(script);
   });
