@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
         } else {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d570a2a9f1ca9eba19a59d00ca3fa7e21f2c6776
           // If href is not a fragment, follow the link normally!
           window.location.href = targetId;
         }
