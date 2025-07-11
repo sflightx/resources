@@ -49,7 +49,7 @@ export function writeNewPost(
     updates['/launch_manifest/upcoming/' + postKey] = postData;
 
     // Clear input fields
-    document.getElementById('mission-name').value = '';
+    document.getElementById('text_field_name').value = '';
     document.getElementById('img-url').value = '';
 
     return update(ref(db), updates)
