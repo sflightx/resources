@@ -1,7 +1,7 @@
 import { db } from 'https://sflightx.com/resources/v4/function/serviceAuth/initializeFirebase.js';
 import { ref, push, update } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
 
-export function writeNewPost(
+export async function writeNewPost(
     name = null,
     desc = null,
     key = null,
@@ -15,17 +15,20 @@ export function writeNewPost(
     statusId = null,
     vehicleId = null
 ) {
+    const companyKey = companyId ? companyId : null;
+    console.log("Company Key:", companyKey);
     const postRef = push(ref(db, '/launch_manifest/upcoming'));
     const postKey = postRef.key;
     const year_timestamp = new Date().getFullYear();
     const net = {
         start: start,
         end: end
-    }
+    };
 
     if (name == null) {
-        document.getElementById("text_field_name").setAttribute("error", "true");
-        document.getElementById("text_field_name").setAttribute("error-text", "This field is required.");
+        const field = document.getElementById("text_field_name");
+        field.setAttribute("error", "true");
+        field.setAttribute("error-text", "This field is required.");
         return;
     }
 
@@ -46,7 +49,14 @@ export function writeNewPost(
     };
 
     const updates = {};
-    updates['/launch_manifest/upcoming/' + postKey] = postData;
+
+    // ✅ Only add static path if companyId is provided
+    if (companyId) {
+        updates[`/static/company/${companyId}/launch/${postKey}`] = postData;
+    } else {
+        console.warn("No companyId provided. Skipping /static/<companyId>/launch/ write.");
+    }
+    updates[`/launch_manifest/JNO/pending/${postKey}`] = postData;
 
     // Clear input fields
     document.getElementById('text_field_name').value = '';
@@ -60,10 +70,3 @@ export function writeNewPost(
             console.error('Error writing post:', error);
         });
 }
-
-// Attach event listener
-document.getElementById("submit-post").addEventListener("click", (event) => {
-    const name = document.getElementById("text_field_name").value;
-    event.preventDefault(); // Prevent form submission
-    writeNewPost(name);
-});
