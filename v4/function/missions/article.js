@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderArticle(content, containerId = 'article') {
         const container = document.getElementById(containerId);
+        container.style.margin = "8px";
 
         // Ensure content is an array or object with a 'children' array property
         if (Array.isArray(content)) {
