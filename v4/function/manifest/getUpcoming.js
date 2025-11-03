@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 launchSection.style.flexDirection = 'column';
                 launchSection.style.justifyContent = 'flex-end';
                 launchSection.style.height = '50vh';
-                launchSection.style.padding = '2rem';
                 launchSection.style.borderRadius = '1rem';
                 launchSection.style.overflow = 'hidden';
 
                 const overlay = document.createElement('div');
-                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-                overlay.style.padding = '1rem';
-                overlay.style.borderRadius = '0.5rem';
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.35)';
+                overlay.style.padding = '24px';
+                overlay.style.height = '100%';
+                overlay.style.alignContent = 'end';
 
                 const title = document.createElement('h1');
                 title.textContent = childData.name;
@@ -44,11 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const details = document.createElement('p');
                 details.textContent = childData.desc;
-                details.classList.add('md-typescale-title-medium');
+                details.classList.add('md-typescale-title-small');
                 overlay.appendChild(details);
 
                 const learnMoreButton = document.createElement('md-filled-tonal-button');
                 learnMoreButton.innerHTML = '<h3>Learn More</h3>';
+                learnMoreButton.style.margin = '16px 0px';
                 learnMoreButton.addEventListener('click', () => {
                     window.open(`https://sflightx.com/missions/?id=${childData.key}`, '_blank');
                 });

@@ -26,17 +26,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 const container = document.createElement('div');
                 container.classList.add('container');
                 container.style.margin = '0';
+                container.style.borderRadius = 'var(--radius-medium)';
 
                 const img = document.createElement('img');
                 img.src = childData.thumbnail;
                 container.appendChild(img);
 
+                const content = document.createElement('div');
+                content.style.padding = '8px 16px';
+
+
                 const title = document.createElement('h1');
                 title.textContent = childData.name;
                 title.classList.add('md-typescale-headline-large');
-                container.appendChild(title);
+                content.appendChild(title);
 
                 const learnMoreButton = document.createElement('md-filled-tonal-button');
+                learnMoreButton.style.margin = '16px 0';
 
                 learnMoreButton.addEventListener('click', function () {
                     window.open(`https://sflightx.com/missions/?id=${childData.key}`, '_blank');
@@ -46,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 button_txt.textContent = 'View Mission';
 
                 learnMoreButton.appendChild(button_txt);
-                container.appendChild(learnMoreButton);
+                content.appendChild(learnMoreButton);
+
+                container.appendChild(content);
 
                 div.appendChild(container);
 
