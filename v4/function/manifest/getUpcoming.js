@@ -42,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 title.classList.add('md-typescale-display-large');
                 overlay.appendChild(title);
 
+                const date = document.createElement('md-assist-chip');
+                const dateObj = new Date(childData.net.start);
+                const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                date.textContent = formattedDate;
+                date.classList.add('md-typescale-title-small');
+                date.style.marginBottom = '8px';
+                overlay.appendChild(date);
+
                 const details = document.createElement('p');
                 details.textContent = childData.desc;
                 details.classList.add('md-typescale-title-small');
