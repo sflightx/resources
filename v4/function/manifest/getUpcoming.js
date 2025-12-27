@@ -7,6 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const databaseRef = ref(db, path);
 
+    // Map various launch states to appropriate colors
+    function getStateColor(state) {
+        if (!state) return 'var(--md-sys-color-error)';
+        switch (String(state).toLowerCase()) {
+            case '0':
+            case '00':
+            case '06':
+                return '#4caf50'; // Green for Go
+            case '01':
+            case '03':
+                return '#ff9800'; // Orange for Hold
+            case '02':
+            case 'fail':
+                return '#f44336'; // Red for Fail
+            case '04':
+            case '05':
+                return '#9e9e9e'; // Gray for Inactive/Unknown
+            default:
+                return 'var(--md-sys-color-error)';
+        }
+    }
+
     get(databaseRef)
         .then(snapshot => {
             const data = [];
@@ -19,17 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.length === 1) {
                 const childData = data[0];
 
+                const stateDisplay = document.createElement('div');
+                stateDisplay.id = 'state-display';
+                stateDisplay.style.borderRadius = '1.5rem';
+                stateDisplay.style.backgroundColor = getStateColor(childData.statusId);
+
                 // Single launch style
                 const launchSection = document.createElement('section');
                 launchSection.style.backgroundImage = `url(${childData.thumbnail})`;
+                launchSection.style.backgroundColor = 'var(--md-sys-color-surface-variant)';
                 launchSection.style.backgroundSize = 'cover';
-                launchSection.style.backgroundPosition = 'center';
+                launchSection.style.backgroundPosition = window.innerWidth > 1024 ? 'right' : 'center';
                 launchSection.style.display = 'flex';
                 launchSection.style.flexDirection = 'column';
                 launchSection.style.justifyContent = 'flex-end';
                 launchSection.style.height = '50vh';
                 launchSection.style.borderRadius = '1rem';
                 launchSection.style.overflow = 'hidden';
+                launchSection.style.marginLeft = '0.5rem';
 
                 const overlay = document.createElement('div');
                 overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.35)';
@@ -44,28 +73,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const date = document.createElement('md-assist-chip');
                 const dateObj = new Date(childData.net.start);
-                const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
                 date.textContent = formattedDate;
                 date.classList.add('md-typescale-title-small');
-                date.style.marginBottom = '8px';
-                overlay.appendChild(date);
+
+                // Row container for date and countdown
+                const row = document.createElement('div');
+                row.style.display = 'flex';
+                row.style.alignItems = 'center';
+                row.style.gap = '12px';
+                row.style.marginBottom = '16px';
+
+                const countdown = document.createElement('div');
+                countdown.classList.add('md-typescale-title-small');
+                countdown.style.fontVariantNumeric = 'tabular-nums';
+                countdown.setAttribute('aria-live', 'polite');
+
+                row.appendChild(date);
+                row.appendChild(countdown);
+                overlay.appendChild(row);
+
+                // Countdown based on returned timestamp from net.start
+                const targetTime = dateObj.getTime();
+                let countdownInterval;
+                function updateCountdown() {
+                    if (isNaN(targetTime)) { countdown.textContent = ''; return; }
+                    const now = Date.now();
+                    let diff = targetTime - now;
+                    if (diff <= 0) {
+                        countdown.textContent = 'Launched';
+                        clearInterval(countdownInterval);
+                        return;
+                    }
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    diff -= days * (1000 * 60 * 60 * 24);
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    diff -= hours * (1000 * 60 * 60);
+                    const minutes = Math.floor(diff / (1000 * 60));
+                    diff -= minutes * (1000 * 60);
+                    const seconds = Math.floor(diff / 1000);
+                    const parts = [];
+                    if (days) parts.push(days + 'd :');
+                    parts.push(String(hours).padStart(2, '0') + ' :');
+                    parts.push(String(minutes).padStart(2, '0') + ' :');
+                    parts.push(String(seconds).padStart(2, '0'));
+                    countdown.textContent = parts.join(' ');
+                    countdown.style.color = days <= 1 ? 'var(--md-sys-color-tertiary)' : 'var(--md-sys-color-primary)';
+                }
+                updateCountdown();
+                countdownInterval = setInterval(updateCountdown, 1000);
 
                 const details = document.createElement('p');
                 details.textContent = childData.desc;
                 details.classList.add('md-typescale-title-small');
+                details.style.width = window.innerWidth > 1024 ? '50%' : '100%';
                 overlay.appendChild(details);
 
+                const informationRow = document.createElement('div');
+                informationRow.style.display = 'flex';
+                informationRow.style.flexWrap = 'wrap';
+                informationRow.style.gap = '8px';
+                informationRow.style.marginTop = '16px';
+
+                const locationDiv = document.createElement('div');
+                locationDiv.style.display = 'flex';
+                locationDiv.style.alignItems = 'center';
+                locationDiv.style.gap = '4px';
+                locationDiv.style.backgroundColor = 'var(--md-sys-color-surface-container-highest)';
+                locationDiv.style.padding = '16px 24px';
+                locationDiv.style.borderRadius = '16px';
+                locationDiv.style.height = 'fit-content';
+
+                const locationIcon = document.createElement('span');
+                locationIcon.classList.add('material-symbols-rounded');
+                locationIcon.textContent = 'location_on';
+                locationIcon.style.fontSize = '2.5rem';
+                locationIcon.style.color = 'var(--md-sys-color-on-surface)';
+                locationDiv.appendChild(locationIcon);
+
+                const locationText = document.createElement('p');
+                locationText.textContent = childData.launch_site.address;
+                locationText.classList.add('md-typescale-body-medium');
+                locationDiv.appendChild(locationText);
+                informationRow.appendChild(locationDiv);
+
+                locationDiv.appendChild(locationIcon);
+                locationDiv.appendChild(locationText);
+                informationRow.appendChild(locationDiv);
+
                 const learnMoreButton = document.createElement('md-filled-tonal-button');
-                learnMoreButton.innerHTML = '<h3>Learn More</h3>';
-                learnMoreButton.style.margin = '16px 0px';
+                learnMoreButton.innerHTML = '<span class="material-symbols-rounded">open_in_new</span>';
                 learnMoreButton.addEventListener('click', () => {
                     window.open(`https://sflightx.com/missions/?id=${childData.key}`, '_blank');
                 });
-                overlay.appendChild(learnMoreButton);
+
+                informationRow.appendChild(learnMoreButton);
+                overlay.appendChild(informationRow);
 
                 launchSection.appendChild(overlay);
-                mainContainer.appendChild(launchSection);
+                stateDisplay.appendChild(launchSection);
+                mainContainer.appendChild(stateDisplay);
+
             } else if (data.length > 1) {
+
                 // Multiple launches style (scroll container)
                 const scrollWrapper = document.createElement('div');
                 scrollWrapper.style.display = 'flex';
