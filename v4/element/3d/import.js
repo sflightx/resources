@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'https://unpkg.com/three@0.153.0/examples/jsm/controls/OrbitControls.js';
 import { OBJLoader } from 'https://unpkg.com/three@0.153.0/examples/jsm/loaders/OBJLoader.js';
 
 const container = document.getElementById('modelViewer');
@@ -11,28 +10,23 @@ camera.position.set(35, -75, 75);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
+
+// FIX: Make the canvas ignore all touch/mouse events so page scrolling works effortlessly
+renderer.domElement.style.pointerEvents = 'none';
 container.appendChild(renderer.domElement);
 
 // Lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.18); // Even dimmer ambient for more shadow
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.18);
 scene.add(ambientLight);
 
-// "East" is positive X in Three.js by default
-const directionalLight = new THREE.DirectionalLight(0xffffff, 4.5); // Strong, but not blown out
-directionalLight.position.set(50, 0, 0); // East: +X axis
+const directionalLight = new THREE.DirectionalLight(0xffffff, 4.5);
+directionalLight.position.set(50, 0, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// Optional: add a subtle fill light from the west for softer shadow edge
 const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
-fillLight.position.set(-50, 0, 0); // West: -X axis
+fillLight.position.set(-50, 0, 0);
 scene.add(fillLight);
-
-// Controls (disable dragging)
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableRotate = false;
-controls.enablePan = false;
-controls.enableZoom = false;
 
 // Load OBJ model
 let loadedObject = null;
@@ -40,11 +34,10 @@ const objLoader = new OBJLoader();
 objLoader.load(
   'https://sflightx.com/resources/v4/database/model/maya_block_6.obj',
   function (object) {
-    // Make all materials darker and more matte
     object.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshStandardMaterial({
-          color: 0x555555, // Even dimmer gray
+          color: 0x555555,
           roughness: 0.8,
           metalness: 0.1
         });
