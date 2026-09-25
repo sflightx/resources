@@ -284,5 +284,33 @@
     "description": "N/A",
     "type": "launch-complex",
     "mode": "custom"
+  },
+  {
+    "id": 21,
+    "slug": "base-beta",
+    "name": "Base Beta",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -3.7210,
+      -133.3760
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 22,
+    "slug": "shardspace-launch-complex-1",
+    "name": "Shardspace Launch Complex 1",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      6.6370,
+      177.1350
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
   }
 ]
