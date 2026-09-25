@@ -1,0 +1,288 @@
+[
+  {
+    "id": 1,
+    "slug": "terra-aurora-spaceport",
+    "name": "Terra Aurora Spaceport",
+    "company": "goeYlwoghzYQnnEF",
+    "coords": [
+      -413,
+      1151
+    ],
+    "description": "Is the world-class spaceport used by SFlightX for launching its orbital and suborbital missions.",
+    "type": "spaceport",
+    "mode": "custom"
+  },
+  {
+    "id": 2,
+    "slug": "ali-launch-base",
+    "name": "Ali Launch Base",
+    "coords": [
+      -496.5,
+      181.5
+    ],
+    "description": "Located in a dessert the southern hemisphere of Droo.",
+    "type": "launch-complex",
+    "mode": "stock"
+  },
+  {
+    "id": 3,
+    "slug": "droo-space-center",
+    "name": "Droo Space Center",
+    "coords": [
+      -464,
+      260
+    ],
+    "description": "The default spaceport in the Droo. Also known as Freidonia Space Center.",
+    "type": "launch-complex",
+    "mode": "stock"
+  },
+  {
+    "id": 4,
+    "slug": "juno-village",
+    "name": "Juno Village",
+    "coords": [
+      -334,
+      79.5
+    ],
+    "description": "The default village in a mountainous area in the northern hemisphere of Droo.",
+    "type": "village",
+    "mode": "stock"
+  },
+  {
+    "id": 5,
+    "slug": "drone-ship",
+    "name": "Drone Ship",
+    "coords": [
+      -464,
+      290
+    ],
+    "description": "The nearest drone ship in Droo Space Center.",
+    "type": "pad",
+    "mode": "stock"
+  },
+  {
+    "id": 6,
+    "slug": "venetinova-regional-spaceport",
+    "name": "Venetinova Regional Spaceport",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -459,
+      32
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 7,
+    "slug": "freidonia-interplanetary-spaceport",
+    "name": "Freidonia Interplanetary Spaceport",
+    "state": "active",
+    "date-of-establishment": "2021",
+    "coords": [
+      -413,
+      299
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 7,
+    "slug": "north-elfreiden-regional-spaceport",
+    "name": "North Elfreiden Regional Spaceport",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -369,
+      250
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 8,
+    "slug": "wobeck-space-center",
+    "name": "Wobeck Space Center",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -415,
+      532
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 9,
+    "slug": "zuu-space-center",
+    "name": "Zuu Space Center",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -436,
+      544
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 10,
+    "slug": "cape-nebula",
+    "name": "Cape Nebula",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -466,
+      575
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 11,
+    "slug": "pillar-oasis-site",
+    "name": "Pillar Oasis Site",
+    "state": "active",
+    "date-of-establishment": "2026",
+    "coords": [
+      -658,
+      382
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 12,
+    "slug": "pillar-nova-site",
+    "name": "Pillar Nova Site",
+    "state": "active",
+    "date-of-establishment": "2026",
+    "coords": [
+      -667,
+      441
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 13,
+    "slug": "pillar-nova-site",
+    "name": "Pillar Nova Site",
+    "state": "active",
+    "date-of-establishment": "2026",
+    "coords": [
+      -659,
+      478
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 14,
+    "slug": "fusion-test-site",
+    "name": "Fusion Test Site",
+    "state": "active",
+    "date-of-establishment": "2023",
+    "coords": [
+      -405,
+      1232
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 15,
+    "slug": "aurore-space-center",
+    "name": "Aurore Space Center",
+    "state": "inactive",
+    "date-of-establishment": "2024",
+    "date-of-inactivation": "2025",
+    "coords": [
+      -454,
+      1187
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 16,
+    "slug": "base-alpha",
+    "name": "Base Alpha",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -466,
+      1175
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 17,
+    "slug": "dynamics-space-center",
+    "name": "Dynamics Space Center",
+    "state": "active",
+    "date-of-establishment": "2023",
+    "coords": [
+      -494,
+      1371
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 18,
+    "slug": "national-space-center",
+    "name": "National Space Center",
+    "state": "active",
+    "date-of-establishment": "2023",
+    "coords": [
+      -505,
+      1379
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 19,
+    "slug": "spaceport-neptune",
+    "name": "Spaceport Neptune",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -522,
+      1374
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  },
+  {
+    "id": 20,
+    "slug": "turbothurst-space-center",
+    "name": "Turbothurst Space Center",
+    "state": "active",
+    "date-of-establishment": "2025",
+    "coords": [
+      -597,
+      1434
+    ],
+    "description": "N/A",
+    "type": "launch-complex",
+    "mode": "custom"
+  }
+]
