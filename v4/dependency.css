@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
+
+@import url('https://help.sflightx.com/main.css');
+@import url('https://help.sflightx.com/tailwind.css');
+
+@import 'element/material/scheme.css';
+@import 'element/material/corner.css';
+@import 'element/material/elevation.css';
+@import 'element/material/typography.css';
+@import 'element/material/md-kit.css';
+
+
+@import 'element/layout/class/container.css';
+@import 'element/layout/class/button.css';
+@import 'element/layout/class/content.css';
+
+@import 'element/layout/id/grid.css';
+
+@import 'style/background.css';
+@import 'style/offset.css';
+@import 'style/indent.css';
+@import 'style/flex.css';
+
+@import 'element/header.css';
+@import 'element/footer.css';
+@import 'element/drawer.css';
+
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* === Material Symbols Icon === */
+
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5rem;
+    display: inline-block;
+    line-height: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: color 0.2s ease;
+    vertical-align: middle;
+}
+
+.material-symbols-rounded:hover {
+    color: var(--md-sys-color-primary);
+}
+
+:root {
+    --bg-primary: #0a0d14;
+    --surface-glass: rgba(var(--md-sys-color-primary), 0.65);
+    --border-glass: rgba(var(--md-sys-color-on-surface-variant), 0.08);
+    --accent-glow: rgba(var(--md-sys-color-primary), 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--md-sys-color-on-surface);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: #f3f4f6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    background: var(--md-sys-color-surface);
+    min-height: 100vh;
+}
+
+/* --- Modern Navigation Header --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(10, 13, 20, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 40;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer {
+    min-height: 25vh;
+    width: 100%;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+b {
+    font-weight: bold;
+}
+
+img {
+    border-radius: 24px;
+    max-width: 100%;
+}
+
+.twitter-tweet {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: auto;
+}
+
+.twitter-tweet-rendered iframe {
+    color-scheme: dark;
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.logo span#menu {
+    cursor: pointer;
+    font-size: 28px;
+    color: #fff;
+    transition: var(--transition-smooth);
+}
+
+.logo span#menu:hover {
+    color: #60a5fa;
+    transform: scale(1.1);
+}
+
+.logo img {
+    height: 7.5vh;
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- Side Sheet Drawer --- */
+#side-sheet {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    background: #111827;
+    border-right: 1px solid var(--border-glass);
+    z-index: 50;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+#side-sheet.open {
+    left: 0;
+}
+
+#side-sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+#side-sheet-header span {
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+#side-sheet-header span:hover {
+    transform: rotate(90deg);
+    color: #ef4444;
+}
+
+#backdrop {
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+#backdrop.hidden {
+    display: none;
+}
+
+/* === Footer === */
+#horizontal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-end;
+    padding-top: 16px;
+}
+
+#icon-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.text-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.text-link a {
+    color: var(--md-sys-color-on-surface-variant);
+    text-decoration: none;
+}
+
+.text-link a:hover {
+    text-decoration: underline;
+    color: var(--md-sys-color-primary);
+}
+
+#outline {
+    color: var(--md-sys-color-outline);
+}
+
+footer img {
+    height: 72px;
+}
+
+footer .link-img {
+    height: 32px;
+}
+
+footer .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+footer #social {
+    display: flex;
+    gap: 16px;
+}
+
+footer #legal-link {
+    display: flex;
+    gap: 16px;
+}
+
+@media screen and (min-width: 600px) {
+    footer {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    footer > * {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    footer .footer-container#resources {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+}
